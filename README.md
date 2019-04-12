@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # pwa-grad
 
 > 这是一个 Lavas PWA 项目
@@ -27,3 +28,6 @@ Lavas 工程模版基于 [vue-template-vue](https://github.com/lavas-project/lav
 ## Changelog
 
 详细的 Changelog 请看 [Release Notes](https://github.com/lavas-project/lavas-template-vue/releases)
+=======
+# pwa-grad
+>>>>>>> 6e63aa78804e1bf7e30df8916ec5f2ec39f9838d
