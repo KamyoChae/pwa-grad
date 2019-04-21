@@ -2,88 +2,98 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
     
-import _15558542039499d49a922ebc8a6d77ca82c0a74289b98 from '@/pages/Appshell.vue';
+import _15558582402359d49a922ebc8a6d77ca82c0a74289b98 from '@/pages/Appshell.vue';
     
 
     
-import _15558542039494981029d4ca92a3ffe2016b33af9369e from '@/pages/Article.vue';
+import _15558582402354981029d4ca92a3ffe2016b33af9369e from '@/pages/Article.vue';
     
 
     
-import _1555854203949f7fc7554d202a317883db2ae067316d3 from '@/pages/detail/_id.vue';
+import _1555858240235f7fc7554d202a317883db2ae067316d3 from '@/pages/detail/_id.vue';
     
 
     
-import _1555854203949d2462dcf0c7beccd286c658e08187914 from '@/pages/Error.vue';
+import _1555858240235d2462dcf0c7beccd286c658e08187914 from '@/pages/Error.vue';
     
 
     
-import _155585420394967830448037326425509e44bce7632b7 from '@/pages/Index.vue';
+import _155585824023567830448037326425509e44bce7632b7 from '@/pages/Index.vue';
     
 
     
-import _1555854203949038de326b0270e97f9eef95b6bc74ed7 from '@/pages/Search.vue';
+import _1555858240235038de326b0270e97f9eef95b6bc74ed7 from '@/pages/Search.vue';
     
 
     
-import _15558542039491b40ccf4805c185acae415dd1472d97b from '@/pages/System.vue';
+import _15558582402354c54b3d65a88b1835ee3e2b2e80a7e13 from '@/pages/Society.vue';
     
 
     
-import _1555854203949ee18dcd4240adcb96d7c141074854904 from '@/pages/User.vue';
+import _15558582402351b40ccf4805c185acae415dd1472d97b from '@/pages/System.vue';
     
 
     
-import _15558542039492832b64bc86f2739fc251929dd48c651 from '@/pages/user/Useritem.vue';
+import _1555858240235ee18dcd4240adcb96d7c141074854904 from '@/pages/User.vue';
+    
+
+    
+import _15558582402362832b64bc86f2739fc251929dd48c651 from '@/pages/user/Useritem.vue';
     
 
 
 let routes = [
     {
         "path": "/appshell",
-        "component": _15558542039499d49a922ebc8a6d77ca82c0a74289b98,
+        "component": _15558582402359d49a922ebc8a6d77ca82c0a74289b98,
         "meta": {},
         "name": "appshell"
     },
     {
         "path": "/article",
-        "component": _15558542039494981029d4ca92a3ffe2016b33af9369e,
+        "component": _15558582402354981029d4ca92a3ffe2016b33af9369e,
         "meta": {},
         "name": "article"
     },
     {
         "path": "/detail/:id",
-        "component": _1555854203949f7fc7554d202a317883db2ae067316d3,
+        "component": _1555858240235f7fc7554d202a317883db2ae067316d3,
         "meta": {},
         "name": "detailId"
     },
     {
         "path": "/",
-        "component": _155585420394967830448037326425509e44bce7632b7,
+        "component": _155585824023567830448037326425509e44bce7632b7,
         "meta": {},
         "name": "index"
     },
     {
         "path": "/search",
-        "component": _1555854203949038de326b0270e97f9eef95b6bc74ed7,
+        "component": _1555858240235038de326b0270e97f9eef95b6bc74ed7,
         "meta": {},
         "name": "search"
     },
     {
+        "path": "/society",
+        "component": _15558582402354c54b3d65a88b1835ee3e2b2e80a7e13,
+        "meta": {},
+        "name": "society"
+    },
+    {
         "path": "/system",
-        "component": _15558542039491b40ccf4805c185acae415dd1472d97b,
+        "component": _15558582402351b40ccf4805c185acae415dd1472d97b,
         "meta": {},
         "name": "system"
     },
     {
         "path": "/user",
-        "component": _1555854203949ee18dcd4240adcb96d7c141074854904,
+        "component": _1555858240235ee18dcd4240adcb96d7c141074854904,
         "meta": {},
         "name": "user",
         "children": [
             {
                 "path": "useritem",
-                "component": _15558542039492832b64bc86f2739fc251929dd48c651,
+                "component": _15558582402362832b64bc86f2739fc251929dd48c651,
                 "meta": {},
                 "name": "userUseritem"
             }
@@ -91,7 +101,7 @@ let routes = [
     },
     {
         "path": "/error",
-        "component": _1555854203949d2462dcf0c7beccd286c658e08187914,
+        "component": _1555858240235d2462dcf0c7beccd286c658e08187914,
         "meta": {},
         "name": "error",
         "alias": "*"

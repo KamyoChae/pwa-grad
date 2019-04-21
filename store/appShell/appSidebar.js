@@ -44,7 +44,12 @@ export const state = () => {
                         route: '/system',
                     },
                     {
-                        text: '退出登录',
+                        text: '社团资料',
+                        icon: 'sentiment_neutral',
+                        route: '/Society'
+                    },
+                    {
+                        text: '社团资料',
                         icon: 'sentiment_neutral',
                         route: '/detail/3'
                     }
