@@ -36,8 +36,7 @@
             <div v-if="blocks" class="app-sidebar-blocks">
                 <ul>
                     <!-- 单个区块 -->
-                    <li v-for="(block, index) in blocks" :key="index" class="app-sidebar-block">
-                        <div v-if="block.sublistTitle" class="sub-list-title">{{ block.sublistTitle }}</div>
+                    <li v-for="(block, index) in blocks" :key="index" class="app-sidebar-block"> 
                         <ul v-if="block.list">
                             <li v-for="item in block.list" :key="item.text" @click.stop="closeAndGo(item.route)">
                                 <span v-if="item.icon || item.image" class="app-sidebar-block-left-icon">
@@ -138,6 +137,7 @@ a
         display inline-block
         height 100%
         vertical-align middle
+        font-size 1rem
 
     .app-sidebar-title-right-logo,
     .app-sidebar-block-right-logo

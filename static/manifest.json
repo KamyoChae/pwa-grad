@@ -1,7 +1,7 @@
 {
     "start_url": "/?utm_source=homescreen",
-    "name": "pwa-grad",
-    "short_name": "pwa-grad",
+    "name": "社团吧",
+    "short_name": "社团吧",
     "icons": [
         {
             "src": "img/icons/android-chrome-512x512.png",

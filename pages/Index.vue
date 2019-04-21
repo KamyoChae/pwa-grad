@@ -1,16 +1,15 @@
 <template>
-    <div>
-        <div class="content">
-            <div>
-                <h2>LAVAS</h2>
-                <h4>[ˈlɑ:vəz]</h4>
-            </div>
-        </div>
+    <div> 
+        <IndexHot />
+        <IndexArticle />  
     </div>
 </template>
 
-<script>
+<script> 
 import {mapActions} from 'vuex';
+import IndexHot from '@/components/index_components/IndexHot'
+import IndexArticle from '@/components/index_components/IndexArticle'
+
 function setState(store) {
     store.dispatch('appShell/appHeader/setAppHeader', {
         show: true,
@@ -29,6 +28,10 @@ function setState(store) {
 
 export default {
     name: 'index',
+    components:{
+        IndexHot,
+        IndexArticle,
+    },
     metaInfo: {
         title: 'Home',
         titleTemplate: '%s - Lavas',

@@ -23,7 +23,7 @@
             </div>
             <div class="app-header-middle" v-cloak>
                 <slot name="title">
-                    {{ title }}
+                    {{ myTitle }}
                 </slot>
             </div>
             <div class="app-header-right">
@@ -56,6 +56,7 @@ export default {
             'showLogo',
             'logoIcon',
             'title',
+            'myTitle',
             'actions'
         ]),
         ...mapState('appShell/common', [
@@ -121,9 +122,8 @@ $btn-color = #fff
         display flex
         align-items center
 
-    .app-header-middle
-        flex 1
-        font-size 1.2em
+    .app-header-middle 
+        font-size 4em  
 
     // 改变 icon 大小
     .app-header-icon

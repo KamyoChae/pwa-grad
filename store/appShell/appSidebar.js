@@ -14,7 +14,7 @@ export const state = () => {
             imageLeft: '',
             altLeft: '',
             iconLeft: 'home',
-            text: 'Home',
+            text: '设置',
             imageRight: '',
             altRight: '',
             iconRight: ''
@@ -29,22 +29,21 @@ export const state = () => {
         // 分块组
         blocks: [
             {
-                // 子列表1
-                sublistTitle: 'Sublist1',
+                // 子列表1 
                 list: [
                     {
-                        text: 'Detail Page 1',
+                        text: '个人中心',
                         icon: 'sentiment_satisfied',
                         route: '/detail/1'
                     },
                     {
-                        text: 'Detail Page 2',
+                        text: '系统消息',
                         image: 'https://github.com/google/material-design-icons/blob/master/social/2x_web/ic_mood_bad_black_48dp.png?raw=true',
                         alt: 'mood-bad',
                         route: '/detail/2'
                     },
                     {
-                        text: 'Detail Page 3',
+                        text: '退出登录',
                         icon: 'sentiment_neutral',
                         route: '/detail/3'
                     }

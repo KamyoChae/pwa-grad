@@ -38,6 +38,8 @@ import AppHeader from '@/components/AppHeader';
 import AppSidebar from '@/components/AppSidebar';
 import UpdateToast from '@/components/UpdateToast';
 import {keepAlivePages} from '@/.lavas/router';
+import '@/assets/css/border.css'
+import '@/assets/css/reset.css'
 
 const ENABLE_SCROLL_CLASS = 'app-view-scroll-enabled';
 
@@ -158,7 +160,7 @@ export default {
 @import '~@/assets/stylus/variable'
 
 $page-transition-duration = 0.35s
-
+ 
 #app
     font-family 'Avenir', Helvetica, Arial, sans-serif
     -webkit-font-smoothing antialiased
