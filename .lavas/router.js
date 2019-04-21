@@ -2,74 +2,74 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
     
-import _15558305645689d49a922ebc8a6d77ca82c0a74289b98 from '@/pages/Appshell.vue';
+import _15558317956119d49a922ebc8a6d77ca82c0a74289b98 from '@/pages/Appshell.vue';
     
 
     
-import _15558305645684981029d4ca92a3ffe2016b33af9369e from '@/pages/Article.vue';
+import _15558317956114981029d4ca92a3ffe2016b33af9369e from '@/pages/Article.vue';
     
 
     
-import _1555830564568f7fc7554d202a317883db2ae067316d3 from '@/pages/detail/_id.vue';
+import _1555831795611f7fc7554d202a317883db2ae067316d3 from '@/pages/detail/_id.vue';
     
 
     
-import _1555830564568d2462dcf0c7beccd286c658e08187914 from '@/pages/Error.vue';
+import _1555831795611d2462dcf0c7beccd286c658e08187914 from '@/pages/Error.vue';
     
 
     
-import _15558305645685fb99f51ea3dffe409a096c09445db40 from '@/pages/first.vue';
+import _155583179561167830448037326425509e44bce7632b7 from '@/pages/Index.vue';
     
 
     
-import _155583056456867830448037326425509e44bce7632b7 from '@/pages/Index.vue';
+import _1555831795611038de326b0270e97f9eef95b6bc74ed7 from '@/pages/Search.vue';
     
 
     
-import _1555830564568038de326b0270e97f9eef95b6bc74ed7 from '@/pages/Search.vue';
+import _1555831795611ee18dcd4240adcb96d7c141074854904 from '@/pages/User.vue';
     
 
 
 let routes = [
     {
         "path": "/appshell",
-        "component": _15558305645689d49a922ebc8a6d77ca82c0a74289b98,
+        "component": _15558317956119d49a922ebc8a6d77ca82c0a74289b98,
         "meta": {},
         "name": "appshell"
     },
     {
         "path": "/article",
-        "component": _15558305645684981029d4ca92a3ffe2016b33af9369e,
+        "component": _15558317956114981029d4ca92a3ffe2016b33af9369e,
         "meta": {},
         "name": "article"
     },
     {
         "path": "/detail/:id",
-        "component": _1555830564568f7fc7554d202a317883db2ae067316d3,
+        "component": _1555831795611f7fc7554d202a317883db2ae067316d3,
         "meta": {},
         "name": "detailId"
     },
     {
-        "path": "/first",
-        "component": _15558305645685fb99f51ea3dffe409a096c09445db40,
-        "meta": {},
-        "name": "first"
-    },
-    {
         "path": "/",
-        "component": _155583056456867830448037326425509e44bce7632b7,
+        "component": _155583179561167830448037326425509e44bce7632b7,
         "meta": {},
         "name": "index"
     },
     {
         "path": "/search",
-        "component": _1555830564568038de326b0270e97f9eef95b6bc74ed7,
+        "component": _1555831795611038de326b0270e97f9eef95b6bc74ed7,
         "meta": {},
         "name": "search"
     },
     {
+        "path": "/user",
+        "component": _1555831795611ee18dcd4240adcb96d7c141074854904,
+        "meta": {},
+        "name": "user"
+    },
+    {
         "path": "/error",
-        "component": _1555830564568d2462dcf0c7beccd286c658e08187914,
+        "component": _1555831795611d2462dcf0c7beccd286c658e08187914,
         "meta": {},
         "name": "error",
         "alias": "*"

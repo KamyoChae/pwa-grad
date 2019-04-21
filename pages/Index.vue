@@ -7,8 +7,8 @@
 
 <script> 
 import {mapActions} from 'vuex';
-import IndexHot from '@/components/index_components/IndexHot'
-import IndexArticle from '@/components/index_components/IndexArticle'
+import IndexHot from '@/components/index_com/IndexHot'
+import IndexArticle from '@/components/index_com/IndexArticle'
 
 function setState(store) {
     store.dispatch('appShell/appHeader/setAppHeader', {

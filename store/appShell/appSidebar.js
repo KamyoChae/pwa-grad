@@ -34,7 +34,7 @@ export const state = () => {
                     {
                         text: '个人中心',
                         icon: 'sentiment_satisfied',
-                        route: '/detail/1'
+                        route: '/user'
                     },
                     {
                         text: '系统消息',
