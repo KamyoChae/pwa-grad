@@ -38,18 +38,19 @@ export const state = () => {
                     },
                     {
                         text: '系统消息',
-                        image: 'https://github.com/google/material-design-icons/blob/master/social/2x_web/ic_mood_bad_black_48dp.png?raw=true',
+                        // image: 'https://github.com/google/material-design-icons/blob/master/social/2x_web/ic_mood_bad_black_48dp.png?raw=true',
                         alt: 'mood-bad',
+                        icon: 'sentiment_satisfied',
                         // route: '/detail/2'
                         route: '/system',
                     },
                     {
                         text: '社团资料',
-                        icon: 'sentiment_neutral',
+                        icon: 'sentiment_satisfied',
                         route: '/Society'
                     },
                     {
-                        text: '社团资料',
+                        text: '其他',
                         icon: 'sentiment_neutral',
                         route: '/detail/3'
                     }
