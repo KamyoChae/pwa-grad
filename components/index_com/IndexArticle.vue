@@ -106,12 +106,13 @@ export default {
                     vertical-align middle
         .body 
             color #424242 
-            font-size 1rem !important
+            .title
+                font-size 1rem !important 
             .text
                 display block
-                font-size .9em 
+                font-size .9rem 
                 color #777
-                margin 1em 0
+                margin .5rem 0
         .foot
             font-size .8em
             color #888

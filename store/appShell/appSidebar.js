@@ -40,7 +40,8 @@ export const state = () => {
                         text: '系统消息',
                         image: 'https://github.com/google/material-design-icons/blob/master/social/2x_web/ic_mood_bad_black_48dp.png?raw=true',
                         alt: 'mood-bad',
-                        route: '/detail/2'
+                        // route: '/detail/2'
+                        route: '/system',
                     },
                     {
                         text: '退出登录',

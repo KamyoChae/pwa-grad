@@ -1,5 +1,5 @@
 {
-    "buildVersion": 1555831795596,
+    "buildVersion": 1555847420791,
     "build": {
         "ssr": false,
         "publicPath": "/",
@@ -26,7 +26,7 @@
     },
     "serviceWorker": {
         "enable": true,
-        "swDest": "F:\\worker\\graduation\\pwa-grad\\dist\\service-worker.js"
+        "swDest": "F:\\worker\\pwa\\pwa-grad\\dist\\service-worker.js"
     },
     "skeleton": {
         "enable": true,
