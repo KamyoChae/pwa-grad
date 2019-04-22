@@ -4,7 +4,7 @@
     <div class="checkbox">
         <div>文艺类</div>
         <div class="checklist">
-            <router-link tag="span" :to="{name:'societyban', params: { id: 1}}" > 萤火虫书画</router-link > 
+            <router-link tag="span" :to="{name:'societyCount', params: { count: 1}}" > 萤火虫书画</router-link > 
             <span>八月摄影</span> 
             <span>相声协会</span>
             <span>棋艺社</span> 

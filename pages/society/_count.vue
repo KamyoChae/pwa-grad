@@ -4,7 +4,7 @@
         <transition-group tag="ul" class='slide-ul' name="list">
         <li v-for="(list,index) in slideList" :key="list.desc" v-show="index===currentIndex" @mouseenter="stop" @mouseleave="go" >
             <a :href="list.clickUrl" >
-            <img src="./user/images/004.jpg" :alt="list.desc">
+            <img src="../user/images/004.jpg" :alt="list.desc">
             </a>
         </li>
         </transition-group> 
@@ -123,13 +123,16 @@ export default {
 .slide-ul {
   width: 100%;
   height: 100%;
+  background #607d8b
   li {
     position: absolute;
     width: 100%;
     height: 100%;
+    padding 2.5%
     img {
-      width: 100%;
-      height: 100%;
+      width: 95%;
+      height: 95%;
+      border-radius 1rem
     }
   }
 }
@@ -137,7 +140,7 @@ export default {
 .carousel-items {
   position: absolute;
   z-index: 10;
-  top: 50vw;
+  top: 45vw;
   width: 100%; 
   margin: 0 auto;
   text-align: center;

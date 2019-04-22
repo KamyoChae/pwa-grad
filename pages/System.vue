@@ -37,7 +37,7 @@ export default {
     min-height 100vh 
     font-size 2rem
     .content
-        padding 2rem 1.5rem 0 1.5rem
+        padding 2rem 1rem 0 1.5rem
         width 100vw
         min-width 5vh 
         text-align left 
@@ -58,7 +58,7 @@ export default {
             font-size 1rem
             width 70%
             text-align left 
-            background #aee
+            background #cfd6db
             padding .5rem 
             border-radius 4px
         .text:before
@@ -69,7 +69,7 @@ export default {
             top 1rem
             width 0
             height 0
-            border 1rem solid #aee
+            border 1rem solid #cfd6db
             border-left 1rem solid transparent
             border-top .5rem solid transparent
             border-bottom .5rem solid transparent
