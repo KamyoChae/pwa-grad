@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper"> 
     <div class="articlebox">
-        <div class="article">
+        <router-link tag="div" :to="{name:'articleArticleId', params:{articleId:1}}" class="article">
             <div class="top">
                 <span class="user">博学君</span>
                 <span>杂谈古今</span>
@@ -15,7 +15,8 @@
                 <span class="hand">56赞</span>
                 <span class="comment">656评论</span>
             </div>
-        </div>
+         </router-link> 
+
         <div class="article">
             <div class="top">
                 <span class="user">博学君</span>
@@ -78,14 +79,18 @@ export default {
     width 100%
     min-height 10vh
     background #fff 
-    padding-bottom 8vh
-    text-align left 
+    padding .5rem 0 8vh 0
+    text-align left  
+    background #f9f9f9
     .article
+        width 95vw
         display flex
         flex-direction column
-        padding .5em 1em
-        border-top .1em solid #eeeeee
-        border-bottom  .2em solid #eee
+        padding 1em 1.5em 
+        background #fff 
+        margin .5rem auto 
+        border-radius 1rem
+
         .top
             display flex
             justify-content space-between

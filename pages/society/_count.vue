@@ -35,7 +35,7 @@
         </keep-alive>
         <keep-alive> 
         <!-- 最近动态 -->
-            <socMovement  v-show="actArr[2].state" />  
+            <socMovement v-show="actArr[2].state" />  
         </keep-alive>
         <keep-alive> 
         <!-- 原创文章 -->

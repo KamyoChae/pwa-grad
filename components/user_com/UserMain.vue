@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import water from './util'
+import water from '@/static/js/util'
 export default {
     data(){
         return{

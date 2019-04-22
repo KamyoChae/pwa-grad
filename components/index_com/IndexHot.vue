@@ -42,16 +42,17 @@ export default {
 <style lang='stylus' scoped> 
 .wrapper
     width 100%
-    background #fff
+    background #f9f9f9
     overflow hidden     
-    text-align left 
+    text-align left  
     .item
         position relative
         box-sizing border-box
         box-shadow 0 0 10px #eee 
         border-radius 5px  
-        margin .5em  
-        padding .8em   
+        margin 1em  
+        padding 1rem 
+        background #fff  
         .title
             color #424242 
             line-height 1.5rem !important
