@@ -4,7 +4,7 @@
     <div class="checkbox">
         <div>文艺类</div>
         <div class="checklist">
-            <router-link tag="span" to='/SocietyBan'> 萤火虫书画</router-link > 
+            <router-link tag="span" :to="{name:'societyban', params: { id: 1}}" > 萤火虫书画</router-link > 
             <span>八月摄影</span> 
             <span>相声协会</span>
             <span>棋艺社</span> 
@@ -96,8 +96,19 @@
 </template>
 
 <script>
-export default {
+export default {    
+    data(){
+        return {
 
+        }
+    },
+    methods:{
+        checkSocBan(route){
+            // 动态路由配置 通过传参跳转路由
+            this.$route.push(route)
+
+        }
+    }
 }
 </script>
 
