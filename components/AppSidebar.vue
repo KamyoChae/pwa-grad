@@ -3,8 +3,7 @@
         :enable="enableSidebar"
     >
         <!-- sidebar 内容部分 -->
-        <div
-            class="app-sidebar-content">
+        <div class="app-sidebar-content">
             <!-- 头部 -->
             <div v-if="title" class="app-sidebar-title" @click.stop="closeAndGo('/')">
                 <span class="app-sidebar-title-left-icon">
@@ -112,6 +111,7 @@ a
     color #333
 
 .app-sidebar-content
+    
     &.app-sidebar-content-right
         box-shadow -3px 0 8px 1px rgba(0, 0, 0, 0.4)
 

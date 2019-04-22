@@ -1,6 +1,7 @@
 <template>
 <div class="wrapper">
     <div class="carousel-wrap" id="carousel"> 
+        <div class="bg"></div>
         <transition-group tag="ul" class='slide-ul' name="list">
         <li v-for="(list,index) in slideList" :key="list.desc" v-show="index===currentIndex" @mouseenter="stop" @mouseleave="go" >
             <a :href="list.clickUrl" >
@@ -15,33 +16,46 @@
 
     <div class="society-con">
         <h2>萤火虫书画协会</h2>
-        <p>中国书法家协会（CHINESE CALLIGRAPHERS ASSOCIATION）是中国共产党领导的全国各民族书法家组成的人民团体，是由国家级的书法家、篆刻家、书法理论家、书法教育家和书法活动组织、管理工作者组成的全国性专业组织，是中国文学艺术界联合会的团体会员。</p>
-        <p>中国书法家协会（CHINESE CALLIGRAPHERS ASSOCIATION）是中国共产党领导的全国各民族书法家组成的人民团体，是由国家级的书法家、篆刻家、书法理论家、书法教育家和书法活动组织、管理工作者组成的全国性专业组织，是中国文学艺术界联合会的团体会员。</p>
-        <p>中国书法家协会（CHINESE CALLIGRAPHERS ASSOCIATION）是中国共产党领导的全国各民族书法家组成的人民团体，是由国家级的书法家、篆刻家、书法理论家、书法教育家和书法活动组织、管理工作者组成的全国性专业组织，是中国文学艺术界联合会的团体会员。</p>
-        <p>中国书法家协会（CHINESE CALLIGRAPHERS ASSOCIATION）是中国共产党领导的全国各民族书法家组成的人民团体，是由国家级的书法家、篆刻家、书法理论家、书法教育家和书法活动组织、管理工作者组成的全国性专业组织，是中国文学艺术界联合会的团体会员。</p>
 
-        <div class="about">
-
-            <div>
-                <span class="label">地址</span>
-                <span>桂林航天工业学院12栋209</span>
-            </div> 
-            <div>
-                <span class="label">联系方式</span>
-                <span class="email">kamduo@126.com</span>
-                <span class="email">QQ1001121212</span>
-            </div>
-        
+        <div class="navBar">
+            <span class="active" ref="one" @click="navHandle('one')">社团简介</span>
+            <span ref="two" @click="navHandle('two')">联系方式</span>
+            <span ref="three" @click="navHandle('three')">最近动态</span>
+            <span ref="four" @click="navHandle('four')">原创文章</span>
         </div>
+
+        
+        <keep-alive> 
+        <!-- 社团简介 -->
+            <socAbout v-show="actArr[0].state" /> 
+        </keep-alive>
+        <keep-alive> 
+        <!-- 联系方式 -->
+            <socAdress v-show="actArr[1].state" />  
+        </keep-alive>
+        <keep-alive> 
+        <!-- 最近动态 -->
+            <socMovement  v-show="actArr[2].state" />  
+        </keep-alive>
+        <keep-alive> 
+        <!-- 原创文章 -->
+            <socArticle v-show="actArr[3].state" /> 
+        </keep-alive>
     </div>
+    
 </div>
 
 </template>
 
 <script>
+import socAbout from '@/components/society_com/about'
+import socAdress from '@/components/society_com/adress'
+import socArticle from '@/components/society_com/article'
+import socMovement from '@/components/society_com/movement'
 export default {
     data(){
         return{
+            actArr:[{state:true,name:"one"}, {state:false, name:"two"},{state:false,name:"three"}, {state:false, name:"four"}], 
             slideList: [
                 {
                     "clickUrl": "#",
@@ -64,7 +78,32 @@ export default {
 
         }
     },
+    components:{
+        socAbout,
+        socAdress,
+        socArticle,
+        socMovement
+    },
     methods:{
+        navHandle(str){
+              
+            let dom = this.$refs[str]   
+            for(let prop in this.actArr){ 
+                let temp = this.actArr[prop]  
+                let name = temp.name
+                if(name == str){ 
+                    dom.classList.add("active")
+                    temp.state = true 
+                }else{ 
+                    let dom = this.$refs[name] 
+                    dom.className = ""
+                    temp.state = false 
+                }
+            }
+            
+             
+        },
+        /** 轮播图封装 */
         go() {
             this.timer = setInterval(() => {
                 this.autoPlay()
@@ -93,23 +132,48 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
-
+.wrapper 
+    position relative
+.carousel-wrap
+    .bg   
+        position absolute
+        width 100vw
+        height 56.25vw
+        background-image url(../user/images/3.jpg)  
+        background-repeat repeat
+        filter blur(10px)
 .society-con
+    z-index 0
+    position absolute
+    top 56vw
     width 100vw
+    border-top-left-radius 1rem
+    border-top-right-radius 1rem 
     text-align left 
     font-size 1.2rem 
     color #454545
-    padding 0 1rem
+    padding 0 1rem 
+    margin auto 
+    background #fff
     h2 
         font-size 1.5rem
         line-height 3em
+    .navBar
+        display flex 
+        justify-content space-around  
+        border-bottom 1px solid #eee
+        margin-bottom 3rem
+        span  
+            padding .8rem 0
+        .active
+            color #1976d2
+            border-bottom 2px solid #1976d2
     .about
         display flex 
         flex-direction column 
         font-size 1rem 
         .label 
-            font-weight 800
-            font-size 1.02rem
+            font-weight 800 
         span 
             margin-right .5rem
 
@@ -123,7 +187,6 @@ export default {
 .slide-ul {
   width: 100%;
   height: 100%;
-  background #607d8b
   li {
     position: absolute;
     width: 100%;
