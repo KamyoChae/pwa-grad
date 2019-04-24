@@ -135,7 +135,7 @@ export default {
         border 0px solid #eee 
         border-bottom 1px solid #eee  
         span 
-            border 1px solid #2196f3
+            border 1px solid #82c1f3
             padding .5rem 1rem
             margin .5rem 0
             border-radius .5rem
