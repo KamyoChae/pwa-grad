@@ -37,6 +37,11 @@ export const state = () => {
                         route: '/user'
                     },
                     {
+                        text: '我的关注',
+                        icon: 'sentiment_neutral',
+                        route: '/focus'
+                    },
+                    {
                         text: '系统消息',
                         // image: 'https://github.com/google/material-design-icons/blob/master/social/2x_web/ic_mood_bad_black_48dp.png?raw=true',
                         alt: 'mood-bad',
@@ -53,7 +58,8 @@ export const state = () => {
                         text: '其他',
                         icon: 'sentiment_neutral',
                         route: '/detail/3'
-                    }
+                    },
+                    
                 ]
             }
         ]

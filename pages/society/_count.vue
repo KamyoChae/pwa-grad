@@ -15,7 +15,10 @@
     </div>
 
     <div class="society-con">
-        <h2>萤火虫书画协会</h2>
+        <div class="h2">
+            <span class="title">萤火虫书画协会</span>
+            <span class="focus"><i>关注</i></span> 
+        </div>
 
         <div class="navBar">
             <span class="active" ref="one" @click="navHandle('one')">社团简介</span>
@@ -155,9 +158,25 @@ export default {
     padding 0 1rem 
     margin auto 
     background #fff
-    h2 
+    .h2 
         font-size 1.5rem
         line-height 3em
+        display flex 
+        justify-content space-between
+        align-items center
+        .focus 
+            display inline-block 
+            align-items center 
+            i
+                border 1px solid #2196f3
+                font-size 1rem
+                display inline-block
+                vertical-align middle
+                padding 0 1rem
+                border-radius 1rem
+                color #2196f3 
+                height 2rem 
+                line-height 2rem
     .navBar
         display flex 
         justify-content space-around  

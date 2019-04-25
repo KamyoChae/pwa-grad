@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
-    <UserMain />
-    <UserList /> 
+    <UserMain color1="#03a9f4" color2="#2196f3"/>
+    <UserList />  
 </div>
 
 </template>
@@ -9,7 +9,8 @@
 <script>
 
 import UserMain from '@/components/user_com/UserMain'  
-import UserList from '@/components/user_com/UserListNav' 
+import UserList from '@/components/user_com/UserListNav'  
+
 export default {
     data(){
         return {
@@ -18,8 +19,7 @@ export default {
     },
     components:{
         UserMain,
-        UserList, 
-
+        UserList,  
     }
 
 }

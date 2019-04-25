@@ -13,7 +13,7 @@
     </div> 
     <div class="nav"> 
         <span>安全</span>
-        <span>重置密码</span>
+        <router-link tag="span" :to="{name:'resetPw'}">重置密码</router-link>
     </div>  
     
 </div>

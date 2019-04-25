@@ -21,6 +21,7 @@
 <script>
 import water from '@/static/js/util'
 export default {
+    props:["color1", "color2"],
     data(){
         return{
 
@@ -30,8 +31,8 @@ export default {
 
     },
     mounted(){ 
-        water(this.$refs.mcanvas1, "#03a9f4", 50 ,0.01 ) 
-        water(this.$refs.mcanvas2, "#2196f3", 30 , 0.03)  
+        water(this.$refs.mcanvas1, this.color1, 50 ,0.01 ) 
+        water(this.$refs.mcanvas2, this.color2, 30 , 0.03)  
     }
 }
 </script>

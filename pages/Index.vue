@@ -2,6 +2,7 @@
     <div> 
         <IndexHot />
         <IndexArticle />  
+         <router-link tag="div"  class="toEdit" :to="{name:'edit'}">发布</router-link >   
     </div>
 </template>
 
@@ -50,13 +51,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.content
-    display flex
-    align-items center
-    justify-content center
-    height 100%
-    flex-wrap wrap
-    h2
-        font-size 46px
-        font-weight 500
+.toEdit
+    position fixed 
+    display block
+    bottom 2rem
+    right 2rem
+    width 10vw
+    height 10vw
+    background #1976d2
+    border-radius 50%
 </style>
