@@ -10,6 +10,7 @@ import {createRouter} from '@/.lavas/router';
 import {createStore} from '@/.lavas/store';
 import AppComponent from './App.vue';
 import Vuetify from 'vuetify';
+import '../static/font/iconfont.css'
 
 Vue.use(Meta);
 

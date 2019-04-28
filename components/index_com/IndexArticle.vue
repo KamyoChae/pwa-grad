@@ -4,7 +4,7 @@
         <router-link tag="div" :to="{name:'articleArticleId', params:{articleId:1}}" class="article">
             <div class="top">
                 <span class="user">博学君</span>
-                <span>杂谈古今</span>
+                
             </div>
             <div class="body">
                 <span class="title">这里是标题这里是标题这里是 是标题这里是标题</span>
@@ -20,7 +20,7 @@
         <div class="article">
             <div class="top">
                 <span class="user">博学君</span>
-                <span>杂谈古今</span>
+                
             </div>
             <div class="body">
                 <span class="title">这里是标题这里是标题这里是 是标题这里是标题</span>
@@ -35,7 +35,7 @@
         <div class="article">
             <div class="top">
                 <span class="user">博学君</span>
-                <span>杂谈古今</span>
+                
             </div>
             <div class="body">
                 <span class="title">这里是标题这里是标题这里是 是标题这里是标题</span>
@@ -50,7 +50,7 @@
         <div class="article">
             <div class="top">
                 <span class="user">博学君</span>
-                <span>杂谈古今</span>
+                
             </div>
             <div class="body">
                 <span class="title">这里是标题这里是标题这里是 是标题这里是标题</span>

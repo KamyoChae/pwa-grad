@@ -2,7 +2,7 @@
     <div> 
         <IndexHot />
         <IndexArticle />  
-         <router-link tag="div"  class="toEdit" :to="{name:'edit'}">发布</router-link >   
+         <router-link tag="div"  class="toEdit" :to="{name:'edit'}"><i class="iconfont round_add_light">&#xe7a7;</i></router-link >   
     </div>
 </template>
 
@@ -57,7 +57,9 @@ export default {
     bottom 2rem
     right 2rem
     width 10vw
-    height 10vw
-    background #1976d2
+    height 10vw 
     border-radius 50%
+    .round_add_light
+        color #1976d2 
+        font-size 10vw
 </style>

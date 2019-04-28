@@ -20,8 +20,8 @@
 
         </div>
         <div class="content-foot">
-            <span>
-                浏览 999+ 感谢 659
+            <span class="iconfont">
+                &#xe7b5; 999+ &#xe669; 659
             </span> 
         </div>
     </div>
@@ -33,7 +33,7 @@
                 <span class="username">用户名</span>
                 <span class="usercomment">评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话</span>
             </div>
-            <span class="agree"><i>赞</i>1</span>
+            <span class="agree"><i class='iconfont'>&#xe644;</i></span>
         </div>
         <div class="com-item">
             <div class="usericon"></div>
@@ -41,14 +41,14 @@
                 <span class="username">用户名</span>
                 <span class="usercomment">评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话评论一句话</span>
             </div>
-            <span class="agree"><i>赞</i>1</span>
+            <span class="agree"><i class='iconfont'>&#xe644;</i></span>
         </div>
     </div>
     <div class="setcomment">
         <!-- 编辑评论 -->
         <input type="text" placeholder="我有一个想法...">
-        <span class="ty">感谢</span>
-        <span class="send">评论</span>
+        <span class="ty iconfont">&#xe668; </span>
+        <span class="send iconfont">&#xe731;</span>
     </div>
 </div>
 </template>
@@ -79,8 +79,11 @@ export default {
     .content-foot
         display flex 
         justify-content space-between
-        padding 1.5rem
+        padding  1rem
         font-size .9rem
+        .iconfont 
+            font-size 1rem 
+
 .comment
     padding-bottom 15vh
     background #f9f9f9
@@ -108,11 +111,12 @@ export default {
             .usercomment
                 font-size 1rem
         .agree 
-            padding 0 1rem 0 1rem 
-            i 
+            padding 0 .5rem 0 .5rem 
+            i   
                 padding .3rem
                 border-radius 50%
-                border 1px solid #2196f3
+                font-size 1.4rem
+                // border 1px solid #2196f3
 
 .setcomment
     width 100vw
@@ -129,10 +133,16 @@ export default {
         background #eee
         padding .5rem
         border-radius 1rem
-    span  
-        padding .5rem 1rem
+    span.iconfont  
+        display flex 
+        padding .2em .8em
         color #fff
         border-radius 1rem 
+        font-size 1.5em
         background #2196f3
+        justify-content space-around
+        align-items center 
+            
+
         
 </style>
