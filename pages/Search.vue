@@ -83,36 +83,14 @@ export default {
 
             // 设置搜索结果数据
             this.data = [
+              
                 {
-                    title: 'Ali Connors',
-                    headline: 'Brunch this weekend?',
-                    subtitle: 'I\'ll be in your neighborhood doing errands this weekend. Do you want to hang out?',
-                    action: '15 min'
-                },
-                {
-                    title: 'me, Scrott, Jennifer',
+                    title: '萤火虫 书画协会',
                     headline: 'Summer BBQ',
                     subtitle: 'Wish I could come, but I\'m out of town this weekend.',
                     action: '2 hr'
                 },
-                {
-                    title: 'Sandra Adams',
-                    headline: 'Oui oui',
-                    subtitle: 'Do you have Paris recommendations? Have you ever been?',
-                    action: '6 hr'
-                },
-                {
-                    title: 'Trevor Hansen',
-                    headline: 'Birthday gift',
-                    subtitle: 'Have any ideas about what we should get Heidi for her birthday?',
-                    action: '12 hr'
-                },
-                {
-                    title: 'Britta Holt',
-                    headline: 'Recipe to try',
-                    subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
-                    action: '18 hr'
-                }
+                 
             ];
 
             this.loading = false;

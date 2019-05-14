@@ -2,90 +2,90 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
     
-import _15564118293029d49a922ebc8a6d77ca82c0a74289b98 from '@/pages/Appshell.vue';
+import _15578033421799d49a922ebc8a6d77ca82c0a74289b98 from '@/pages/Appshell.vue';
     
 
     
-import _15564118293024981029d4ca92a3ffe2016b33af9369e from '@/pages/Article.vue';
+import _15578033421794981029d4ca92a3ffe2016b33af9369e from '@/pages/Article.vue';
     
 
     
-import _15564118293072e781e3cf7922f027a7e7810c67afb82 from '@/pages/article/_articleId.vue';
+import _15578033421802e781e3cf7922f027a7e7810c67afb82 from '@/pages/article/_articleId.vue';
     
 
     
-import _1556411829302f7fc7554d202a317883db2ae067316d3 from '@/pages/detail/_id.vue';
+import _1557803342179f7fc7554d202a317883db2ae067316d3 from '@/pages/detail/_id.vue';
     
 
     
-import _1556411829302201ca3456d5fcf89a8b32ad8e5f26ad3 from '@/pages/Edit.vue';
+import _1557803342179201ca3456d5fcf89a8b32ad8e5f26ad3 from '@/pages/Edit.vue';
     
 
     
-import _1556411829302d2462dcf0c7beccd286c658e08187914 from '@/pages/Error.vue';
+import _1557803342179d2462dcf0c7beccd286c658e08187914 from '@/pages/Error.vue';
     
 
     
-import _1556411829302582bc0f4b63fc422db8f0761fd151d4d from '@/pages/Focus.vue';
+import _1557803342179582bc0f4b63fc422db8f0761fd151d4d from '@/pages/Focus.vue';
     
 
     
-import _155641182930267830448037326425509e44bce7632b7 from '@/pages/Index.vue';
+import _155780334217967830448037326425509e44bce7632b7 from '@/pages/Index.vue';
     
 
     
-import _155641182930222e177b76dfd23c698f143c58ad36c22 from '@/pages/login/_userType.vue';
+import _155780334217922e177b76dfd23c698f143c58ad36c22 from '@/pages/login/_userType.vue';
     
 
     
-import _15564118293028f9fe6e42ccba998fd734f1d63055852 from '@/pages/login/index.vue';
+import _15578033421798f9fe6e42ccba998fd734f1d63055852 from '@/pages/login/index.vue';
     
 
     
-import _1556411829302a507d8ce2f10c40312d733dc36880137 from '@/pages/ResetPw.vue';
+import _1557803342179a507d8ce2f10c40312d733dc36880137 from '@/pages/ResetPw.vue';
     
 
     
-import _1556411829302038de326b0270e97f9eef95b6bc74ed7 from '@/pages/Search.vue';
+import _1557803342179038de326b0270e97f9eef95b6bc74ed7 from '@/pages/Search.vue';
     
 
     
-import _1556411829302466e97e1e8e23aada71650fffd9afb67 from '@/pages/society/_count.vue';
+import _1557803342179466e97e1e8e23aada71650fffd9afb67 from '@/pages/society/_count.vue';
     
 
     
-import _1556411829302e7a7a8be020f365e05e7ba53452bad18 from '@/pages/society/index.vue';
+import _1557803342179e7a7a8be020f365e05e7ba53452bad18 from '@/pages/society/index.vue';
     
 
     
-import _15564118293021b40ccf4805c185acae415dd1472d97b from '@/pages/System.vue';
+import _15578033421791b40ccf4805c185acae415dd1472d97b from '@/pages/System.vue';
     
 
     
-import _1556411829302ee18dcd4240adcb96d7c141074854904 from '@/pages/User.vue';
+import _1557803342179ee18dcd4240adcb96d7c141074854904 from '@/pages/User.vue';
     
 
     
-import _15564118293082832b64bc86f2739fc251929dd48c651 from '@/pages/user/Useritem.vue';
+import _15578033421802832b64bc86f2739fc251929dd48c651 from '@/pages/user/Useritem.vue';
     
 
 
 let routes = [
     {
         "path": "/appshell",
-        "component": _15564118293029d49a922ebc8a6d77ca82c0a74289b98,
+        "component": _15578033421799d49a922ebc8a6d77ca82c0a74289b98,
         "meta": {},
         "name": "appshell"
     },
     {
         "path": "/article",
-        "component": _15564118293024981029d4ca92a3ffe2016b33af9369e,
+        "component": _15578033421794981029d4ca92a3ffe2016b33af9369e,
         "meta": {},
         "name": "article",
         "children": [
             {
                 "path": ":articleId",
-                "component": _15564118293072e781e3cf7922f027a7e7810c67afb82,
+                "component": _15578033421802e781e3cf7922f027a7e7810c67afb82,
                 "meta": {},
                 "name": "articleArticleId"
             }
@@ -93,79 +93,79 @@ let routes = [
     },
     {
         "path": "/detail/:id",
-        "component": _1556411829302f7fc7554d202a317883db2ae067316d3,
+        "component": _1557803342179f7fc7554d202a317883db2ae067316d3,
         "meta": {},
         "name": "detailId"
     },
     {
         "path": "/edit",
-        "component": _1556411829302201ca3456d5fcf89a8b32ad8e5f26ad3,
+        "component": _1557803342179201ca3456d5fcf89a8b32ad8e5f26ad3,
         "meta": {},
         "name": "edit"
     },
     {
         "path": "/focus",
-        "component": _1556411829302582bc0f4b63fc422db8f0761fd151d4d,
+        "component": _1557803342179582bc0f4b63fc422db8f0761fd151d4d,
         "meta": {},
         "name": "focus"
     },
     {
         "path": "/",
-        "component": _155641182930267830448037326425509e44bce7632b7,
+        "component": _155780334217967830448037326425509e44bce7632b7,
         "meta": {},
         "name": "index"
     },
     {
         "path": "/login/:userType",
-        "component": _155641182930222e177b76dfd23c698f143c58ad36c22,
+        "component": _155780334217922e177b76dfd23c698f143c58ad36c22,
         "meta": {},
         "name": "loginUserType"
     },
     {
         "path": "/login",
-        "component": _15564118293028f9fe6e42ccba998fd734f1d63055852,
+        "component": _15578033421798f9fe6e42ccba998fd734f1d63055852,
         "meta": {},
         "name": "login"
     },
     {
         "path": "/reset-pw",
-        "component": _1556411829302a507d8ce2f10c40312d733dc36880137,
+        "component": _1557803342179a507d8ce2f10c40312d733dc36880137,
         "meta": {},
         "name": "resetPw"
     },
     {
         "path": "/search",
-        "component": _1556411829302038de326b0270e97f9eef95b6bc74ed7,
+        "component": _1557803342179038de326b0270e97f9eef95b6bc74ed7,
         "meta": {},
         "name": "search"
     },
     {
         "path": "/society/:count",
-        "component": _1556411829302466e97e1e8e23aada71650fffd9afb67,
+        "component": _1557803342179466e97e1e8e23aada71650fffd9afb67,
         "meta": {},
         "name": "societyCount"
     },
     {
         "path": "/society",
-        "component": _1556411829302e7a7a8be020f365e05e7ba53452bad18,
+        "component": _1557803342179e7a7a8be020f365e05e7ba53452bad18,
         "meta": {},
         "name": "society"
     },
     {
         "path": "/system",
-        "component": _15564118293021b40ccf4805c185acae415dd1472d97b,
+        "component": _15578033421791b40ccf4805c185acae415dd1472d97b,
         "meta": {},
         "name": "system"
     },
     {
         "path": "/user",
-        "component": _1556411829302ee18dcd4240adcb96d7c141074854904,
+        "component": _1557803342179ee18dcd4240adcb96d7c141074854904,
         "meta": {},
         "name": "user",
         "children": [
             {
                 "path": "useritem",
-                "component": _15564118293082832b64bc86f2739fc251929dd48c651,
+                "component": _15578033421802832b64bc86f2739fc251929dd48c651,
                 "meta": {},
                 "name": "userUseritem"
             }
@@ -173,7 +173,7 @@ let routes = [
     },
     {
         "path": "/error",
-        "component": _1556411829302d2462dcf0c7beccd286c658e08187914,
+        "component": _1557803342179d2462dcf0c7beccd286c658e08187914,
         "meta": {},
         "name": "error",
         "alias": "*"

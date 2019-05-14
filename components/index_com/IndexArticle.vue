@@ -1,68 +1,22 @@
 <template>
 <div class="wrapper"> 
     <div class="articlebox">
-        <router-link tag="div" :to="{name:'articleArticleId', params:{articleId:1}}" class="article">
+        <router-link tag="div" v-for="item in items" :key="item.id" :to="{name:'articleArticleId', params:{articleId:1}}" class="article">
             <div class="top">
-                <span class="user">博学君</span>
+                <span class="user">{{item.user}}</span>
                 
             </div>
             <div class="body">
-                <span class="title">这里是标题这里是标题这里是 是标题这里是标题</span>
-                <span class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</span>
+                <span class="title">{{item.title}}</span>
+                <span class="text">{{item.text}}</span>
             </div>
             <div class="foot">
-                <span class="see">2654浏览</span>
-                <span class="hand">56赞</span>
-                <span class="comment">656评论</span>
+                <span class="see">{{item.see}}</span>
+                <span class="hand">{{item.hand}}</span>
+                <span class="comment">{{item.comment}}</span>
             </div>
          </router-link> 
-
-        <div class="article">
-            <div class="top">
-                <span class="user">博学君</span>
-                
-            </div>
-            <div class="body">
-                <span class="title">这里是标题这里是标题这里是 是标题这里是标题</span>
-                <span class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</span>
-            </div>
-            <div class="foot">
-                <span class="see">2654浏览</span>
-                <span class="hand">56赞</span>
-                <span class="comment">656评论</span>
-            </div>
-        </div>
-        <div class="article">
-            <div class="top">
-                <span class="user">博学君</span>
-                
-            </div>
-            <div class="body">
-                <span class="title">这里是标题这里是标题这里是 是标题这里是标题</span>
-                <span class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</span>
-            </div>
-            <div class="foot">
-                <span class="see">2654浏览</span>
-                <span class="hand">56赞</span>
-                <span class="comment">656评论</span>
-            </div>
-        </div>
-        <div class="article">
-            <div class="top">
-                <span class="user">博学君</span>
-                
-            </div>
-            <div class="body">
-                <span class="title">这里是标题这里是标题这里是 是标题这里是标题</span>
-                <span class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</span>
-            </div>
-            <div class="foot">
-                <span class="see">2654浏览</span>
-                <span class="hand">56赞</span>
-                <span class="comment">656评论</span>
-            </div>
-        </div>
-        
+         
     </div>
 </div>
 
@@ -70,6 +24,30 @@
 
 <script>
 export default {
+    data(){
+        return {
+            items:[
+                {
+                    'id':'11',
+                    'user':'博学君',
+                    'title':'从皴擦点染中领悟国画的精美',
+                    'text':'所有高级的美，都应当是这样子的。',
+                    'see':'2654浏览',
+                    'hand':'56赞',
+                    'comment':'656评论'
+                },
+                {
+                    'id':'12',
+                    'user':'博学君',
+                    'title':'三个和尚与三头毛驴',
+                    'text':'有一天，胖和尚在路上遇到了一头毛驴。',
+                    'see':'1234浏览',
+                    'hand':'562赞',
+                    'comment':'6256评论'
+                }
+            ]
+        }
+    }
 
 }
 </script>

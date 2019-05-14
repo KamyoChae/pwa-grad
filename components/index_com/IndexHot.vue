@@ -2,29 +2,29 @@
 <div class="wrapper">
     <div class="items">
         <div class="item">
-            <p class="title">标题标题标题 题标题标题标题标题标题标题题标题标题标题标题标题标题</p>
+            <p class="title">踏雪惊鸿，此番归去，定是胜却人间无数</p>
             <div class="itemother"> 
-                <span class="author">作者</span>
+                <span class="author">作者：李小白</span>
                 <span class="see">3564浏览</span>
                 <span class="time">56小时前</span>
             </div>
             <div class="tags"></div>
         </div>
         <div class="item">
-            <p class="title">标题标题标题 题标题标题标题标题标题标题</p>
+            <p class="title">关于社团吧的几点建议</p>
             <div class="itemother"> 
-                <span class="author">作者</span>
-                <span class="see">3564浏览</span>
-                <span class="time">56小时前</span>
+                <span class="author">作者：张三</span>
+                <span class="see">4564浏览</span>
+                <span class="time">6小时前</span>
             </div>
             <div class="tags"></div>
         </div>
         <div class="item">
-            <p class="title">标题标题标题 题标题标题标题标题标题标题</p>
+            <p class="title">我要上头条</p>
             <div class="itemother"> 
-                <span class="author">作者</span>
-                <span class="see">3564浏览</span>
-                <span class="time">56小时前</span>
+                <span class="author">作者：张全蛋</span>
+                <span class="see">2564浏览</span>
+                <span class="time">5小时前</span>
             </div>
             <div class="tags"></div>
         </div>
