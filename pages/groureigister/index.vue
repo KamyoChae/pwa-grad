@@ -35,8 +35,8 @@ export default {
             padding 1rem 1.5rem  
             margin .5rem 0
             font-size 1.2rem  
-            border 1px solid #888888
-            border-radius 1rem
+            border 1px solid #ddd
+            border-radius 5px
 
         button 
             background #1976d2

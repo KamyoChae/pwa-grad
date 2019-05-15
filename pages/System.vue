@@ -1,23 +1,15 @@
 <template>
 <div class="wrapper">
     <div class="content">
-        <div class="time">2019-01-06</div>
-        <img src="./user/images/user.jpg" alt="">
+        <div class="time">2019-01-06</div> 
+        <div class="text">这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，</div>
+    </div>
+     <div class="content">
+        <div class="time">2019-01-06</div> 
         <div class="text">这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，</div>
     </div>
     <div class="content">
-        <div class="time">2019-01-06</div>
-        <img src="./user/images/user.jpg" alt="">
-        <div class="text">这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，</div>
-    </div>
-    <div class="content">
-        <div class="time">2019-01-06</div>
-        <img src="./user/images/user.jpg" alt="">
-        <div class="text">这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，</div>
-    </div>
-    <div class="content">
-        <div class="time">2019-01-06</div>
-        <img src="./user/images/user.jpg" alt="">
+        <div class="time">2019-01-06</div> 
         <div class="text">这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，</div>
     </div>
  
