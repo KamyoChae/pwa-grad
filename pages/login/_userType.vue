@@ -8,7 +8,8 @@
             <canvas ref="mcanvas2" ></canvas>
         </div> 
 
-        <div class="title" v-if="this.pages == 'login'">登录</div>
+        <div class="title" v-if="this.pages == 'login'"><span v-if="$route.params.userType==1">社团</span><span v-else>用户</span>登录
+        </div>
         <div class="title" v-else>注册</div>
  
         <div class="inputbox">
@@ -21,8 +22,17 @@
 
         </div>
         <div class="foot">
-            <p v-if="this.pages == 'login'" @click="toRegister"><span class="register" >注册</span>账号，加入社团大家庭</p>
-            <p v-else><span class="login" @click="toRegister">登录</span>账号，进入社团大家庭</p>
+            <p v-if="this.pages == 'login'">
+
+                <span class="register" v-if="$route.params.userType==1" @click="toRegistergrou">注册{{$route.params.userType}}</span>
+                <span class="register" v-else @click="toRegister">2注册</span>
+                
+                账号，加入社团大家庭</p>
+            <p v-else>
+                
+                <span class="login" @click="toRegister">登录</span>
+                
+                账号，进入社团大家庭</p>
         </div>
     </div>
 
@@ -41,6 +51,10 @@ export default {
         toRegister(){ 
             // 登录注册页切换
             this.pages == 'login' ? this.pages = 'register' : this.pages = 'login' 
+        },
+        toRegistergrou(){
+            // 注册社团
+            this.$router.push('/groureigister')
         }
     },
     mounted(){ 
