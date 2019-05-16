@@ -6,12 +6,14 @@
 import Vue from 'vue';
 import Meta from 'vue-meta';
 
+
 import {createRouter} from '@/.lavas/router';
 import {createStore} from '@/.lavas/store';
 import AppComponent from './App.vue';
 import Vuetify from 'vuetify';
 import '../static/font/iconfont.css'
-
+import axios from 'axios'
+Vue.prototype.$axios = axios
 Vue.use(Meta);
 
 Vue.use(Vuetify);

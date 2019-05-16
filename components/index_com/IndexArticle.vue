@@ -47,6 +47,16 @@ export default {
                 }
             ]
         }
+    },
+    created(){
+        this.$axios({
+            method: 'get',
+            url: '/getIndex',
+            data: {
+                name: 'xiaoming',
+                info: '12'
+            }
+        })
     }
 
 }

@@ -13,12 +13,12 @@
         <div class="title" v-else>注册</div>
  
         <div class="inputbox">
-            <input type="text" name="username" id="username" placeholder="账号">
-            <input type="password" name="password1" id="password1" placeholder="密码">
-            <input type="password" v-if="this.pages != 'login'" name="password2" id="password2" placeholder="确认密码">
+            <input type="text" name="username" id="username" placeholder="" v-model="userName">{{userName}}
+            <input type="password" name="password1" id="password1" placeholder="密码" v-model="userPw">
+            <input type="password" v-if="this.pages != 'login'" name="password2" id="password2"  placeholder="确认密码" v-model="userPw2">
             <span class="forgetPa">忘记密码</span>
             <router-link tag='button' to="/" v-if="this.pages == 'login'">登录</router-link>
-            <button v-else>注册</button>
+            <button v-else @click="stuRegister">注册</button>
 
         </div>
         <div class="foot">
@@ -40,10 +40,15 @@
 
 <script>
 import water from '@/static/js/util'
+// import func from '../../../../vue/notebook/vue-temp/vue-editor-bridge';
 export default {
     data(){
         return{ 
             pages:'login',
+
+            userName:'555',
+            userPw:'',
+            userPw2:''
 
         }
     },
@@ -55,6 +60,18 @@ export default {
         toRegistergrou(){
             // 注册社团
             this.$router.push('/groureigister')
+        },
+        stuRegister(){
+            // 学生账户注册
+            console.log(this.userPw)
+            this.$axios.post("/stuLogin", {
+                userName:this.userName,
+                userPw:this.userPw
+            }).then(function(res){
+                console.log(res)
+            }).catch(function(err){
+                console.log(err)
+            })
         }
     },
     mounted(){ 

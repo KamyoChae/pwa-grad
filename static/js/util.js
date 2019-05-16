@@ -1,6 +1,6 @@
 export default function water (dom, color, amplitude, speed = 0.02){
     let width =  document.body.clientWidth 
-    let height = "200"
+    let height = "180"
     let banCanvas = dom
     banCanvas.width = width
     banCanvas.height = height
