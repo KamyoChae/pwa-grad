@@ -12,7 +12,7 @@
 
 1. 拉取首页文章数据（浏览文章功能）
 
-   /getIndex
+   /getIndex 
 
    get
 
