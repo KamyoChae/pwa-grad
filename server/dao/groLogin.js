@@ -1,8 +1,7 @@
 var dbutil = require("./dbutil")
 function groLogin(userName, succes) {
 
-    var query = `select * from group `
-
+    var query = 'select * from `group` where gro_name=' + userName
     var connection = dbutil.createConnection()
     connection.connect();
     connection.query(query, function (error, result) {

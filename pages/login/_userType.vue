@@ -63,7 +63,21 @@ export default {
         },
         stuRegister(){
             // 学生账户注册 
+                this.$axios.post("/stuRegister", { 
+                    userName:this.userName,
+                    userPw:this.userPw
+                }).then((res)=>{
+                    console.log(res)
+                    if(res.data == "OK"){
+                        this.$router.push('/')
+                    }else{
+                        alert('用户名已存在')
+                    }
 
+                }).catch((err)=>{
+                    console.log(err)
+                    console.log('接口失效')
+                })
         },
         Login(userType){
             if(userType == 2){

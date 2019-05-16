@@ -4,13 +4,10 @@ function groLogin(req,res){
 
     req.on('data',function(data){
         var postData = JSON.parse(data.toString())
-
         var userName = postData.userName
         var passWord = postData.userPw
-        // console.log(postData.userName)
-        // console.log("发送了stuLogin")
         dao.groLogin(userName, function(result){
-            console.log(result)
+
             var resState = ''
             if(result == null || result.length == 0){
                 console.log('失败')
@@ -24,7 +21,7 @@ function groLogin(req,res){
                     resState = 'Fail'
                 }
             }
-            // res.writeHead(200, {"Content-Type": "text/html;charset:utf-8"})
+            res.writeHead(200, {"Content-Type": "text/html;charset:utf-8"})
             res.write(resState)
             res.end()
         })
