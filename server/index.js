@@ -19,6 +19,8 @@ app.get("/getIndex",loader.get('/getIndex'))
 
 // 学生登录
 app.post("/stuLogin",loader.get('/stuLogin'))
+// 社团登录
+app.post("/groLogin",loader.get('/groLogin'))
 
 
 // 监听globalconf["port"]端口

@@ -17,7 +17,7 @@
             <input type="password" name="password1" id="password1" placeholder="密码" v-model="userPw">
             <input type="password" v-if="this.pages != 'login'" name="password2" id="password2"  placeholder="确认密码" v-model="userPw2">
             <span class="forgetPa">忘记密码</span>
-            <button v-if="this.pages == 'login'" @click="stuLogin">登录</button>
+            <button v-if="this.pages == 'login'" @click="Login($route.params.userType)">登录</button>
             <button v-else @click="stuRegister">注册</button>
 
         </div>
@@ -35,7 +35,7 @@
                 账号，进入社团大家庭</p>
         </div>
     </div>
-
+ 
 </template>
 
 <script>
@@ -65,18 +65,46 @@ export default {
             // 学生账户注册 
 
         },
-        stuLogin(){
-            // 学生登录 this.userType == 2
-            this.$axios.post("/stuLogin", {
-                userType:this.userType,
-                userName:this.userName,
-                userPw:this.userPw
-            }).then(function(res){
-                this.$router.push('/')
-            }).catch(function(err){
-                console.log(err)
-                alert('密码不对')
-            })
+        Login(userType){
+            if(userType == 2){
+                // 学生登录 this.userType == 2
+                this.$axios.post("/stuLogin", {
+                    userType:userType,
+                    userName:this.userName,
+                    userPw:this.userPw
+                }).then((res)=>{
+                    console.log(res)
+                    if(res.data == "OK"){
+                        this.$router.push('/')
+                    }else{
+                        alert('密码不对')
+                    }
+
+                }).catch((err)=>{
+                    console.log(err)
+                    console.log('接口失效')
+                })
+            }else if(userType == 1){
+                 
+                // 社团登录 this.userType == 1
+                this.$axios.post("/groLogin", {
+                    userType:userType,
+                    userName:this.userName,
+                    userPw:this.userPw
+                }).then((res)=>{
+                    console.log(res)
+                    if(res.data == "OK"){
+                        this.$router.push('/')
+                    }else{
+                        alert('密码不对')
+                    }
+
+                }).catch((err)=>{
+                    console.log(err)
+                    console.log('接口失效')
+                })
+            }
+            
         }
     },
     mounted(){ 
