@@ -5,7 +5,6 @@ var express = require("express")
 var  globalconf = require("./config")
 
 var loader = require("./loader")
-console.log(loader )
 // 引入web层的模块，通过这个模块实现接口的调用
 // var allStuContr = require("./web/allStudentController")
 

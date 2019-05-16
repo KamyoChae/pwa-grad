@@ -3,7 +3,7 @@
         <div class="canvas">
             <canvas ref="mcanvas1" ></canvas>
         </div>
-        
+
         <div class="canvas">
             <canvas ref="mcanvas2" ></canvas>
         </div> 
@@ -13,11 +13,11 @@
         <div class="title" v-else>注册</div>
  
         <div class="inputbox">
-            <input type="text" name="username" id="username" placeholder="" v-model="userName">{{userName}}
+            <input type="text" name="username" id="username" placeholder="" v-model="userName">
             <input type="password" name="password1" id="password1" placeholder="密码" v-model="userPw">
             <input type="password" v-if="this.pages != 'login'" name="password2" id="password2"  placeholder="确认密码" v-model="userPw2">
             <span class="forgetPa">忘记密码</span>
-            <router-link tag='button' to="/" v-if="this.pages == 'login'">登录</router-link>
+            <button v-if="this.pages == 'login'" @click="stuLogin">登录</button>
             <button v-else @click="stuRegister">注册</button>
 
         </div>
@@ -62,19 +62,25 @@ export default {
             this.$router.push('/groureigister')
         },
         stuRegister(){
-            // 学生账户注册
-            console.log(this.userPw)
+            // 学生账户注册 
+
+        },
+        stuLogin(){
+            // 学生登录 this.userType == 2
             this.$axios.post("/stuLogin", {
+                userType:this.userType,
                 userName:this.userName,
                 userPw:this.userPw
             }).then(function(res){
-                console.log(res)
+                this.$router.push('/')
             }).catch(function(err){
                 console.log(err)
+                alert('密码不对')
             })
         }
     },
     mounted(){ 
+        this.userType = this.$route.params.userType
         water(this.$refs.mcanvas1, "#03a9f4", 50 ,0.01 ) 
         water(this.$refs.mcanvas2, "#2196f3", 30 , 0.03)  
     }
@@ -87,6 +93,8 @@ export default {
     background #fff  
     .canvas
         position absolute 
+        z-index 15
+        pointer-events none
     .title
         position relative
         font-weight 200
@@ -96,6 +104,7 @@ export default {
         text-shadow .2rem .5rem 2rem #2196f3
         padding 2em 1em
     .inputbox
+        z-index 20
         display flex
         flex-direction column 
         width 80vw 

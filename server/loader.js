@@ -1,7 +1,7 @@
 var fs = require('fs')
 
 var files = fs.readdirSync("./server/web/")
-console.log(files)
+
 
 var controllerSet = []
 var pathMap = new Map()
@@ -19,6 +19,5 @@ for (let i = 0; i<files.length; i++){
     }
 
 }
-console.log(pathMap)
 module.exports = pathMap
 
