@@ -102,7 +102,7 @@
 
 7. 申请认证社团组织
 
-   /wantGro
+   /groRegister 
 
 
 

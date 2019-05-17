@@ -1,14 +1,33 @@
 <template>
 <div class="wrapper">
-    <input type="password" placeholder="新密码">
-    <input type="password" placeholder="确认新密码">
-    <span>确定</span>
+    <input type="password" placeholder="新密码" v-model="newpw1">
+    <input type="password" placeholder="确认新密码" v-model="newpw2">
+    <span @click="changePw">确定</span>
 </div>
 
 </template>
 
 <script>
 export default { 
+    data(){
+        return {
+            newpw1:'',
+            newpw2:''
+        }
+    },
+    methods:{
+        changePw(){
+            this.$axios.post('/changePw',{
+                newpw:this.newpw1
+            }).then((res)=>{
+                console.log(res)
+                console.log('成功修改密码') 
+            }).catch((err)=>{
+                console.log(err)
+                console.log('接口失效')
+            }) 
+        }
+    }
 }
 </script>
 

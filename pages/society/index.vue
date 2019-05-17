@@ -105,9 +105,17 @@ export default {
     methods:{
         checkSocBan(route){
             // 动态路由配置 通过传参跳转路由
-            this.$route.push(route)
-
+            this.$route.push(route) 
         }
+    },
+    created(){
+        this.$axios.get("/getSociety").then((res)=>{
+            console.log(res)
+            console.log('成功拉取数据') 
+        }).catch((err)=>{
+            console.log(err)
+            console.log('接口失效')
+        }) 
     }
 }
 </script>

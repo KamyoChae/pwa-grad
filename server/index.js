@@ -27,6 +27,14 @@ app.post("/stuRegister",loader.get('/stuRegister'))
 // 社团注册
 app.post("/groRegister",loader.get('/groRegister'))
 
+// 拉取社团列表
+app.get("/getSociety", loader.get('/getSociety'))
+
+// 修改名字
+app.get("/changeName", loader.get('/changeName'))
+
+// 修改密码
+app.post("/changePw",loader.get('/changePw'))
 
 // 监听globalconf["port"]端口
 app.listen(globalconf["port"])

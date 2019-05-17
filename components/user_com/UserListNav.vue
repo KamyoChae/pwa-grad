@@ -3,13 +3,13 @@
     <div class="nav">
         <span>昵称</span>
         <span>
-        <input type='text' v-model="value" />
+        <input type='text' v-model="value" @blur="sendName" />
         </span>
     </div>
 
     <div class="nav"> 
         <span>账号</span>
-        <span>2015070030317</span>
+        <span>{{user_num}}</span>
     </div> 
     <div class="nav"> 
         <span>安全</span>
@@ -24,7 +24,22 @@
 export default {
     data(){
         return {
-            value : "王大锤"
+            value : "王大锤",
+            user_num:'11233'
+        }
+    },
+    methods:{
+        sendName(){
+            this.$axios.get('/changeName',{
+                num:this.user_num,
+                value : this.value
+            }).then((res)=>{
+                console.log(res)
+                console.log('成功修改名字') 
+            }).catch((err)=>{
+                console.log(err)
+                console.log('接口失效')
+            }) 
         }
     }
  

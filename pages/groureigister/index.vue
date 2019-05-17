@@ -9,7 +9,7 @@
       <input type="text" name id placeholder="qq" v-model="gro_qq">
       <input type="password" placeholder="设置密码" v-model="gro_pw">
       <input type="password" placeholder="确认密码">
-      <button @click="wantGro">申请认证</button>
+      <button @click="groRegister">申请认证</button>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
     };
   },
   methods: {
-    wantGro() {
+    groRegister() {
       // 申请认证
 
       this.$axios
