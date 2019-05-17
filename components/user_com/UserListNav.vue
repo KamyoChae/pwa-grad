@@ -25,15 +25,15 @@ export default {
     data(){
         return {
             value : "王大锤",
-            user_num:'11233'
+            user_num:'11233',
+            user_type:'2'
         }
     },
     methods:{
         sendName(){
-            this.$axios.get('/changeName',{
-                num:this.user_num,
-                value : this.value
-            }).then((res)=>{
+            this.$axios.get(
+                `/changeName?num=${this.user_num}&vale=${this.value}&uType=${this.user_type}` 
+            ).then((res)=>{
                 console.log(res)
                 console.log('成功修改名字') 
             }).catch((err)=>{
