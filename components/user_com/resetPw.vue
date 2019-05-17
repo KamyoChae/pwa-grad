@@ -12,13 +12,17 @@ export default {
     data(){
         return {
             newpw1:'',
-            newpw2:''
+            newpw2:'',
+            num:'11233',
+            uType:'2'
         }
     },
     methods:{
         changePw(){
             this.$axios.post('/changePw',{
-                newpw:this.newpw1
+                newpw:this.newpw1,
+                num:this.num,
+                uType:this.uType
             }).then((res)=>{
                 console.log(res)
                 console.log('成功修改密码') 
