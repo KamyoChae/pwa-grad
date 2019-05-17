@@ -1,6 +1,6 @@
-var dao = require('../dao/getSociety')
+var dao = require('../dao/getAllSociety')
 var path = new Map()
-function getSociety(req,res){
+function getAllSociety(req,res){
     console.log("发送了getIndex")
     dao.getSociety(function(result){
         res.writeHead(200, {"Content-Type": "text/html;charset:utf-8"})
@@ -9,7 +9,7 @@ function getSociety(req,res){
         console.log(JSON.stringify(result))
     })
 }
-path.set("/getSociety", getSociety)
+path.set("/getAllSociety", getAllSociety)
 
 
 module.exports.path = path

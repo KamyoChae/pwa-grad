@@ -1,5 +1,5 @@
 var dbutil = require("./dbutil")
-function getSociety(succes) {
+function getAllSociety(succes) {
     var query = "select * from `group` order by gro_id"
     var connection = dbutil.createConnection()
     connection.connect();
@@ -14,4 +14,4 @@ function getSociety(succes) {
 }
 
 
-module.exports = {"getSociety": getSociety}
+module.exports = {"getAllSociety": getAllSociety}

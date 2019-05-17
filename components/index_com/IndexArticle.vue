@@ -48,6 +48,9 @@ export default {
             ]
         }
     },
+    methods:{
+
+    },
     created(){
         this.$axios({
             method: 'get',

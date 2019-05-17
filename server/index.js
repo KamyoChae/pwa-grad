@@ -28,7 +28,7 @@ app.post("/stuRegister",loader.get('/stuRegister'))
 app.post("/groRegister",loader.get('/groRegister'))
 
 // 拉取社团列表
-app.get("/getSociety", loader.get('/getSociety'))
+app.get("/getAllSociety", loader.get('/getAllSociety'))
 
 // 修改名字
 app.get("/changeName", loader.get('/changeName'))
@@ -38,6 +38,20 @@ app.post("/changePw",loader.get('/changePw'))
 
 // 发布文章
 app.post("/sendArticle",loader.get('/sendArticle'))
+
+
+// 获取文章内容评论
+app.get("/getArtCom", loader.get('/getArtCom'))
+
+// 增加文章浏览次数
+app.get("/setSee", loader.get('/setSee'))
+
+// 获取社团信息
+app.get("/getGroInfo", loader.get('/getGroInfo'))
+
+/* 下面是即将要完善的接口 */
+
+
 
 // 监听globalconf["port"]端口
 app.listen(globalconf["port"])
