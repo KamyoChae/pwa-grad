@@ -1,14 +1,42 @@
 <template>
     <div class="wrapper">
-        <input type="text" class="title"  placeholder="请输入标题" maxlength="25">
-        <textarea name="" class="text" id="" ></textarea>
-        <botton>发布</botton>
+        <input type="text" class="title"  placeholder="请输入标题" maxlength="25" v-model="title">
+        <textarea name="" class="text" id="" v-model="text"></textarea>
+        <botton @click="sendArticle">发布</botton>
     </div>
 
 </template>
 
 <script>
 export default {
+    data(){
+        return{
+            title:'',
+            text:'',
+            user:'博学军'
+        }
+    },
+    methods:{
+        sendArticle(){
+            console.log(this.title, this.text)
+            this.$axios.post("/sendArticle", {
+                title:this.title,
+                text:this.text,
+                user:this.user
+            }).then((res)=>{
+                console.log(res)
+                if(res.data == "OK"){
+                    this.$router.push('/')
+                }else{
+                    alert('密码不对')
+                }
+
+            }).catch((err)=>{
+                console.log(err)
+                console.log('接口失效')
+            })
+        }
+    }
 
 }
 </script>

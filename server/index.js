@@ -36,5 +36,8 @@ app.get("/changeName", loader.get('/changeName'))
 // 修改密码
 app.post("/changePw",loader.get('/changePw'))
 
+// 发布文章
+app.post("/sendArticle",loader.get('/sendArticle'))
+
 // 监听globalconf["port"]端口
 app.listen(globalconf["port"])
