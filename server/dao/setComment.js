@@ -1,16 +1,16 @@
 var dbutil = require("./dbutil")
 var time = require("../util/time")
-function sendArticle(art_title, art_text, art_gro_name, succes) {
+function setComment(content, user_name, imgSrc, succes) {
 
     var nowTime = time.nowTime()
     console.log(nowTime)
 
 
-    // 名字 时间 浏览量 点赞 标题 留言库id索引 文章内容
-    // art_gro_name art_time art_see art_like art_title art_content
-    var query = "insert into `article` (`art_gro_name`, `art_time`, `art_see`, `art_like`, `art_title`, `content`) values(?,?,?,?,?,?)"
+    // 评论内容 评论人 评论人头像
+    //
+    var query = "insert into `comment` (`com_name`, `com_ctime`,  `com_like`, `com_img`, `com_content`) values(?,?,?,?,?)"
 
-    var params = [art_gro_name, nowTime, 0, 0, art_title, art_text]
+    var params = [user_name, nowTime, 0, imgSrc, content]
     var connection = dbutil.createConnection()
     connection.connect();
     connection.query(query, params, function (error, result) {
@@ -20,9 +20,10 @@ function sendArticle(art_title, art_text, art_gro_name, succes) {
             succes("Fail")
             console.log(error)
         }
+        connection.end()
     })
-    connection.end()
+
 }
 
 
-module.exports = {"sendArticle": sendArticle}
+module.exports = {"setComment": setComment}

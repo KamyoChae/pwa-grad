@@ -1,6 +1,6 @@
-var dao = require('../dao/sendArticle')
+var dao = require('../dao/setComment')
 var path = new Map()
-function sendArticle(req,res){
+function setComment(req,res){
 
     var data = ''
     req.on('data',function(chunk){
@@ -11,9 +11,11 @@ function sendArticle(req,res){
         console.log(data)
         var postData = JSON.parse(data.toString())
         // console.log(': ' + postData )
-        var {title, text, user} = postData
-        console.log(title, text, user)
-        dao.sendArticle(title, text, user, function(result){
+        // 评论内容 评论人 评论人头像
+
+        var { content, user_name, imgSrc} = postData
+        console.log( content, user_name, imgSrc)
+        dao.setComment( content, user_name, imgSrc, function(result){
 
             res.writeHead(200, {"Content-Type": "text/html;charset:utf-8"})
             res.write(result)
@@ -22,7 +24,7 @@ function sendArticle(req,res){
     })
 
 }
-path.set("/sendArticle", sendArticle)
+path.set("/setComment", setComment)
 
 
 

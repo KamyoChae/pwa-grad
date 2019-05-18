@@ -54,6 +54,8 @@ app.get("/setLike", loader.get('/setLike'))
 // 关注社团
 app.get("/forkGro", loader.get('/forkGro'))
 
+// 发送评论
+app.post("/setComment", loader.get('/setComment'))
 /* 下面是即将要完善的接口 */
 
 
