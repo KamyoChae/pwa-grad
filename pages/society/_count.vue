@@ -22,8 +22,8 @@
 
         <div class="navBar">
             <span class="active" ref="one" @click="navHandle('one')">社团简介</span>
-            <span ref="two" @click="navHandle('two')">联系方式</span>
-            <span ref="three" @click="navHandle('three')">最近动态</span>
+            <span ref="two" @click="navHandle('two')">联系地址</span>
+            <span ref="three" @click="navHandle('three')">通信方式</span>
             <span ref="four" @click="navHandle('four')">原创文章</span>
         </div>
 
@@ -181,7 +181,7 @@ export default {
         display flex 
         justify-content space-around  
         border-bottom 1px solid #eee
-        margin-bottom 3rem
+        margin-bottom 2rem
         span  
             padding .8rem 0
         .active

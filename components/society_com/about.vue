@@ -1,21 +1,28 @@
 <template>
-
-<div>
-    <p>中国书法家协会（CHINESE CALLIGRAPHERS ASSOCIATION）是中国共产党领导的全国各民族书法家组成的人民团体，是由国家级的书法家、篆刻家、书法理论家、书法教育家和书法活动组织、管理工作者组成的全国性专业组织，是中国文学艺术界联合会的团体会员。</p>
-    <p>中国书法家协会（CHINESE CALLIGRAPHERS ASSOCIATION）是中国共产党领导的全国各民族书法家组成的人民团体，是由国家级的书法家、篆刻家、书法理论家、书法教育家和书法活动组织、管理工作者组成的全国性专业组织，是中国文学艺术界联合会的团体会员。</p>
-    <p>中国书法家协会（CHINESE CALLIGRAPHERS ASSOCIATION）是中国共产党领导的全国各民族书法家组成的人民团体，是由国家级的书法家、篆刻家、书法理论家、书法教育家和书法活动组织、管理工作者组成的全国性专业组织，是中国文学艺术界联合会的团体会员。</p>
-    <p>中国书法家协会（CHINESE CALLIGRAPHERS ASSOCIATION）是中国共产党领导的全国各民族书法家组成的人民团体，是由国家级的书法家、篆刻家、书法理论家、书法教育家和书法活动组织、管理工作者组成的全国性专业组织，是中国文学艺术界联合会的团体会员。</p>
-    <p>中国书法家协会（CHINESE CALLIGRAPHERS ASSOCIATION）是中国共产党领导的全国各民族书法家组成的人民团体，是由国家级的书法家、篆刻家、书法理论家、书法教育家和书法活动组织、管理工作者组成的全国性专业组织，是中国文学艺术界联合会的团体会员。</p>
-    <p>中国书法家协会（CHINESE CALLIGRAPHERS ASSOCIATION）是中国共产党领导的全国各民族书法家组成的人民团体，是由国家级的书法家、篆刻家、书法理论家、书法教育家和书法活动组织、管理工作者组成的全国性专业组织，是中国文学艺术界联合会的团体会员。</p>
+<div class="wrapper">
+    <div class="aboutText" >
+        社团简介在这里 点击跳转到一个页面
+    </div>
 </div>
+
 </template>
 
 <script>
 export default {
+    data(){
+        return{
+            aboutText:'',
+            showWrite:true
+        }
+    },
 
 }
 </script>
 
 <style lang='stylus' scoped>
-
+.wrapper 
+    .write 
+        width 100%
+        height 100% 
+        background red
 </style>

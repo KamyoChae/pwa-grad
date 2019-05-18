@@ -74,7 +74,6 @@ export default {
         z-index 15
         pointer-events none
     .title
-        z-index 999
         position relative
         font-weight 200
         font-size 2.5rem !important 
