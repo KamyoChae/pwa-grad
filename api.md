@@ -12,7 +12,7 @@
 
 1. 拉取首页文章数据（浏览文章功能）
 
-   /getIndex 
+   /getIndex （完成）
 
    get
 
@@ -24,7 +24,7 @@
 
 1. 学生用户登录（登录功能）
 
-   /stuLogin
+   /stuLogin（完成）
 
    post 
 
@@ -38,7 +38,7 @@
 
 2. 学生用户注册（注册功能）
 
-   /stuRegister
+   /stuRegister（完成）
 
    post
 
@@ -48,7 +48,7 @@
 
 3. 社团用户登录（登录功能）
 
-   /groLogin
+   /groLogin（完成）
 
    post
 
@@ -60,17 +60,19 @@
 
 
 
-1. 拉取单篇文章内容、浏览量数据等（浏览文章功能）
+1. 拉取单篇文章留言数据等（浏览文章功能）
 
-   /getArticle?id=500
+   /getArtCom?art_id=1
 
-   get 
+   this.$axios.get('/getArticle?art_id=' id).then((res)={
 
-   获取数据之后，拿到留言id 再
+   }) 
 
-   /getCom?id=20
+   返回：留言数据
 
-   合并处理到一个接口，返回
+   
+
+   （完成）
 
    
 
@@ -80,17 +82,27 @@
 
    将某篇文章的浏览量+1
 
+   （完成）
+
    
 
 3. 获取所有社团列表（社团一览功能）
 
-   /getAllGro
+   /getSociety
 
    get 
 
+   （完成）
+
+   
+
 4. 获取某个社团所有信息（社团信息）
 
-   /getGro?id=2
+   /getGroInfo
+
+   （完成）
+
+   
 
 5. 搜索社团功能
 
@@ -100,9 +112,9 @@
 
    /searchArt
 
-7. 申请认证社团组织
+7. 申请认证社团组织（注册社团）
 
-   /groRegister 
+   /groRegister （完成）
 
 
 
@@ -114,23 +126,23 @@
 
 2. 点赞
 
-   /setLike?id=10
+   /setLike?id=10（完成）
 
 3. 修改用户名
 
-   /changeName
+   /changeName（完成）
 
    post
 
 4. 修改密码
 
-   /changePw
+   /changePw（完成）
 
    post
 
 5. 关注社团
 
-   /forkGro?id=10
+   /forkGro（完成）
 
    
 
@@ -150,7 +162,7 @@
 
 2. 发布文章
 
-   /sendArticle
+   /sendArticle （完成）
 
    
 
@@ -168,7 +180,7 @@
 
 5. 修改密码
 
-   /changePw
+   /changePw（完成）
 
 
 

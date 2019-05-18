@@ -19,5 +19,5 @@ function getGroInfo(gro_id=1, succes) {
     connection.end()
 
 }
-getGroInfo()
+// getGroInfo()
 module.exports = {"getGroInfo": getGroInfo}

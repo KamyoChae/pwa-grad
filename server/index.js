@@ -5,13 +5,11 @@ var express = require("express")
 var  globalconf = require("./config")
 
 var loader = require("./loader")
-// 引入web层的模块，通过这个模块实现接口的调用
-// var allStuContr = require("./web/allStudentController")
 
-// 使用这个express框架
+// 使用express框架
 var app = new express()
 
-// 告诉express框架，静态文件全部放在这个globalconf["page_path"]路径了
+// 静态文件全部放在globalconf["page_path"]路径
 app.use(express.static(globalconf["page_path"]))
 
 // 获取首页文章
@@ -19,11 +17,13 @@ app.get("/getIndex",loader.get('/getIndex'))
 
 // 学生登录
 app.post("/stuLogin",loader.get('/stuLogin'))
+
 // 社团登录
 app.post("/groLogin",loader.get('/groLogin'))
 
 // 学生注册
 app.post("/stuRegister",loader.get('/stuRegister'))
+
 // 社团注册
 app.post("/groRegister",loader.get('/groRegister'))
 
@@ -39,7 +39,6 @@ app.post("/changePw",loader.get('/changePw'))
 // 发布文章
 app.post("/sendArticle",loader.get('/sendArticle'))
 
-
 // 获取文章内容评论
 app.get("/getArtCom", loader.get('/getArtCom'))
 
@@ -48,6 +47,12 @@ app.get("/setSee", loader.get('/setSee'))
 
 // 获取社团信息
 app.get("/getGroInfo", loader.get('/getGroInfo'))
+
+// 点赞文章
+app.get("/setLike", loader.get('/setLike'))
+
+// 关注社团
+app.get("/forkGro", loader.get('/forkGro'))
 
 /* 下面是即将要完善的接口 */
 

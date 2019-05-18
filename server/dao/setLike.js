@@ -1,7 +1,7 @@
 var dbutil = require("./dbutil")
-function setSee(art_id=1, succes) {
+function setLike(art_id=1, succes) {
 
-    var query = "select art_see from article where art_id=? "
+    var query = "select art_like from article where art_id=? "
 
     var params = [art_id]
     var connection = dbutil.createConnection()
@@ -12,10 +12,10 @@ function setSee(art_id=1, succes) {
     connection.query(query,params,  (error, result)=>{
         // 查找文章中的评论索引数组
         if(error == null){
-            console.log(result[0].art_see)
-            seeNum = result[0].art_see
+            console.log(result[0].art_like)
+            seeNum = result[0].art_like
 
-            str = 'update `article` set art_see= ? where art_id=?'
+            str = 'update `article` set art_like= ? where art_id=?'
             params1 = [seeNum+1, art_id]
             connection.query(str, params1,  (error, result)=>{
                 // 返回评论
@@ -36,4 +36,4 @@ function setSee(art_id=1, succes) {
 
 
 }
-module.exports = {"setSee": setSee}
+module.exports = {"setLike": setLike}
