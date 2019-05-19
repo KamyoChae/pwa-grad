@@ -11,9 +11,11 @@ function changeName(num, val, uType, succes) {
     connection.connect();
     connection.query(query,params, function (error, result) {
         if(error == null){
-            succes(result) // 触发回调
+            console.log(result)
+            succes("OK") // 触发回调
         }else {
-            console.log(error)
+
+            succes("Fail")
         }
     })
     connection.end()

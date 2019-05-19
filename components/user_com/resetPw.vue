@@ -8,24 +8,43 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default { 
+    // 测试通过
     data(){
         return {
             newpw1:'',
             newpw2:'',
-            num:'11233',
-            uType:'2'
+            num:'',
+            user_type:''
         }
+    },
+    computed:{
+        ...mapState("userStore", {
+            uNum: state => state.userNum,
+            uType : state => state.userType
+        })
+    },
+    created(){
+        this.num = this.uNum
+        this.user_type = this.uType
     },
     methods:{
         changePw(){
             this.$axios.post('/api/changePw',{
                 newpw:this.newpw1,
                 num:this.num,
-                uType:this.uType
+                uType:this.user_type
             }).then((res)=>{
                 console.log(res)
-                console.log('成功修改密码') 
+                if(res.data=="OK"){
+                    // 修改密码成功
+                    // 弹出模态框
+                    
+                    console.log('成功修改密码') 
+                }else{
+                    // 修改密码失败
+                }
             }).catch((err)=>{
                 console.log(err)
                 console.log('接口失效')

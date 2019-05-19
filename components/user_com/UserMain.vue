@@ -40,8 +40,7 @@ export default {
     },
     mounted(){ 
         water(this.$refs.mcanvas1, this.color1, 50 ,0.01 ) 
-        water(this.$refs.mcanvas2, this.color2, 30 , 0.03)  
-        this.$store.commit('userStore/add',1)
+        water(this.$refs.mcanvas2, this.color2, 30 , 0.03)   
     }
 }
 </script>

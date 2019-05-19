@@ -13,7 +13,7 @@
     </div> 
     <div class="nav"> 
         <span>安全</span>
-        <router-link tag="span" :to="{name:'resetPw'}">重置密码</router-link>
+        <router-link tag="span" :to="{name:'resetPw'}">修改密码</router-link>
     </div>  
     
 </div>
@@ -21,21 +21,35 @@
 </template>
 
 <script> 
+import { mapState } from 'vuex';
 export default {
+    // 测试通过
     data(){
         return {
-            value : "王大锤",
+            value : "",
             user_num:'11233',
             user_type:'2'
         }
     },
+    computed:{
+        ...mapState('userStore',{
+            uNum: state => state.userNum,
+            uType: state => state.userType,
+            uName:state => state.userName
+        })
+    },
+    created(){
+        this.value = this.uName
+        console.log(this.uName)
+    },
     methods:{
         sendName(){
-            this.$axios.get(
-                `/api/changeName?num=${this.user_num}&vale=${this.value}&uType=${this.user_type}` 
-            ).then((res)=>{
+            console.log('开始修改名字')
+            this.$axios.get(`/api/changeName?num=${this.user_num}&vale=${this.value}&uType=${this.user_type}`)
+            .then((res)=>{
                 console.log(res)
                 console.log('成功修改名字') 
+                this.$store.commit('userStore/changeName',this.value)
             }).catch((err)=>{
                 console.log(err)
                 console.log('接口失效')

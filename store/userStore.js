@@ -20,4 +20,7 @@ export const mutations = {
         state.userNum = userObj.NUM 
         console.log(state)
     }, 
+    changeName(state,val){
+        state.userName = val
+    }
 };

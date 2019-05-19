@@ -12,6 +12,7 @@ function changePw(pw, num, uType, succes) {
     connection.connect();
     connection.query(query, params, function (error, result) {
         if(error == null){
+            console.log(result)
             succes("OK") // 触发回调
         }else {
             succes("Fail")
