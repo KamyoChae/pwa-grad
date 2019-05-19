@@ -29,7 +29,7 @@ export default {
     editAddress() {
         this.showBtn = false // 隐藏按钮
       this.$axios
-        .post("/editAddress", {
+        .post("/api/editAddress", {
           add: this.address,
           gro_num: this.user_num
         })

@@ -24,6 +24,7 @@
         "cookie-parser": "^1.4.4",
         "cross-env": "^5.1.1",
         "es6-promise": "^4.1.1",
+        "fs": "0.0.1-security",
         "iscroll": "5.1.0",
         "lavas-core-vue": "^1.1.11",
         "normalize.css": "^7.0.0",

@@ -18,13 +18,18 @@ function stuLogin(req,res){
             }else {
                 if(result[0].stu_pw == passWord){
                     console.log('成功')
-                    resState = 'OK'
+                    var writed = {state:'OK', user_type: 0, stu_num: result[0].stu_num,
+                        stu_name: result[0].stu_name }
+                    res.cookie("user_type", 0)
+                    res.cookie("is_login", 'true')
+
+                    resState = JSON.stringify(writed)
                 }else {
                     console.log('匹配失败')
                     resState = 'Fail'
                 }
             }
-            // res.writeHead(200, {"Content-Type": "text/html;charset:utf-8"})
+            res.writeHead(200, {"Content-Type": "text/html;charset:utf-8"})
             res.write(resState)
             res.end()
         })

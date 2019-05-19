@@ -37,7 +37,7 @@
                     <!-- 单个区块 -->
                     <li v-for="(block, index) in blocks" :key="index" class="app-sidebar-block"> 
                         <ul v-if="block.list">
-                            <li v-for="item in block.list" :key="item.text" @click.stop="closeAndGo(item.route)">
+                            <li v-for="item in block.list" :key="item.text" @click.stop="closeAndGo(item.route, item.check)">
                                 <span v-if="item.icon || item.image" class="app-sidebar-block-left-icon">
                                     <img v-if="item.image" :src="item.image" :alt="item.alt"></img>
                                     <v-icon v-else-if="item.icon">{{ item.icon }}</v-icon>
@@ -55,7 +55,7 @@
 <script>
 import {mapState} from 'vuex';
 import Sidebar from './Sidebar';
-
+import getCookie from '@/static/js/getCookie'
 export default {
     components: {
         Sidebar
@@ -89,8 +89,22 @@ export default {
         close() {
             this.sidebarStatus = false;
         },
-        closeAndGo(route) {
-            this.$router.push(route);
+        closeAndGo(route, checkCookie) {
+            if(checkCookie){ // checkCookie表示要检查cookie
+                // 需要检查cookie 如果为true 说明没有登录 
+                // 则跳转到登录界面
+                console.log(getCookie("is_login"))
+                var is_login = getCookie("is_login") 
+                if(is_login == 'true'){
+                    // 说明已经登录
+                    this.$router.push(route);
+                }else{
+                    this.$router.push('/login')
+                }
+            }else{ 
+                // 否则进入对应的页面
+                this.$router.push(route);
+            }
             this.close();
         }
     }

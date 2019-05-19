@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import water from '@/static/js/util'
 // import func from '../../../../vue/notebook/vue-temp/vue-editor-bridge';
 export default {
@@ -52,6 +53,9 @@ export default {
 
         }
     },
+    computed:{
+ 
+    },
     methods: {
         toRegister(){ 
             // 登录注册页切换
@@ -63,7 +67,7 @@ export default {
         },
         stuRegister(){
             // 学生账户注册 
-                this.$axios.post("/stuRegister", { 
+                this.$axios.post("/api/stuRegister", { 
                     userName:this.userName,
                     userPw:this.userPw
                 }).then((res)=>{
@@ -82,13 +86,21 @@ export default {
         Login(userType){
             if(userType == 2){
                 // 学生登录 this.userType == 2
-                this.$axios.post("/stuLogin", {
+                this.$axios.post("/api/stuLogin", {
                     userType:userType,
                     userName:this.userName,
                     userPw:this.userPw
                 }).then((res)=>{
                     console.log(res)
-                    if(res.data == "OK"){
+                    if(res.data.state == "OK"){
+                        // 将学生号数据放到vuex树上面
+                        var data = res.data  
+                        var user = {
+                            NAME : data.stu_name,
+                            NUM : data.stu_num,
+                            TYPE : data.user_type
+                        }
+                        this.$store.commit('userStore/getStuInfo', user)
                         this.$router.push('/')
                     }else{
                         alert('密码不对')
@@ -101,7 +113,7 @@ export default {
             }else if(userType == 1){
                  
                 // 社团登录 this.userType == 1
-                this.$axios.post("/groLogin", {
+                this.$axios.post("/api/groLogin", {
                     userType:userType,
                     userName:this.userName,
                     userPw:this.userPw

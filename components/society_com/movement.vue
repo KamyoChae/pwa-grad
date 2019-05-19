@@ -40,7 +40,7 @@ export default {
       sendMom(){
           this.showBtn = false
           // axios
-          this.$axios.post("/editConnect",{
+          this.$axios.post("/api/editConnect",{
                 emailNum:this.emailNum,   
                 qqNum: this.qqNum,
                 user_num: this.user_num,

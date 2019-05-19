@@ -19,7 +19,7 @@ export default {
     },
     methods:{
         changePw(){
-            this.$axios.post('/changePw',{
+            this.$axios.post('/api/changePw',{
                 newpw:this.newpw1,
                 num:this.num,
                 uType:this.uType

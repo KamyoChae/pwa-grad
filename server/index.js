@@ -6,56 +6,63 @@ var  globalconf = require("./config")
 
 var loader = require("./loader")
 
+var cookie = require("cookie-parser")
+
 // 使用express框架
 var app = new express()
 
 // 静态文件全部放在globalconf["page_path"]路径
 app.use(express.static(globalconf["page_path"]))
 
+app.use(cookie())
+
+app.get('/api/*',function (req,res,next) {
+    console.log(req.cookies)
+})
 // 获取首页文章
-app.get("/getIndex",loader.get('/getIndex'))
+app.get("/api/getIndex",loader.get('/getIndex'))
 
 // 学生登录
-app.post("/stuLogin",loader.get('/stuLogin'))
+app.post("/api/stuLogin",loader.get('/stuLogin'))
 
 // 社团登录
-app.post("/groLogin",loader.get('/groLogin'))
+app.post("/api/groLogin",loader.get('/groLogin'))
 
 // 学生注册
-app.post("/stuRegister",loader.get('/stuRegister'))
+app.post("/api/stuRegister",loader.get('/stuRegister'))
 
 // 社团注册
-app.post("/groRegister",loader.get('/groRegister'))
+app.post("/api/groRegister",loader.get('/groRegister'))
 
 // 拉取社团列表
-app.get("/getAllSociety", loader.get('/getAllSociety'))
+app.get("/api/getAllSociety", loader.get('/getAllSociety'))
 
 // 修改名字
-app.get("/changeName", loader.get('/changeName'))
+app.get("/api/changeName", loader.get('/changeName'))
 
 // 修改密码
-app.post("/changePw",loader.get('/changePw'))
+app.post("/api/changePw",loader.get('/changePw'))
 
 // 发布文章
-app.post("/sendArticle",loader.get('/sendArticle'))
+app.post("/api/sendArticle",loader.get('/sendArticle'))
 
 // 获取文章内容评论
-app.get("/getArtCom", loader.get('/getArtCom'))
+app.get("/api/getArtCom", loader.get('/getArtCom'))
 
 // 增加文章浏览次数
-app.get("/setSee", loader.get('/setSee'))
+app.get("/api/setSee", loader.get('/setSee'))
 
 // 获取社团信息
-app.get("/getGroInfo", loader.get('/getGroInfo'))
+app.get("/api/getGroInfo", loader.get('/getGroInfo'))
 
 // 点赞文章
-app.get("/setLike", loader.get('/setLike'))
+app.get("/api/setLike", loader.get('/setLike'))
 
 // 关注社团
-app.get("/forkGro", loader.get('/forkGro'))
+app.get("/api/forkGro", loader.get('/forkGro'))
 
 // 发送评论
-app.post("/setComment", loader.get('/setComment'))
+app.post("/api/setComment", loader.get('/setComment'))
 /* 下面是即将要完善的接口 */
 
 

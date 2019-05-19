@@ -32,7 +32,7 @@ export default {
     methods:{
         sendName(){
             this.$axios.get(
-                `/changeName?num=${this.user_num}&vale=${this.value}&uType=${this.user_type}` 
+                `/api/changeName?num=${this.user_num}&vale=${this.value}&uType=${this.user_type}` 
             ).then((res)=>{
                 console.log(res)
                 console.log('成功修改名字') 

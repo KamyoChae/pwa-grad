@@ -19,7 +19,7 @@ export default {
     methods:{
         sendArticle(){
             console.log(this.title, this.text)
-            this.$axios.post("/sendArticle", {
+            this.$axios.post("/api/sendArticle", {
                 title:this.title,
                 text:this.text,
                 user:this.user

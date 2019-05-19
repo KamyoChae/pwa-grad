@@ -10,7 +10,7 @@
         
         <div class="userIcon">
             <img src="./images/user.jpg" alt="">
-            <span>王大锤</span>
+            <span>{{userName}}</span>
         </div>
 
 
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import water from '@/static/js/util'
 export default {
     props:["color1", "color2"],
@@ -30,9 +31,17 @@ export default {
     methods:{
 
     },
+    computed:{
+        ...mapState('userStore', { 
+            userName:state => state.userName,
+            userType:state => state.userType,
+            userNum :state => state.userNum
+        })
+    },
     mounted(){ 
         water(this.$refs.mcanvas1, this.color1, 50 ,0.01 ) 
         water(this.$refs.mcanvas2, this.color2, 30 , 0.03)  
+        this.$store.commit('userStore/add',1)
     }
 }
 </script>

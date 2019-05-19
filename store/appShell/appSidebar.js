@@ -34,12 +34,14 @@ export const state = () => {
                     {
                         text: '个人中心',
                         icon: 'sentiment_satisfied',
-                        route: '/user'
+                        route: '/user',
+                        check: true
                     },
                     {
                         text: '我的关注',
                         icon: 'sentiment_neutral',
-                        route: '/focus'
+                        route: '/focus',
+                        check: true
                     },
                     {
                         text: '系统消息',
@@ -48,6 +50,7 @@ export const state = () => {
                         icon: 'sentiment_satisfied',
                         // route: '/detail/2'
                         route: '/system',
+                        check: true
                     },
                     {
                         text: '社团资料',

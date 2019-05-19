@@ -39,7 +39,7 @@ export default {
        
         adminLogin(){
         
-            this.$axios.post("/adminLogin", { 
+            this.$axios.post("/api/adminLogin", { 
                 userName:this.userName,
                 userPw:this.userPw
             }).then((res)=>{
