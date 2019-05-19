@@ -1,21 +1,21 @@
 <template>
 <div class="wrapper"> 
     <div class="articlebox">
-        <router-link tag="div" v-for="item in items" :key="item.id" :to="{name:'articleArticleId', params:{articleId:1}}" class="article">
+        <div v-for="item in items" :key="item.art_id"  class="article" @click="toArticle(item.art_id)">
             <div class="top">
-                <span class="user">{{item.user}}</span>
+                <span class="user">{{item.art_gro_name}}</span>
                 
             </div>
             <div class="body">
-                <span class="title">{{item.title}}</span>
-                <span class="text">{{item.text}}</span>
+                <span class="title">{{item.art_title}}</span>
+                <span class="text">{{item.content}}</span>
             </div>
             <div class="foot">
-                <span class="see">{{item.see}}</span>
-                <span class="hand">{{item.hand}}</span>
-                <span class="comment">{{item.comment}}</span>
+                <span class="see">{{item.art_see}} 浏览</span>
+                <span class="hand">{{item.art_like}} 赞</span>
+                <span class="comment">{{item.art_time}}</span>
             </div>
-         </router-link> 
+         </div> 
          
     </div>
 </div>
@@ -26,30 +26,18 @@
 export default {
     data(){
         return {
-            items:[
-                {
-                    'id':'11',
-                    'user':'博学君',
-                    'title':'从皴擦点染中领悟国画的精美',
-                    'text':'所有高级的美，都应当是这样子的。',
-                    'see':'2654浏览',
-                    'hand':'56赞',
-                    'comment':'656评论'
-                },
-                {
-                    'id':'12',
-                    'user':'博学君',
-                    'title':'三个和尚与三头毛驴',
-                    'text':'有一天，胖和尚在路上遇到了一头毛驴。',
-                    'see':'1234浏览',
-                    'hand':'562赞',
-                    'comment':'6256评论'
-                }
-            ]
+            items:[ ]
         }
     },
     methods:{
-
+        toArticle(id){
+            var thisArticle = this.items.filter((el, index)=>{
+                return el.art_id == id
+            })
+            // console.log(thisArticle)
+            this.$store.commit('articleStore/clickArt',thisArticle)
+            this.$router.push({name:'articleArticleId', params:{articleId:id}})
+        }
     },
     created(){
         this.$axios({
@@ -61,6 +49,7 @@ export default {
             }
         }).then((res)=>{
             console.log(res)
+            this.items = res.data
         }).catch((err)=>{
             console.log(err)
         })
@@ -112,7 +101,9 @@ export default {
                 display block
                 font-size .9rem 
                 color #777
-                margin .5rem 0
+                margin .5rem 0 
+                max-height 4.5em 
+                overflow hidden
         .foot
             font-size .8em
             color #888

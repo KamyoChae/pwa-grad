@@ -1,13 +1,13 @@
 <template>
-    <div> 
+    <div class="wrapper"> 
         <IndexHot />
         <IndexArticle />  
-         <router-link tag="div"  class="toEdit" :to="{name:'edit'}"><i class="iconfont round_add_light">&#xe7a7;</i></router-link >   
+         <router-link tag="div" v-if="showEdit" class="toEdit" :to="{name:'edit'}"><i class="iconfont round_add_light">&#xe7a7;</i></router-link >   
     </div>
 </template>
 
 <script> 
-import {mapActions} from 'vuex';
+import {mapState, mapActions} from 'vuex';
 import IndexHot from '@/components/index_com/IndexHot'
 import IndexArticle from '@/components/index_com/IndexArticle'
 
@@ -32,25 +32,35 @@ export default {
     components:{
         IndexHot,
         IndexArticle,
-    },
-    metaInfo: {
-        title: 'Home',
-        titleTemplate: '%s - Lavas',
-        meta: [
-            {name: 'keywords', content: 'lavas PWA'},
-            {name: 'description', content: '基于 Vue 的 PWA 解决方案，帮助开发者快速搭建 PWA 应用，解决接入 PWA 的各种问题'}
-        ]
-    },
+    }, 
     async asyncData({store, route}) {
         setState(store);
     },
     activated() {
         setState(this.$store);
+    },
+    data(){
+        return {
+            showEdit:false
+        }
+    },
+    computed:{
+        ...mapState('userStore', {
+            userType:state => state.userType
+        })
+    },
+    created(){ 
+        console.log(this.userType )
+        if(this.userType == 1){
+            this.showEdit = true 
+        }
     }
 };
 </script>
 
 <style lang="stylus" scoped>
+.wrapper 
+    background #f9f9f9 !important
 .toEdit
     position fixed 
     display block

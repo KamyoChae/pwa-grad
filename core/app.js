@@ -4,8 +4,10 @@
  */
 
 import Vue from 'vue';
-import Meta from 'vue-meta';
+import Meta from 'vue-meta'; 
 
+import VueHtml5Editor from 'vue-html5-editor'
+Vue.use(VueHtml5Editor,options);
 
 import {createRouter} from '@/.lavas/router';
 import {createStore} from '@/.lavas/store';

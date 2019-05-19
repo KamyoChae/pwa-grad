@@ -1,7 +1,7 @@
 var dbutil = require("./dbutil")
 function stuRegister(stu_num,stu_name,stu_pw, succes) {
 
-    var insert = "insert into `student`(`stu_num`, `stu_name`, `stu_pw`, `stu_state`) values(?,?,?,1)"
+    var insert = "insert into `student`(`stu_num`, `stu_name`, `stu_pw`, `stu_state`, `login_type`) values(?,?,?,1,2)"
     var query = "select * from `student` where stu_name=" + stu_name
     var params = [stu_num, stu_name, stu_pw]
     console.log(params)

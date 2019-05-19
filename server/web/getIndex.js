@@ -11,11 +11,5 @@ function getIndex(req,res){
 }
 path.set("/getIndex", getIndex)
 
-function getIndex2(req,res){
-    console.log(req)
-    console.log("发送了getIndex")
-}
-path.set("/getIndex2", getIndex2)
-
 
 module.exports.path = path

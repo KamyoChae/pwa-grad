@@ -1,10 +1,4 @@
 
-
-/**
- * @file pageTransition module
- * @author lavas
- */
-
 export const state = () => {
     return {
         userName: '王老吉',

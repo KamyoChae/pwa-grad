@@ -20,7 +20,7 @@ function stuLogin(req,res){
                     console.log('成功')
                     var writed = {state:'OK', user_type: 0, stu_num: result[0].stu_num,
                         stu_name: result[0].stu_name }
-                    res.cookie("user_type", 0)
+                    res.cookie("user_type", 2)
                     res.cookie("is_login", 'true')
 
                     resState = JSON.stringify(writed)
