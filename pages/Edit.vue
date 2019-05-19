@@ -1,8 +1,14 @@
 <template>
     <div class="wrapper">
         <input type="text" class="title"  placeholder="请输入标题" maxlength="25" v-model="title">
-        <textarea name="" class="text" id="" v-model="text"></textarea>
-        <botton @click="sendArticle">发布</botton>
+        <!-- <textarea name="" class="text" id="" v-model="text"></textarea> -->
+        <div class="text"
+         contenteditable="true"
+         @paste="paste"
+         @input="input" ref="texts"></div>
+
+        <button @click="sendArticle">发布</button>
+        
     </div>
 
 </template>
@@ -13,7 +19,7 @@ export default {
         return{
             title:'',
             text:'',
-            user:'博学军'
+            user:'博学军',
         }
     },
     methods:{
@@ -35,8 +41,20 @@ export default {
                 console.log(err)
                 console.log('接口失效')
             })
+        },
+        paste(e) {
+                e.preventDefault()
+                const html = e.clipboardData.getData('text/html')
+                document.execCommand('insertHTML', false, html)
+                this.input()
+            },
+        input() {
+            const v = this.$refs.texts.innerHTML
+            this.text = v
+            
         }
-    }
+
+    },
 
 }
 </script>
@@ -44,7 +62,7 @@ export default {
 <style lang='stylus' scoped>
 .wrapper 
     padding 1rem 
-    input , .text , botton
+    input , .text , button
         width 100% 
         padding .5em 1em 
         font-size 1.2rem !important
@@ -52,11 +70,14 @@ export default {
         margin-bottom 1rem 
         border-radius 1rem
     .text 
-        height 60vh
+        min-height 60vh
         margin-bottom 3rem 
-    botton 
+        text-align left 
+        font-size .9rem !important
+    button 
         color #fff 
         background #1976d2
         padding .8rem 4rem
         width 100%  
+
 </style>

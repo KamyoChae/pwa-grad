@@ -14,7 +14,7 @@ function getArtCom(art_id=1, succes) {
             // succes(result) // 触发回调
             comList = result[0].comment_id
 
-            str = 'select * from `comment` where com_id in '+'('+comList+')'
+            str = 'select * from `comment` where com_id in '+'('+comList+') order by com_like desc'
 
             connection.query(str, comList,  (error, result)=>{
                 // 返回评论

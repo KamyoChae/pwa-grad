@@ -10,32 +10,32 @@
             </div>
         </div>
 
-        <div class="content-text">
-            {{art.content}}
+        <div class="content-text" v-html="art.content"> 
         </div>
         <div class="content-foot">
             <span class="iconfont">
-                &#xe7b5; {{art.art_see}} &#xe669; {{art.art_like}}
+                &#xe7b5; <span>{{sees}} </span> &#xe669; <span>{{likes}}<span>
             </span> 
         </div>
     </div>
     <div class="comment">
         <!-- 评论 --> 
-        <div class="com-item">
+        <div class="com-item" v-for="com in comments" :key="com.com_id">
             <div class="usericon"></div>
-            <div class="user"> 
-                <span class="username">王小白</span>
-                <span class="usercomment">不错不错，学到了</span>
+            <div class="user">
+                <span class="username">{{com.com_name}}</span>
+                <span class="usercomment">{{com.com_content}}</span>
             </div>
-            <span class="agree"><i class='iconfont'>&#xe644;</i></span>
+            <span class="agree"><i class='iconfont'>&#xe644;<span class="agree_num" > {{com.com_like}}</span></i></span>
         </div>
          
     </div>
     <div class="setcomment">
         <!-- 编辑评论 -->
-        <input type="text" placeholder="我有一个想法...">
-        <span class="ty iconfont">&#xe668; </span>
-        <span class="send iconfont">&#xe731;</span>
+        <input type="text" placeholder="我有一个想法..." v-model="nowVal">
+        <span class="ty iconfont" @click="setLike" ref="likeIcon">&#xe669; </span>
+
+        <span class="send iconfont" @click="setComment">&#xe731;</span>
     </div>
 </div>
 </template>
@@ -45,22 +45,69 @@ import {mapState} from 'vuex'
 export default {
     data(){
         return{
+            comments:[],
+            nowVal:'',
+            artId : '',
+            like:'',
+            canLike:true,
+            likes:'',
+            sees:''
+        }
+    },
+    methods:{
+        setLike(){
+            if(this.canLike){
+                console.log(this.artId)
+                this.$axios.get('/api/setLike?art_id=' + this.artId).then((res)=>{
+                    console.log('点赞成功')
+                    console.log(res)
+                    if(res.data=="OK"){
+                        this.likes += 1
+                        this.$refs.likeIcon.innerHTML = '&#xe668; '
+                        this.canLike = false 
+                    }
+
+                })
+            }
+            
+        },
+        setComment(){
+
         }
     },
     computed:{
         ...mapState('articleStore', {
             art : state => state.art
+
+        }),
+    },
+    mounted(){
+        this.likes = this.art.art_like
+        this.sees = this.art.art_see + 1
+
+        this.$axios.get('/api/setSee?art_id=' + this.artId).then((res)=>{
+            console.log('浏览文章')
+            console.log(res)
+            if(res.data=="OK"){
+                this.sees += 1 
+                this.canLike = false
+                console.log(this.$refs.likes.innerHTML)
+            }
+
         })
     },
     created(){
+        console.log(this.art)
         var id = this.art.art_id
+        this.artId = id
         this.$axios.get("/api/getArtCom?art_id=" + id).then((res)=>{
             console.log('获得评论数据')
             console.log(res)
-
+            this.comments = res.data 
         }).catch((err)=>{
             console.log("接口失效")
         })
+ 
     }
 
 }
@@ -90,6 +137,9 @@ export default {
         font-size .9rem
         .iconfont 
             font-size 1rem 
+            span 
+                display inline-block 
+                padding-right .5em
 
 .comment
     padding-bottom 15vh
@@ -124,6 +174,8 @@ export default {
                 border-radius 50%
                 font-size 1.4rem
                 // border 1px solid #2196f3
+                .agree_num
+                    font-size 1rem
 
 .setcomment
     width 100vw

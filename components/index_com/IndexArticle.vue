@@ -8,7 +8,7 @@
             </div>
             <div class="body">
                 <span class="title">{{item.art_title}}</span>
-                <span class="text">{{item.content}}</span>
+                <span class="text" v-html="item.content"></span>
             </div>
             <div class="foot">
                 <span class="see">{{item.art_see}} 浏览</span>

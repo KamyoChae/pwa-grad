@@ -21,7 +21,7 @@ function setSee(art_id=1, succes) {
                 // 返回评论
                 if(error == null){
 
-                    // succes(result)
+                    succes("OK")
                 }else {
                     console.log('dao层==>getArticle接口出错')
                 }

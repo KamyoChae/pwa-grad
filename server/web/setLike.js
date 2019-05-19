@@ -1,4 +1,4 @@
-var dao = require('../dao/setSee')
+var dao = require('../dao/setLike')
 var url = require('url')
 var path = new Map()
 function setLike(req,res){
