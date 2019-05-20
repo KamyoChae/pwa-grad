@@ -8,7 +8,7 @@
                     <span class="username">{{item.gro_name}}</span>
                     <span class="usercomment">{{item.gro_id}}</span>
                 </div> 
-                <span class="focus"><i>关注</i></span>
+                <!-- <span class="focus"><i>关注</i></span> -->
             </div> 
         </router-link> 
     </div>

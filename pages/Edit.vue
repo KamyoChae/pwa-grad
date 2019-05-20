@@ -25,10 +25,11 @@ export default {
     methods:{
         sendArticle(){
             console.log(this.title, this.text)
+            var uSer = JSON.parse(localStorage.getItem('user'))
             this.$axios.post("/api/sendArticle", {
                 title:this.title,
                 text:this.text,
-                user:this.user
+                user:uSer.NAME
             }).then((res)=>{
                 console.log(res)
                 if(res.data == "OK"){
