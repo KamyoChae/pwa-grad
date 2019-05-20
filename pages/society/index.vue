@@ -2,26 +2,16 @@
 
 <div class="wrapper"> 
     <div class="checklist">
-        <router-link tag="div" :to="{name:'societyCount', params: { count: 1}}" ><img src="http://img.52z.com/upload/news/image/20181108/20181108204521_83402.jpg" alt=""> 
-        <span>
-            萤火虫书画
-        </span> 
-        </router-link >  
-                <router-link tag="div" :to="{name:'societyCount', params: { count: 1}}" ><img src="http://img.52z.com/upload/news/image/20181108/20181108204521_83402.jpg" alt=""> 
-        <span>
-            萤火虫书画
-        </span> 
-        </router-link >  
-                <router-link tag="div" :to="{name:'societyCount', params: { count: 1}}" ><img src="http://img.52z.com/upload/news/image/20181108/20181108204521_83402.jpg" alt=""> 
-        <span>
-            萤火虫书画
-        </span> 
-        </router-link >  
-                <router-link tag="div" :to="{name:'societyCount', params: { count: 1}}" ><img src="http://img.52z.com/upload/news/image/20181108/20181108204521_83402.jpg" alt=""> 
-        <span>
-            萤火虫书画
-        </span> 
-        </router-link >  
+        <router-link tag="div" v-for="gro in gro_list" :key="gro.gro_id" :to="{name:'societyCount', params: { count: gro.gro_id}}" ><img src="http://img.52z.com/upload/news/image/20181108/20181108204521_83402.jpg" alt=""> 
+        <div class="gro_info">
+            <span>{{gro.gro_name}}</span>
+            <div class="about">
+
+                <span>{{Number(gro.gro_fans)}} 关注</span>
+                <span>{{Number(gro.art_count)}} 篇文章</span>
+            </div>
+        </div> 
+         </router-link>
         
         
     </div> 
@@ -34,7 +24,7 @@
 export default {    
     data(){
         return {
-
+            gro_list:[], 
         }
     },
     methods:{
@@ -47,6 +37,7 @@ export default {
         this.$axios.get("/api/getAllSociety").then((res)=>{
             console.log(res)
             console.log('成功拉取数据') 
+            this.gro_list = res.data
         }).catch((err)=>{
             console.log(err)
             console.log('接口失效')
@@ -71,7 +62,22 @@ export default {
                 height 3em
                 border 1px solid #ddd 
                 border-radius 50%
-            span 
+            div.gro_info
+                
                 padding 0 .5em 
-        
+                display flex
+                flex-direction column
+                justify-content center
+                align-items flex-start
+                border none
+                .about 
+                    padding 0
+                    border none
+                .about span 
+                    display inline-block
+                    font-size .8rem
+                    padding-right 1em
+                    color #888
+
+
 </style>

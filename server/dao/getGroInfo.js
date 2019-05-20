@@ -1,7 +1,7 @@
 var dbutil = require("./dbutil")
 function getGroInfo(gro_id=1, succes) {
 
-    var query = "select `gro_id`, `gro_num`, `gro_name`, `gro_leader`,`gro_phone`, `gro_about`, `gro_address`, `gro_article_list`, `gro_fans`, `img_list`, `gro_qq` from `group` where gro_id=? "
+    var query = "select `gro_id`, `gro_num`, `gro_name`, `gro_leader`,`gro_phone`, `gro_about`, `gro_address`, `gro_article_list`, `gro_fans`, `img_list`, `gro_qq`, `art_count` from `group` where gro_id=? "
 
     var params = [gro_id]
     var connection = dbutil.createConnection()
