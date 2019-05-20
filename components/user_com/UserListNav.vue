@@ -27,7 +27,7 @@ export default {
     data(){
         return {
             value : "",
-            user_num:'11233',
+            user_num:'',
             user_type:'2'
         }
     },
@@ -39,8 +39,11 @@ export default {
         })
     },
     created(){
-        this.value = this.uName
-        console.log(this.uName)
+        var user = JSON.parse(localStorage.getItem("user"))
+
+        this.value = user.NAME
+        this.user_num = user.NUM
+        console.log(this.uName, this.uNum)
     },
     methods:{
         sendName(){
@@ -49,6 +52,16 @@ export default {
             .then((res)=>{
                 console.log(res)
                 console.log('成功修改名字') 
+                var that = this 
+                var user = {
+                    NAME : that.value,
+                    NUM : that.user_num,
+                    TYPE : that.user_type
+                }
+                        
+                this.$store.commit('userStore/getStuInfo', user)
+                localStorage.setItem("user", JSON.stringify(user))
+
                 this.$store.commit('userStore/changeName',this.value)
             }).catch((err)=>{
                 console.log(err)

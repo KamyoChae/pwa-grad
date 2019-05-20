@@ -5,11 +5,11 @@ function stuLogin(req,res){
     req.on('data',function(data){
         var postData = JSON.parse(data.toString())
 
-        var userName = postData.userName
+        var userNum = postData.userNum
         var passWord = postData.userPw
         // console.log(postData.userName)
         // console.log("发送了stuLogin")
-        dao.stuLogin(userName, function(result){
+        dao.stuLogin(userNum, function(result){
             console.log(result)
             var resState = ''
             if(result == null || result.length == 0){
@@ -18,12 +18,13 @@ function stuLogin(req,res){
             }else {
                 if(result[0].stu_pw == passWord){
                     console.log('成功')
-                    var writed = {state:'OK', user_type: 0, stu_num: result[0].stu_num,
+                    var writed = {state:'OK', user_type: result[0].login_type, stu_num: result[0].stu_num,
                         stu_name: result[0].stu_name }
-                    res.cookie("user_type", 2)
+                    res.cookie("user_type", 1)
                     res.cookie("is_login", 'true')
 
                     resState = JSON.stringify(writed)
+                    console.log(resState)
                 }else {
                     console.log('匹配失败')
                     resState = 'Fail'

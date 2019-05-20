@@ -8,11 +8,11 @@ export const state = () => {
 };
 
 export const mutations = {
-    getStuInfo(state,userObj){
+    getStuInfo(state, userObj){
         state.userName = userObj.NAME 
         state.userType = userObj.TYPE 
         state.userNum = userObj.NUM 
-        console.log(state)
+        console.log("输出一个userObj：-----------------"+JSON.stringify(userObj))
     }, 
     changeName(state,val){
         state.userName = val

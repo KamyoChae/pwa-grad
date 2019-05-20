@@ -4,9 +4,9 @@ function groLogin(req,res){
 
     req.on('data',function(data){
         var postData = JSON.parse(data.toString())
-        var userName = postData.userName
+        var userNum = postData.userNum
         var passWord = postData.userPw
-        dao.groLogin(userName, function(result){
+        dao.groLogin(userNum, function(result){
 
             var resState = ''
             if(result == null || result.length == 0){
@@ -15,7 +15,12 @@ function groLogin(req,res){
             }else {
                 if(result[0].gro_pw == passWord){
                     console.log('成功')
-                    resState = 'OK'
+                    var writed = {state:'OK', user_type: result[0].login_type, gro_num: result[0].gro_num,
+                        gro_name: result[0].gro_name }
+                    res.cookie("user_type", 2)
+                    res.cookie("is_login", 'true')
+
+                    resState = JSON.stringify(writed)
                 }else {
                     console.log('匹配失败')
                     resState = 'Fail'

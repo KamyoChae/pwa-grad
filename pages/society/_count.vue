@@ -14,10 +14,11 @@
         </div>
     </div>
 
+
     <div class="society-con">
         <div class="h2">
-            <span class="title">萤火虫书画协会</span>
-            <span class="focus"><i>关注</i></span> 
+            <span class="title">{{groInfo.gro_name}}</span>
+            <span class="focus" @click="forkGro"><i>关注</i></span> 
         </div>
 
         <div class="navBar">
@@ -30,19 +31,19 @@
         
         <keep-alive> 
         <!-- 社团简介 -->
-            <socAbout v-show="actArr[0].state" /> 
+            <socAbout v-show="actArr[0].state" :about="groInfo.gro_about"/> 
         </keep-alive>
         <keep-alive> 
         <!-- 联系方式 -->
-            <socAdress v-show="actArr[1].state" />  
+            <socAdress v-show="actArr[1].state" :addr="groInfo.gro_address"/>  
         </keep-alive>
         <keep-alive> 
-        <!-- 最近动态 -->
-            <socMovement v-show="actArr[2].state" />  
+        <!-- 通信方式 -->
+            <socMovement v-show="actArr[2].state" :phone="groInfo.gro_phone" :qq="groInfo.gro_qq"/>  
         </keep-alive>
         <keep-alive> 
         <!-- 原创文章 -->
-            <socArticle v-show="actArr[3].state" /> 
+            <socArticle v-show="actArr[3].state" :artList="artList"/> 
         </keep-alive>
     </div>
     
@@ -76,8 +77,10 @@ export default {
                     "image": "http://dummyimage.com/1745x492/e3c933"
                 }
             ],
-        currentIndex: 0,
-        timer: ''
+            currentIndex: 0,
+            timer: '',
+            groInfo:'',
+            artList:[]
 
         }
     },
@@ -88,6 +91,9 @@ export default {
         socMovement
     },
     methods:{
+        forkGro(){
+            // 关注社团
+        },
         navHandle(str){
               
             let dom = this.$refs[str]   
@@ -128,8 +134,28 @@ export default {
         }
     },
     mounted() {
-      this.go()  
+        this.go()   
     },
+    created(){
+        var id = localStorage.getItem("clickGro")
+        this.$axios.get('/api/getGroInfo?gro_id='+ id).then((res)=>{
+            console.log(res)
+            
+            this.groInfo = res.data[0]
+            if( this.groInfo.gro_article_list != null){
+                var list = this.groInfo.gro_article_list 
+                // this.artList = groInfo.gro_article_list.split(",") 
+                this.$axios.get('/api/getGroArtList?list=' + list).then((res)=>{
+                    console.log(res)
+                    this.artList = res.data
+                })
+            }
+            
+
+        })
+         
+
+    }
 
 }
 </script>

@@ -1,9 +1,9 @@
 var dbutil = require("./dbutil")
-function stuLogin(userName, succes) {
+function stuLogin(userNum, succes) {
 
-    var query = "select * from `student` where stu_name=?"
-    console.log(userName)
-    var params = [userName]
+    var query = "select * from `student` where stu_num=?"
+    console.log(userNum)
+    var params = [userNum]
     var connection = dbutil.createConnection()
     connection.connect();
     connection.query(query, params, function (error, result) {

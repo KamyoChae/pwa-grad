@@ -1,30 +1,26 @@
 <template>
   <div class="wrapper">
     <div class="about">
-      <input type="text" @blur="editAddress" v-model="address">
+      <div class="addr">{{addr}}</div> 
     </div>
     <div class="info" v-if="this.showBtn">点击其他地方即可完成修改</div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
+  props:['addr'],
   data() {
-    return {
-      address: "桂林航天工业学院12栋209",
-      user_num: "546856",
+    return {  
       showBtn:false,
     };
-  },
-  watch:{
-      address(pro,old){
-          if(pro !== old){
-              this.showBtn = true 
-          }else{
-              this.showBtn = false
-          } 
-      }
-  },
+  }, 
+  computed:{
+    ...mapState('userStore',{
+      user_num:state => state.userNum
+    })
+  }, 
   methods: {
     editAddress() {
         this.showBtn = false // 隐藏按钮
@@ -48,7 +44,7 @@ export default {
 .wrapper 
     .about
         // background red
-        input 
+        .addr 
             padding .5em 1em
             width 100% 
     .info

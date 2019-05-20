@@ -1,19 +1,19 @@
-var dao = require('../dao/getGroInfo')
+var dao = require('../dao/unForkGro')
 var url = require('url')
 var path = new Map()
-function getGroInfo(req,res){
+function unForkGro(req,res){
 
     console.log(url.parse(req.url, true).query)
     var urlObj = url.parse(req.url, true).query
-    var gro_id = urlObj.gro_id // 获取该社团的id
+    var art_id = urlObj.art_id // 获取该文章的id
 
-    dao.getGroInfo(gro_id, function(result){
+    dao.unForkGro(art_id, function(result){
         res.writeHead(200, {"Content-Type": "text/html;charset:utf-8"})
         res.write(JSON.stringify(result))
         res.end()
         console.log(JSON.stringify(result))
     })
 }
-path.set("/getGroInfo", getGroInfo)
+path.set("/unForkGro", unForkGro)
 
 module.exports.path = path

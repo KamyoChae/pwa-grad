@@ -2,7 +2,7 @@
 
 <div class="wrapper"> 
     <div class="checklist">
-        <router-link tag="div" v-for="gro in gro_list" :key="gro.gro_id" :to="{name:'societyCount', params: { count: gro.gro_id}}" ><img src="http://img.52z.com/upload/news/image/20181108/20181108204521_83402.jpg" alt=""> 
+        <div  v-for="gro in gro_list" @click="toGroInfo(gro.gro_id)" :key="gro.gro_id"  ><img src="http://img.52z.com/upload/news/image/20181108/20181108204521_83402.jpg" alt=""> 
         <div class="gro_info">
             <span>{{gro.gro_name}}</span>
             <div class="about">
@@ -11,7 +11,7 @@
                 <span>{{Number(gro.art_count)}} 篇文章</span>
             </div>
         </div> 
-         </router-link>
+         </div>
         
         
     </div> 
@@ -31,6 +31,10 @@ export default {
         checkSocBan(route){
             // 动态路由配置 通过传参跳转路由
             this.$route.push(route) 
+        },
+        toGroInfo(id){ 
+            localStorage.setItem('clickGro', id)
+            this.$router.push({name:'societyCount', params: { count: id}})
         }
     },
     created(){

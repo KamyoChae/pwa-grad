@@ -44,12 +44,18 @@ app.get("/api/getArtCom", loader.get('/getArtCom'))
 // 获取社团信息
 app.get("/api/getGroInfo", loader.get('/getGroInfo'))
 
+// 获取该社团的所有文章
+app.get("/api/getGroArtList", loader.get('/getGroArtList'))
+
+
 
 // 下面接口必须登录状态进行
 app.get('/api/*',function (req,res,next) {
     // console.log(req.cookies)
     if(req.cookies.is_login === "true"){
         next()
+    }else {
+        req.redirect("/login")
     }
 
 })
@@ -74,6 +80,12 @@ app.get("/api/addAgree", loader.get('/addAgree'))
 
 // 关注社团
 app.get("/api/forkGro", loader.get('/forkGro'))
+
+// 取消关注社团
+app.get("/api/unForkGro", loader.get('/unForkGro'))
+
+// 获取关注社团列表
+app.get("/api/getForkGro", loader.get('/getForkGro'))
 
 // 发送评论
 app.post("/api/setComment", loader.get('/setComment'))

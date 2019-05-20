@@ -42,7 +42,6 @@ function sendArticle(art_title, art_text, art_gro_name, succes) {
 
                             succes("OK") // 触发回调
 
-
                             connection.end()
                         }else {
                             console.log(error)

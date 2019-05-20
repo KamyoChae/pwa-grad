@@ -1,49 +1,47 @@
 <template>
 <div class="wrapper">
-    <router-link class="com-item" :to="{name:'societyCount', params: { count: 1}}">
-        <img src="./user/images/user.jpg" class="usericon" /> 
-        <div class="user"> 
-            <div> 
-                <span class="username">社团组织名字</span>
-                <span class="usercomment">简介一句话</span>
+    <div class="listBox" v-if="forkList.length">
+        <router-link class="com-item" v-for="item in forkList" :key="item.gro_id"  :to="{name:'societyCount', params: { count: item.gro_id}}">
+            <img src="./user/images/user.jpg" class="usericon" /> 
+            <div class="user"> 
+                <div> 
+                    <span class="username">{{item.gro_name}}</span>
+                    <span class="usercomment">{{item.gro_id}}</span>
+                </div> 
+                <span class="focus"><i>关注</i></span>
             </div> 
-            <span class="focus"><i>关注</i></span>
-        </div> 
-    </router-link> 
-    <router-link class="com-item" :to="{name:'societyCount', params: { count: 1}}">
-        <img src="./user/images/user.jpg" class="usericon" /> 
-        <div class="user"> 
-            <div> 
-                <span class="username">社团组织名字</span>
-                <span class="usercomment">简介一句话</span>
-            </div> 
-            <span class="focus"><i>关注</i></span>
-        </div> 
-    </router-link> 
-        <router-link class="com-item" :to="{name:'societyCount', params: { count: 1}}">
-        <img src="./user/images/user.jpg" class="usericon" /> 
-        <div class="user"> 
-            <div> 
-                <span class="username">社团组织名字</span>
-                <span class="usercomment">简介一句话</span>
-            </div> 
-            <span class="focus"><i>关注</i></span>
-        </div> 
-    </router-link> 
+        </router-link> 
+    </div>
+
+     
 </div>
 
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
     data(){
         return{
-
+            forkList:[]
         }
     },
+    computed:{
+        ...mapState('userStore', {
+            stuName : state => state.userName
+        })
+    },
     created(){
-        this.$axios.get('/getAllSociety').then((res)=>{
-            console.log(res)
+        
+
+        this.$axios.get('/api/getForkGro?stuName=' + this.stuName).then((res)=>{
+            if(res.data == "Fail"){
+
+            }else{
+
+                this.forkList =  res.data
+                console.log(res)
+            }
         })
     }
 }

@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
     <div class="aboutText" >
-        社团简介在这里 点击跳转到一个页面
+        {{about}}
     </div>
 </div>
 
@@ -9,6 +9,7 @@
 
 <script>
 export default {
+    props:['about'],
     data(){
         return{
             aboutText:'',

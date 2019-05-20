@@ -17,7 +17,7 @@
                 </v-btn>
                 <div v-if="showLogo" @click="handleClick('logo')">
                     <slot name="logo">
-                        <img v-if="logoIcon.src" :src="logoIcon.src" :alt="logoIcon.alt" class="app-header-icon"></img>
+                        <img v-if="logoIcon.src" :src="logoIcon.src" :alt="logoIcon.alt" class="app-header-icon" />
                     </slot>
                 </div>
             </div>
@@ -93,7 +93,7 @@ export default {
             // 如果传递了路由对象，进入路由
             if (route) {
                 this.$router.push(route);
-            }
+            } 
         }
     }
 };

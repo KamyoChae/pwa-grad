@@ -1,47 +1,41 @@
 <template>
 
 <div class="wrapper">
+     
     <div class="mom">
-        <input class="email" @blur="sendMom" v-model="emailNum">
-        <input class="qq" @blur="sendMom" v-model="qqNum"/>
+        <div class="phone">{{phone}}</div>
+        <div class="qq">{{qq}}</div> 
     </div>
+
     
     <div class="info" v-if="this.showBtn">点击其他地方即可完成修改</div>
 </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
+    props:['phone', 'qq'],
   data() {
     return {
-        emailNum:'kamduo@126.com',
-        qqNum: "12055454454",
-        user_num: "546856",
+        phoneNum: this.phone,
+        qqNum: this.qq,
+        // user_num: "546856",
         showBtn:false,
     };
   },
-  watch:{
-      emailNum(pro,old){
-          if(pro !== old){
-              this.showBtn = true 
-          }else{
-              this.showBtn = false
-          } 
-      },
-      qqNum(pro,old){
-          if(pro !== old){
-              this.showBtn = true 
-          }else{
-              this.showBtn = false
-          } 
-      },
+  computed:{
+      ...mapState('userStore',{
+          user_num: state => state.userNum 
+      })
   },
+
   methods:{
       sendMom(){
           this.showBtn = false
           // axios
           this.$axios.post("/api/editConnect",{
-                emailNum:this.emailNum,   
+                phone:this.phone,   
                 qqNum: this.qqNum,
                 user_num: this.user_num,
           }).then((res)=>{
@@ -58,7 +52,7 @@ export default {
 .wrapper 
     .mom
         // background red
-        input 
+        .phone, .qq 
             padding .5em 1em
             width 100% 
     .info

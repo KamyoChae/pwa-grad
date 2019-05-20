@@ -1,47 +1,19 @@
 <template>
 <div class="wrapper">
-    <div class="artbox"> 
-        <div class="time">2019/02/02 15:10</div>
+    <div class="artbox" v-for="item in artList" :key="item.art_id" @click="toArticle(item.art_id)"> 
+        <div class="time">{{item.art_time}}</div>
         <div class="artItem"> 
-            <div class="artTitle">文章标题文章标题文章标题文章标题</div>
+            <div class="artTitle">{{item.art_title}}</div>
             
             <div class="about">
                 <i class="iconfont">
-                    &#xe7b5; 999+ 
+                    &#xe7b5; {{item.art_see}}
                 </i> 
-                <i class="iconfont border">&#xe669; 659</i>
-                <i class='iconfont'>&#xe644; 655</i>
+                <i class="iconfont">&#xe669; {{item.art_like}}</i> 
             </div>
         </div> 
     </div>
-    <div class="artbox"> 
-        <div class="time">2019/02/02 15:10</div>
-        <div class="artItem"> 
-            <div class="artTitle">文章标题文章标题文章标题文章标题</div>
-            
-            <div class="about">
-                <i class="iconfont">
-                    &#xe7b5; 999+ 
-                </i> 
-                <i class="iconfont border">&#xe669; 659</i>
-                <i class='iconfont'>&#xe644; 655</i>
-            </div>
-        </div> 
-    </div>
-    <div class="artbox"> 
-        <div class="time">2019/02/02 15:10</div>
-        <div class="artItem"> 
-            <div class="artTitle">文章标题文章标题文章标题文章标题</div>
-            
-            <div class="about">
-                <i class="iconfont">
-                    &#xe7b5; 999+ 
-                </i> 
-                <i class="iconfont border">&#xe669; 659</i>
-                <i class='iconfont'>&#xe644; 655</i>
-            </div>
-        </div> 
-    </div>
+     
  
 </div>
 
@@ -49,6 +21,18 @@
 
 <script>
 export default {
+    props:['artList'],
+    data(){
+        return { 
+        }
+    }, 
+    methods:{
+        toArticle(id){
+            localStorage.setItem("artId", id)  
+            this.$store.commit('articleStore/clickArt', id) 
+            this.$router.push({name:'articleArticleId', params:{articleId:id}})
+        }
+    }
 
 }
 </script>

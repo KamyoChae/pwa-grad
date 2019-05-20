@@ -13,7 +13,7 @@
         <div class="title" v-else>注册</div>
  
         <div class="inputbox">
-            <input type="text" name="username" id="username" placeholder="" v-model="userName">
+            <input type="text" name="userNum" id="userNum" placeholder="" v-model="userNum">
             <input type="password" name="password1" id="password1" placeholder="密码" v-model="userPw">
             <input type="password" v-if="this.pages != 'login'" name="password2" id="password2"  placeholder="确认密码" v-model="userPw2">
             <span class="forgetPa">忘记密码</span>
@@ -25,7 +25,7 @@
             <p v-if="this.pages == 'login'">
 
                 <span class="register" v-if="$route.params.userType==1" @click="toRegistergrou">注册{{$route.params.userType}}</span>
-                <span class="register" v-else @click="toRegister">2注册</span>
+                <span class="register" v-else @click="toRegister">注册</span>
                 
                 账号，加入社团大家庭</p>
             <p v-else>
@@ -45,9 +45,8 @@ import water from '@/static/js/util'
 export default {
     data(){
         return{ 
-            pages:'login',
-
-            userName:'555',
+            pages:'login', 
+            userNum:'555',
             userPw:'',
             userPw2:''
 
@@ -68,7 +67,7 @@ export default {
         stuRegister(){
             // 学生账户注册 
                 this.$axios.post("/api/stuRegister", { 
-                    userName:this.userName,
+                    userNum:this.userNum,
                     userPw:this.userPw
                 }).then((res)=>{
                     console.log(res)
@@ -88,7 +87,7 @@ export default {
                 // 学生登录 this.userType == 2
                 this.$axios.post("/api/stuLogin", {
                     userType:userType,
-                    userName:this.userName,
+                    userNum:this.userNum,
                     userPw:this.userPw
                 }).then((res)=>{
                     console.log(res)
@@ -100,7 +99,9 @@ export default {
                             NUM : data.stu_num,
                             TYPE : data.user_type
                         }
+
                         this.$store.commit('userStore/getStuInfo', user)
+                        localStorage.setItem("user", JSON.stringify(user))
                         this.$router.push('/')
                     }else{
                         alert('密码不对')
@@ -115,11 +116,20 @@ export default {
                 // 社团登录 this.userType == 1
                 this.$axios.post("/api/groLogin", {
                     userType:userType,
-                    userName:this.userName,
+                    userNum:this.userNum,
                     userPw:this.userPw
                 }).then((res)=>{
                     console.log(res)
-                    if(res.data == "OK"){
+                    if(res.data.state == "OK"){
+                        var data = res.data  
+                        var user = {
+                            NAME : data.gro_name,
+                            NUM : data.gro_num,
+                            TYPE : data.user_type
+                        }
+                        
+                        this.$store.commit('userStore/getStuInfo', user)
+                        localStorage.setItem("user", JSON.stringify(user))
                         this.$router.push('/')
                     }else{
                         alert('密码不对')

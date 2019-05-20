@@ -88,7 +88,7 @@
 
 3. 获取所有社团列表（社团一览功能）
 
-   /getSociety
+   /getAllSociety
 
    get 
 
@@ -144,6 +144,16 @@
 
    /forkGro（完成）
 
+6. 取消关注社团
+
+   /unForkGro（完成）
+
+7. 获取关注社团列表
+
+   /getForkGro (完成)
+
+   
+
    
 
 
@@ -155,6 +165,8 @@
    /editAbout 修改简介
 
    /editAddress 修改地址
+
+   /editConnect  修改通信方式
 
    /uploadImg 上传图片
 
