@@ -18,8 +18,10 @@
     <div class="society-con">
         <div class="h2">
             <span class="title">{{groInfo.gro_name}}</span>
-            <span class="focus" @click="forkGro" v-if="forks"><i>关注</i></span> 
-            <span class="focus" @click="unForkGro" v-else><i>已关注</i></span> 
+            <div v-if="2==uType"> 
+                <span class="focus" @click="forkGro" v-if="forks"><i>关注</i></span> 
+                <span class="focus" @click="unForkGro" v-else><i>已关注</i></span> 
+            </div>
         </div>
 
         <div class="navBar">
@@ -82,7 +84,8 @@ export default {
             timer: '',
             groInfo:'',
             artList:[],
-            forks:true 
+            forks:true ,
+            uType:''
 
         }
     },
@@ -167,6 +170,8 @@ export default {
 
     },
     created(){
+        var utype = JSON.parse(localStorage.getItem("user")).TYPE
+        this.uType = utype
         var id = JSON.parse(localStorage.getItem("clickGro")).GROID
         this.$axios.get('/api/getGroInfo?gro_id='+ id).then((res)=>{
             console.log(res)
@@ -220,6 +225,8 @@ export default {
         display flex 
         justify-content space-between
         align-items center
+        .title
+            line-height 2.5em !important
         .focus 
             display inline-block 
             align-items center 

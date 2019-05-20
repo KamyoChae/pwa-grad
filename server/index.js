@@ -90,6 +90,9 @@ app.get("/api/getForkGro", loader.get('/getForkGro'))
 // 发送评论
 app.post("/api/setComment", loader.get('/setComment'))
 
+// 社团资料编辑
+app.post("/api/sendGroInfo", loader.get('/sendGroInfo'))
+
 /* 下面是即将要完善的接口 */
 
 

@@ -50,6 +50,10 @@ import _8f9fe6e42ccba998fd734f1d63055852 from '@/pages/login/index.vue';
     
 
     
+import _14a21cc389e499cef748391c362b19fd from '@/pages/ResetInfo.vue';
+    
+
+    
 import _a507d8ce2f10c40312d733dc36880137 from '@/pages/ResetPw.vue';
     
 
@@ -150,6 +154,12 @@ let routes = [
         "component": _8f9fe6e42ccba998fd734f1d63055852,
         "meta": {},
         "name": "login"
+    },
+    {
+        "path": "/reset-info",
+        "component": _14a21cc389e499cef748391c362b19fd,
+        "meta": {},
+        "name": "resetInfo"
     },
     {
         "path": "/reset-pw",

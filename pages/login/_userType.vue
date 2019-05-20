@@ -13,7 +13,7 @@
         <div class="title" v-else>注册</div>
  
         <div class="inputbox">
-            <input type="text" name="userNum" id="userNum" placeholder="" v-model="userNum">
+            <input type="text" name="userNum" id="userNum" placeholder="账号" v-model="userNum">
             <input type="password" name="password1" id="password1" placeholder="密码" v-model="userPw">
             <input type="password" v-if="this.pages != 'login'" name="password2" id="password2"  placeholder="确认密码" v-model="userPw2">
             <span class="forgetPa">忘记密码</span>
