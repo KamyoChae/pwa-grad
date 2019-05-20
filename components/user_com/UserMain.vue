@@ -28,17 +28,23 @@ export default {
 
         }
     },
+    computed:{
+        ...mapState('userStore', {
+            userName : state => state.userName
+        })
+    },
     methods:{
 
     },
     created(){
         var user = JSON.parse(localStorage.getItem("user")) 
+        
         this.userName = user.NAME 
     },
     mounted(){ 
         water(this.$refs.mcanvas1, this.color1, 50 ,0.01 ) 
         water(this.$refs.mcanvas2, this.color2, 30 , 0.03)   
-        console.log(this.userName,this.userType,this.userNum)
+        console.log(this.userName,this.userType, this.userNum)
     }
 }
 </script>

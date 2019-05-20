@@ -1,23 +1,27 @@
 var dbutil = require("./dbutil")
-function unForkGro(art_id=1, succes) {
-    if(art_id != "undefined"){
+function unForkGro(gro_id, stu_num, succes) {
+    if(gro_id != "undefined"){
 
-        var query = "select art_see from article where art_id=? "
+        var query = "select stu_fork from `student` where stu_num=? "
 
-        var params = [art_id]
+        var params = [stu_num]
         var connection = dbutil.createConnection()
         connection.connect();
         var str = ''
-        var seeNum = ''
+        var stuFork = ''
         var params1 = []
-        connection.query(query,params,  (error, result)=>{
+        connection.query(query,params, (error, result)=>{
             // 查找文章中的评论索引数组
             if(error == null){
-                console.log(result[0].art_see)
-                seeNum = result[0].art_see
+                stuFork = result[0].stu_fork
+                var forkArr = stuFork.split(',')
+                var newArr = forkArr.filter((el, index)=>{
+                    return el != gro_id
+                })
+                var list = newArr.join(",")
 
-                str = 'update `article` set art_see= ? where art_id=?'
-                params1 = [seeNum+1, art_id]
+                str = 'update `student` set stu_fork= ? where stu_num=?'
+                params1 = [list, stu_num]
                 connection.query(str, params1,  (error, result)=>{
                     // 返回评论
                     if(error == null){

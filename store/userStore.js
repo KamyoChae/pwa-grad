@@ -1,9 +1,9 @@
 
 export const state = () => {
     return {
-        userName: '王老吉',
-        userType: '2',
-        userNum: '2333'
+        userName: '',
+        userType: '',
+        userNum: ''
     };
 };
 

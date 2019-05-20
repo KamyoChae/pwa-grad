@@ -5,9 +5,11 @@ function unForkGro(req,res){
 
     console.log(url.parse(req.url, true).query)
     var urlObj = url.parse(req.url, true).query
-    var art_id = urlObj.art_id // 获取该文章的id
 
-    dao.unForkGro(art_id, function(result){
+    var gro_id = urlObj.gro_id // 获取该社团的id
+    var stu_num = urlObj.stu_num // 学生账号
+
+    dao.unForkGro(gro_id, stu_num, function(result){
         res.writeHead(200, {"Content-Type": "text/html;charset:utf-8"})
         res.write(JSON.stringify(result))
         res.end()

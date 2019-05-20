@@ -122,7 +122,7 @@
 
 1. 留言评论
 
-   /setComment?id=10
+   /setComment?id=10（完成）
 
 2. 点赞
 
@@ -162,35 +162,41 @@
 
 1. 修改社团资料
 
-   /editAbout 修改简介
+   /sendGroInfo 
 
-   /editAddress 修改地址
+   post 一次发完
 
-   /editConnect  修改通信方式
+​		- /editAbout 修改简介
 
-   /uploadImg 上传图片
+​		- /editAddress 修改地址
 
-   
+​		- /editConnect  修改通信方式
 
-2. 发布文章
+
+
+/uploadImg 上传图片
+
+
+
+1. 发布文章
 
    /sendArticle （完成）
 
    
 
-3. 删除文章
+2. 删除文章
 
    /deleteArticle
 
    
 
-4. 举报学生用户
+3. 举报学生用户
 
    /dangerStu?id=1
 
    
 
-5. 修改密码
+4. 修改密码
 
    /changePw（完成）
 

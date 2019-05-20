@@ -1,7 +1,7 @@
 var dbutil = require("./dbutil")
-function getForkGro(stuName , succes) {
-    var query = "select `stu_fork` from `student` where stu_name=?"
-    var params = [stuName]
+function getForkGro(stuNum , succes) {
+    var query = "select `stu_fork` from `student` where stu_num=?"
+    var params = [stuNum]
 
     var connection = dbutil.createConnection()
     connection.connect();
@@ -11,7 +11,7 @@ function getForkGro(stuName , succes) {
                 if(result[0].stu_fork != null){
                     var stu_fork = result[0].stu_fork
 
-                    var str = 'select `gro_id`, `gro_fans`, `gro_name`, `art_count` from `group` where gro_id in '+'('+stu_fork+') '
+                    var str = 'select `gro_id`, `gro_fans`, `gro_name`, `gro_num`, `art_count` from `group` where gro_id in '+'('+stu_fork+') '
 
                     connection.query(str,  (error, result)=>{
                         // 返回评论

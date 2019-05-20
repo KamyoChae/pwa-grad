@@ -18,7 +18,8 @@
     <div class="society-con">
         <div class="h2">
             <span class="title">{{groInfo.gro_name}}</span>
-            <span class="focus" @click="forkGro"><i>关注</i></span> 
+            <span class="focus" @click="forkGro" v-if="forks"><i>关注</i></span> 
+            <span class="focus" @click="unForkGro" v-else><i>已关注</i></span> 
         </div>
 
         <div class="navBar">
@@ -80,7 +81,8 @@ export default {
             currentIndex: 0,
             timer: '',
             groInfo:'',
-            artList:[]
+            artList:[],
+            forks:true 
 
         }
     },
@@ -93,6 +95,23 @@ export default {
     methods:{
         forkGro(){
             // 关注社团
+            var gro_id = JSON.parse(localStorage.getItem("clickGro")).GROID
+            var stu_num = JSON.parse(localStorage.getItem("user")).NUM
+            this.$axios.get("/api/forkGro?gro_id=" + gro_id + "&stu_num=" + stu_num).then((res)=>{
+                console.log('关注成功')
+                console.log(res)
+                this.forks = false
+            })
+        },
+        unForkGro(){
+            // 取消关注社团 
+            var gro_id = JSON.parse(localStorage.getItem("clickGro")).GROID
+            var stu_num = JSON.parse(localStorage.getItem("user")).NUM
+            this.$axios.get("/api/unForkGro?gro_id=" + gro_id + "&stu_num=" + stu_num).then((res)=>{
+                console.log('取消关注成功')
+                console.log(res)
+                this.forks = true 
+            })
         },
         navHandle(str){
               
@@ -135,9 +154,20 @@ export default {
     },
     mounted() {
         this.go()   
+
+        // 检验社团是否已关注 
+        var forkList = localStorage.getItem('forkList')
+        var id = JSON.parse(localStorage.getItem("clickGro")).GROID
+        if(forkList.includes(id)){
+            console.log('该社团已关注')
+            this.forks = false
+        }else{
+            this.forks = true 
+        }
+
     },
     created(){
-        var id = localStorage.getItem("clickGro")
+        var id = JSON.parse(localStorage.getItem("clickGro")).GROID
         this.$axios.get('/api/getGroInfo?gro_id='+ id).then((res)=>{
             console.log(res)
             

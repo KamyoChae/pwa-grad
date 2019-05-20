@@ -2,7 +2,7 @@
 
 <div class="wrapper"> 
     <div class="checklist">
-        <div  v-for="gro in gro_list" @click="toGroInfo(gro.gro_id)" :key="gro.gro_id"  ><img src="http://img.52z.com/upload/news/image/20181108/20181108204521_83402.jpg" alt=""> 
+        <div  v-for="gro in gro_list" @click="toGroInfo(gro.gro_id, gro.gro_num)" :key="gro.gro_id"  ><img src="http://img.52z.com/upload/news/image/20181108/20181108204521_83402.jpg" alt=""> 
         <div class="gro_info">
             <span>{{gro.gro_name}}</span>
             <div class="about">
@@ -32,8 +32,13 @@ export default {
             // 动态路由配置 通过传参跳转路由
             this.$route.push(route) 
         },
-        toGroInfo(id){ 
-            localStorage.setItem('clickGro', id)
+        toGroInfo(id, num){ 
+            var gro = {
+                GROID:id,
+                GRONUM:num 
+            }
+
+            localStorage.setItem('clickGro', JSON.stringify(gro))
             this.$router.push({name:'societyCount', params: { count: id}})
         }
     },

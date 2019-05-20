@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
     <div class="listBox" v-if="forkList.length">
-        <router-link class="com-item" v-for="item in forkList" :key="item.gro_id"  :to="{name:'societyCount', params: { count: item.gro_id}}">
+        <div class="com-item" v-for="item in forkList" :key="item.gro_id" @click="toGroInfo(item.gro_id, item.gro_num)"  :to="{name:'societyCount', params: { count: item.gro_id}}">
             <img src="./user/images/user.jpg" class="usericon" /> 
             <div class="user"> 
                 <div> 
@@ -10,7 +10,7 @@
                 </div> 
                 <!-- <span class="focus"><i>关注</i></span> -->
             </div> 
-        </router-link> 
+        </div> 
     </div>
 
      
@@ -26,21 +26,36 @@ export default {
             forkList:[]
         }
     },
-    computed:{
-        ...mapState('userStore', {
-            stuName : state => state.userName
-        })
-    },
-    created(){
-        
+    methods:{
+        toGroInfo(id, num){ 
+            var gro = {
+                GROID:id,
+                GRONUM:num 
+            }
 
-        this.$axios.get('/api/getForkGro?stuName=' + this.stuName).then((res)=>{
+            localStorage.setItem('clickGro', JSON.stringify(gro))
+            this.$router.push({name:'societyCount', params: { count: id}})
+        }
+    },
+    mounted(){
+    },
+    created(){ 
+        var stuNum = JSON.parse(localStorage.getItem('user')).NUM
+
+        this.$axios.get('/api/getForkGro?stuNum=' + stuNum).then((res)=>{
             if(res.data == "Fail"){
 
             }else{
 
                 this.forkList =  res.data
                 console.log(res)
+                
+                var str = ''
+                this.forkList.forEach((el, index)=>{
+                    console.log(el)
+                    str += el.gro_id + ','
+                })
+                localStorage.setItem('forkList', str)
             }
         })
     }

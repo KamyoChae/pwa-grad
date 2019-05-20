@@ -1,5 +1,5 @@
 var dbutil = require("./dbutil")
-function forkGro(gro_id=2, stu_num=231, succes) {
+function forkGro(gro_id, stu_num, succes) {
 
     var query = "select gro_fans from `group` where gro_id=? "
     // 社团加一个粉丝
@@ -19,7 +19,7 @@ function forkGro(gro_id=2, stu_num=231, succes) {
                 // 返回评论
                 if(error == null){
                     console.log('增加粉丝数量成功')
-                    // succes(result)
+                    succes("OK")
                 }else {
                     console.log(error)
                     console.log('dao层==>gorkGro接口出错')
@@ -41,7 +41,7 @@ function forkGro(gro_id=2, stu_num=231, succes) {
                         connection.query(writeforkList, paramsFork, (error,result)=>{
                             if(error == null){
                                 console.log("插入成功")
-                                console.log(result)
+                                // console.log(result)
                                 // succes('OK')
                             }else {
                                 console.log(error)
@@ -62,5 +62,4 @@ function forkGro(gro_id=2, stu_num=231, succes) {
         }
     })
 }
-forkGro()
 module.exports = {"forkGro": forkGro}

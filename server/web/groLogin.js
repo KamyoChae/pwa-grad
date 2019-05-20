@@ -17,7 +17,7 @@ function groLogin(req,res){
                     console.log('成功')
                     var writed = {state:'OK', user_type: result[0].login_type, gro_num: result[0].gro_num,
                         gro_name: result[0].gro_name }
-                    res.cookie("user_type", 2)
+                    res.cookie("user_type", 1)
                     res.cookie("is_login", 'true')
 
                     resState = JSON.stringify(writed)

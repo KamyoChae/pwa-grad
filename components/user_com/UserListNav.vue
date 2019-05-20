@@ -14,8 +14,11 @@
     <div class="nav"> 
         <span>安全</span>
         <router-link tag="span" :to="{name:'resetPw'}">修改密码</router-link>
-    </div>  
-    
+    </div>
+    <div class="nav">
+        <span>社团信息</span>
+        <router-link tag="span" :to="{name:'resetInfo'}">更改信息</router-link>
+    </div> 
 </div>
 
 </template>
@@ -28,26 +31,18 @@ export default {
         return {
             value : "",
             user_num:'',
-            user_type:'2'
         }
-    },
-    computed:{
-        ...mapState('userStore',{
-            uNum: state => state.userNum,
-            uType: state => state.userType,
-            uName:state => state.userName
-        })
-    },
+    }, 
     created(){
-        var user = JSON.parse(localStorage.getItem("user"))
-
+        var user = JSON.parse(localStorage.getItem("user")) 
         this.value = user.NAME
-        this.user_num = user.NUM
-        console.log(this.uName, this.uNum)
+        this.user_num = user.NUM 
+        this.user_type = user.TYPE 
     },
     methods:{
         sendName(){
             console.log('开始修改名字')
+
             this.$axios.get(`/api/changeName?num=${this.user_num}&vale=${this.value}&uType=${this.user_type}`)
             .then((res)=>{
                 console.log(res)
@@ -57,8 +52,7 @@ export default {
                     NAME : that.value,
                     NUM : that.user_num,
                     TYPE : that.user_type
-                }
-                        
+                } 
                 this.$store.commit('userStore/getStuInfo', user)
                 localStorage.setItem("user", JSON.stringify(user))
 

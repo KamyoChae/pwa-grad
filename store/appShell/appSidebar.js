@@ -44,6 +44,11 @@ export const state = () => {
                         check: true
                     },
                     {
+                        text: '社团资料',
+                        icon: 'sentiment_satisfied',
+                        route: '/Society'
+                    },
+                    {
                         text: '系统消息',
                         // image: 'https://github.com/google/material-design-icons/blob/master/social/2x_web/ic_mood_bad_black_48dp.png?raw=true',
                         alt: 'mood-bad',
@@ -51,12 +56,7 @@ export const state = () => {
                         // route: '/detail/2'
                         route: '/system',
                         check: true
-                    },
-                    {
-                        text: '社团资料',
-                        icon: 'sentiment_satisfied',
-                        route: '/Society'
-                    },
+                    }, 
                     {
                         text: '其他',
                         icon: 'sentiment_neutral',

@@ -46,7 +46,7 @@ export default {
     data(){
         return{ 
             pages:'login', 
-            userNum:'555',
+            userNum:'',
             userPw:'',
             userPw2:''
 
