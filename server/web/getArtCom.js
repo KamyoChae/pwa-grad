@@ -20,7 +20,6 @@ function getArtCom(req,res){
         res.writeHead(200, {"Content-Type": "text/html;charset:utf-8"})
         res.write(JSON.stringify(result))
         res.end()
-        console.log(JSON.stringify(result))
     })
 }
 path.set("/getArtCom", getArtCom)

@@ -31,11 +31,12 @@ export default {
     },
     methods:{
         toArticle(id){
+            localStorage.setItem("artId", id)
             var thisArticle = this.items.filter((el, index)=>{
                 return el.art_id == id
             })
             // console.log(thisArticle)
-            this.$store.commit('articleStore/clickArt',thisArticle)
+            this.$store.commit('articleStore/clickArt',thisArticle) 
             this.$router.push({name:'articleArticleId', params:{articleId:id}})
         }
     },

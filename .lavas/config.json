@@ -1,10 +1,10 @@
 {
-    "buildVersion": 1558275015772,
+    "buildVersion": 1558327299276,
     "build": {
         "ssr": false,
         "publicPath": "/",
-        "compress": true,
-        "cssExtract": true
+        "compress": false,
+        "cssExtract": false
     },
     "middleware": {
         "all": [],

@@ -1,8 +1,8 @@
 var dao = require('../dao/getAllSociety')
 var path = new Map()
 function getAllSociety(req,res){
-    console.log("发送了getIndex")
-    dao.getSociety(function(result){
+    console.log("发送了/getAllSociety")
+    dao.getAllSociety(function(result){
         res.writeHead(200, {"Content-Type": "text/html;charset:utf-8"})
         res.write(JSON.stringify(result))
         res.end()

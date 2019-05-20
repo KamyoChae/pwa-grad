@@ -19,6 +19,8 @@ app.use(cookie())
 // 获取首页文章
 app.get("/api/getIndex",loader.get('/getIndex'))
 
+// 获取某一篇文章
+app.get("/api/getArt",loader.get('/getArt'))
 
 // 学生登录
 app.post("/api/stuLogin",loader.get('/stuLogin'))
@@ -67,11 +69,15 @@ app.get("/api/setSee", loader.get('/setSee'))
 // 点赞文章
 app.get("/api/setLike", loader.get('/setLike'))
 
+// 点赞评论
+app.get("/api/addAgree", loader.get('/addAgree'))
+
 // 关注社团
 app.get("/api/forkGro", loader.get('/forkGro'))
 
 // 发送评论
 app.post("/api/setComment", loader.get('/setComment'))
+
 /* 下面是即将要完善的接口 */
 
 

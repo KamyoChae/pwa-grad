@@ -73,7 +73,7 @@ export default {
             border-radius 5px 
             border-bottom-right-radius 0
             border-bottom-left-radius 0
-            background #1976d2 
+            background #586f84
         .artItem
             box-sizing border-box
             width 90vw 

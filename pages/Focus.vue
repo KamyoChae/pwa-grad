@@ -36,7 +36,16 @@
 
 <script>
 export default {
+    data(){
+        return{
 
+        }
+    },
+    created(){
+        this.$axios.get('/getAllSociety').then((res)=>{
+            console.log(res)
+        })
+    }
 }
 </script>
 
