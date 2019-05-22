@@ -58,7 +58,7 @@ export const state = () => {
                         check: true
                     }, 
                     {
-                        text: '其他',
+                        text: '退出系统',
                         icon: 'sentiment_neutral',
                         route: '/detail/3'
                     },

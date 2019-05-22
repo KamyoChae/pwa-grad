@@ -19,8 +19,15 @@ app.use(cookie())
 // 获取首页文章
 app.get("/api/getIndex",loader.get('/getIndex'))
 
+// 获取点赞量最高的三条记录
+
+
 // 获取某一篇文章
 app.get("/api/getArt",loader.get('/getArt'))
+
+// 管理员登录
+app.post("/api/adminLogin",loader.get('/adminLogin'))
+
 
 // 学生登录
 app.post("/api/stuLogin",loader.get('/stuLogin'))
@@ -55,7 +62,7 @@ app.get('/api/*',function (req,res,next) {
     if(req.cookies.is_login === "true"){
         next()
     }else {
-        req.redirect("/login")
+        res.redirect("/login")
     }
 
 })
@@ -93,8 +100,15 @@ app.post("/api/setComment", loader.get('/setComment'))
 // 社团资料编辑
 app.post("/api/sendGroInfo", loader.get('/sendGroInfo'))
 
+// 管理员发布系统消息
+
+app.post("/api/sendSystem", loader.get('/sendSystem'))
+
+
 /* 下面是即将要完善的接口 */
 
+
+// 文章删除
 
 
 // 监听globalconf["port"]端口

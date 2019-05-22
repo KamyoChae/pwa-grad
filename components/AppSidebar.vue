@@ -39,7 +39,7 @@
                         <ul v-if="block.list">
                             <li v-for="item in block.list" :key="item.text" @click.stop="closeAndGo(item.route, item.check)">
                                 <span v-if="item.icon || item.image" class="app-sidebar-block-left-icon">
-                                    <img v-if="item.image" :src="item.image" :alt="item.alt"></img>
+                                    <img v-if="item.image" :src="item.image" :alt="item.alt" />
                                     <v-icon v-else-if="item.icon">{{ item.icon }}</v-icon>
                                 </span>
                                 <span v-if="item.text" class="app-sidebar-block-text">{{ item.text }}</span>

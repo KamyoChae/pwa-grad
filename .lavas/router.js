@@ -26,6 +26,10 @@ import _201ca3456d5fcf89a8b32ad8e5f26ad3 from '@/pages/Edit.vue';
     
 
     
+import _363e2eee689b6524fc5eaa6f1f9f62e0 from '@/pages/EditSysInfo.vue';
+    
+
+    
 import _d2462dcf0c7beccd286c658e08187914 from '@/pages/Error.vue';
     
 
@@ -124,6 +128,12 @@ let routes = [
         "component": _201ca3456d5fcf89a8b32ad8e5f26ad3,
         "meta": {},
         "name": "edit"
+    },
+    {
+        "path": "/edit-sys-info",
+        "component": _363e2eee689b6524fc5eaa6f1f9f62e0,
+        "meta": {},
+        "name": "editSysInfo"
     },
     {
         "path": "/focus",

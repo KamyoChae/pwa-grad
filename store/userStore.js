@@ -1,7 +1,7 @@
 
 export const state = () => {
     return {
-        userName: '',
+        userName: '李白',
         userType: '',
         userNum: ''
     };

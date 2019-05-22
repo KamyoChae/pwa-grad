@@ -50,7 +50,7 @@ export default {
         })
     },
     created(){ 
-        console.log(this.userType )
+        console.log(this.$store.state.userStore.userName )
         if(this.userType == 1){
             this.showEdit = true 
         }

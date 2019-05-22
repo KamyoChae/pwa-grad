@@ -4,7 +4,7 @@
     
     <div>社团/组织管理</div>  
     <div>用户小黑屋</div> 
-    <div>发布公告</div>
+    <router-link tag="div" to="/edit-sys-info">发布公告</router-link>
     <div>反馈箱</div>
     <div class="danger">新建管理员账户</div>  
 </div>
@@ -12,7 +12,16 @@
 
 <script>
 export default {
-
+    data(){
+        return {
+            
+        }
+    },
+    methods:{
+        editSysInfo(){
+            this.$router.push('/edit-sys-info')
+        }
+    }
 }
 </script>
 

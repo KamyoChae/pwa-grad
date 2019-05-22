@@ -11,7 +11,7 @@
         <div class="title" >管理员登录 </div> 
  
         <div class="inputbox">
-            <input type="text" name="username" id="username" placeholder="" v-model="userName">
+            <input type="text" name="userNum" id="userNum" placeholder="管理员账号" v-model="userNum">
             <input type="password" name="password1" id="password1" placeholder="密码" v-model="userPw">
 
             <button @click="adminLogin">登录</button>
@@ -29,7 +29,7 @@ export default {
         return{ 
             pages:'login',
 
-            userName:'555',
+            userNum:'',
             userPw:'',
             userPw2:''
 
@@ -40,11 +40,11 @@ export default {
         adminLogin(){
         
             this.$axios.post("/api/adminLogin", { 
-                userName:this.userName,
+                userNum:this.userNum,
                 userPw:this.userPw
             }).then((res)=>{
                 console.log(res)
-                if(res.data == "OK"){
+                if(res.data.state == "OK"){
                     this.$router.push('/admin')
                 }else{
                     alert('密码不对')

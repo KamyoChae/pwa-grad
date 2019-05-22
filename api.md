@@ -162,15 +162,15 @@
 
 1. 修改社团资料
 
-   /sendGroInfo 
+   /sendGroInfo （完成）
 
    post 一次发完
 
-​		- /editAbout 修改简介
-
-​		- /editAddress 修改地址
-
-​		- /editConnect  修改通信方式
+			- /editAbout 修改简介
+		
+			- /editAddress 修改地址
+		
+			- /editConnect  修改通信方式
 
 
 
@@ -192,7 +192,7 @@
 
 3. 举报学生用户
 
-   /dangerStu?id=1
+   /dangerStu?id=1（遗弃）
 
    
 
@@ -206,7 +206,7 @@
 
 1. 发布公告
 
-   /sendSystem
+   /sendSystem（完成）
 
 2. 审核认证(创建社团组织账号)
 
@@ -224,7 +224,9 @@
 
    /deleteStu
 
-   
+6. 创建管理员
+
+   /createAdmin
 
 
 
