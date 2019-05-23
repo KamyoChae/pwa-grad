@@ -35,9 +35,9 @@
             <div v-if="blocks" class="app-sidebar-blocks">
                 <ul>
                     <!-- 单个区块 -->
-                    <li v-for="(block, index) in blocks" :key="index" class="app-sidebar-block"> 
+                    <li v-for="(block, index) in blocks" :key="index" class="app-sidebar-block">
                         <ul v-if="block.list">
-                            <li v-for="item in block.list" :key="item.text" @click.stop="closeAndGo(item.route, item.check)">
+                            <li v-for="item in block.list" :key="item.text"  @click.stop="closeAndGo(item.route, item.check)">
                                 <span v-if="item.icon || item.image" class="app-sidebar-block-left-icon">
                                     <img v-if="item.image" :src="item.image" :alt="item.alt" />
                                     <v-icon v-else-if="item.icon">{{ item.icon }}</v-icon>
@@ -57,6 +57,12 @@ import {mapState} from 'vuex';
 import Sidebar from './Sidebar';
 import getCookie from '@/static/js/getCookie'
 export default {
+    data(){
+        return{ 
+            userType:'',
+            arr:[], 
+        }
+    },
     components: {
         Sidebar
     },
@@ -65,7 +71,7 @@ export default {
             'show',
             'title',
             'user',
-            'blocks'
+            'blocks', 
         ]),
         sidebarStatus: {
             get() {
@@ -80,6 +86,7 @@ export default {
                 }
             }
         },
+        
         enableSidebar() {
             return this.$store.state.appShell.appHeader.show
                 && this.$store.state.appShell.appHeader.showMenu;
@@ -107,7 +114,23 @@ export default {
             }
             this.close();
         }
+    }, 
+    mounted(){
+        console.log("sideBar 装载")
+        console.log('激活页面')
+        // 获取登录用户类型
+        this.userType = JSON.parse(localStorage.getItem('user')).TYPE 
+        
+        console.log(this.userType)
+        this.arr = this.blocks 
+        if(this.userType == "1"){
+            // 如果是社团用户 菜单栏删除掉社团关注 
+            console.log(this.arr[0].list)
+            var barList = this.arr[0].list.splice(1,1)
+            this.$store.commit('appShell/appSidebar/setBarList', barList) 
+        } 
     }
+    
 };
 </script>
 

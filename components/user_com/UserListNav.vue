@@ -15,7 +15,7 @@
         <span>安全</span>
         <router-link tag="span" :to="{name:'resetPw'}">修改密码</router-link>
     </div>
-    <div class="nav">
+    <div class="nav" v-if="showGroInfo">
         <span>社团信息</span>
         <router-link tag="span" :to="{name:'resetInfo'}">更改信息</router-link>
     </div> 
@@ -31,13 +31,25 @@ export default {
         return {
             value : "",
             user_num:'',
+            showGroInfo:''
         }
     }, 
     created(){
-        var user = JSON.parse(localStorage.getItem("user")) 
-        this.value = user.NAME
-        this.user_num = user.NUM 
-        this.user_type = user.TYPE 
+        try{
+            var user = JSON.parse(localStorage.getItem("user")) 
+            this.value = user.NAME
+            this.user_num = user.NUM 
+            this.user_type = user.TYPE 
+            if(this.user_type == "1"){
+                // 表示是社团用户 展示按钮
+                this.showGroInfo = true 
+            }else{
+                this.showGroInfo = false 
+            }
+        }catch(e){
+
+        }
+
     },
     methods:{
         sendName(){
@@ -56,7 +68,6 @@ export default {
                 this.$store.commit('userStore/getStuInfo', user)
                 localStorage.setItem("user", JSON.stringify(user))
 
-                this.$store.commit('userStore/changeName',this.value)
             }).catch((err)=>{
                 console.log(err)
                 console.log('接口失效')

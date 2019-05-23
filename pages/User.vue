@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
-    <UserMain color1="#03a9f4" color2="#2196f3"/>
-    <UserList />  
+    <UserMain color1="#03a9f4" color2="#2196f3" />
+    <UserList   @updateUserName="updateName"/>  
 </div>
 
 </template>
@@ -13,13 +13,15 @@ import UserList from '@/components/user_com/UserListNav'
 
 export default {
     data(){
-        return {
-
+        return {    
+            userName:''
         }
     },
     components:{
         UserMain,
         UserList,  
+    },
+    methods:{
     }
 
 }

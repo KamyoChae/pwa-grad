@@ -66,7 +66,7 @@ export default {
         },
         stuRegister(){
             // 学生账户注册 
-                this.$axios.post("/api/stuRegister", { 
+                this.$axios.post("/api/stuRegister", {
                     userNum:this.userNum,
                     userPw:this.userPw
                 }).then((res)=>{
@@ -99,7 +99,6 @@ export default {
                             NUM : data.stu_num,
                             TYPE : data.user_type
                         }
-
                         this.$store.commit('userStore/getStuInfo', user)
                         localStorage.setItem("user", JSON.stringify(user))
                         this.$router.push('/')
@@ -127,7 +126,6 @@ export default {
                             NUM : data.gro_num,
                             TYPE : data.user_type
                         }
-                        
                         this.$store.commit('userStore/getStuInfo', user)
                         localStorage.setItem("user", JSON.stringify(user))
                         this.$router.push('/')
@@ -140,10 +138,9 @@ export default {
                     console.log('接口失效')
                 })
             }
-            
         }
     },
-    mounted(){ 
+    mounted(){
         this.userType = this.$route.params.userType
         water(this.$refs.mcanvas1, "#03a9f4", 50 ,0.01 ) 
         water(this.$refs.mcanvas2, "#2196f3", 30 , 0.03)  

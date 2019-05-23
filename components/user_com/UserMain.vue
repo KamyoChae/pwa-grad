@@ -9,8 +9,7 @@
         </div> 
         
         <div class="userIcon">
-            <img src="./images/user.jpg" alt="">
-            <span>{{userName}}</span>
+            <img src="./images/user.jpg" alt=""> 
         </div>
 
 
@@ -27,19 +26,10 @@ export default {
         return{
 
         }
-    },
-    computed:{
-        ...mapState('userStore', {
-            userName : state => state.userName
-        })
-    },
+    }, 
     methods:{
-
     },
     created(){
-        var user = JSON.parse(localStorage.getItem("user")) 
-        
-        this.userName = user.NAME 
     },
     mounted(){ 
         water(this.$refs.mcanvas1, this.color1, 50 ,0.01 ) 

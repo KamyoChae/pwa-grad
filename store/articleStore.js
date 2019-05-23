@@ -2,6 +2,7 @@
 export const state = () => {
     return {
         art: {},  
+        artId:''
     };
 };
 
@@ -11,5 +12,8 @@ export const mutations = {
     },  
     getArt(state){
         return state.art
+    },
+    setArtId(state, id){
+        state.artId = id 
     }
 };

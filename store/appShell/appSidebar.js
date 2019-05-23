@@ -7,6 +7,8 @@ export const SET_SIDEBAR_VISIBILITY = 'SET_SIDEBAR_VISIBILITY';
 
 export const state = () => {
     return {
+        arrList:[],
+
         show: false, // 是否显示sidebar
 
         // 头部条的相关配置
@@ -72,7 +74,14 @@ export const state = () => {
 export const mutations = {
     [SET_SIDEBAR_VISIBILITY](state, sidebarVisibility) {
         state.show = sidebarVisibility;
+    },
+
+    setBarList(state, val){
+        state.arrList = val
+        console.log('进入setBarList')
+        console.log(val)
     }
+
 };
 
 export const actions = {
