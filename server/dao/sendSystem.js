@@ -5,9 +5,6 @@ function sendSystem(content, succes) {
     var nowTime = time.nowTime()
     console.log(nowTime)
 
-
-    // 评论内容 评论人 评论人头像
-    //
     var query = "insert into `systems` (`sys_mess`, `sys_time`) values(?,?)"
 
     var params = [content, nowTime]

@@ -8,6 +8,7 @@
             <div class="from">
                 <span class="username">{{art.art_gro_name}}</span> 
                 <span class="time">{{art.art_time}}</span>
+                <span class="time delete" v-if="deleteArt">删除</span>
             </div>
         </div>
 
@@ -58,7 +59,13 @@ export default {
             art:'',
             uName:'',
             uNum: '',
-            lastClikeIndex:'a'
+            lastClikeIndex:'a',
+            userName:''
+        }
+    },
+    computed:{
+        deleteArt(){
+            return this.art.art_gro_name == this.userName
         }
     },
     methods:{
@@ -131,9 +138,7 @@ export default {
             userNum: state => state.userNum
         })
     },
-    mounted(){
-         
-
+    mounted(){ 
         this.likes = this.art.art_like
         this.sees = this.art.art_see + 1
         this.uName = this.userName 
@@ -146,6 +151,8 @@ export default {
             }
 
         })
+
+       
     },
     created(){ 
         // 获取本地文章id 
@@ -154,6 +161,14 @@ export default {
         this.$axios.get("/api/getArt?artId=" + this.artId).then((res)=>{
             console.log(res.data)
             this.art = res.data
+        
+            // 获取本地存储的用户名 
+            // 对比用户名是否与文章名字一致 
+            // 不一致则不显示删除
+            this.userName = JSON.parse(localStorage.getItem("user")).NAME
+            console.log('检查art') 
+            console.log(this.art.art_gro_name , this.userName)
+
         })
  
         this.$axios.get("/api/getArtCom?art_id=" + this.artId).then((res)=>{
@@ -163,6 +178,8 @@ export default {
         }).catch((err)=>{
             console.log("接口失效")
         })
+
+       
  
     }
 

@@ -43,15 +43,10 @@ export default {
         return {
             showEdit:false
         }
-    },
-    computed:{
-        ...mapState('userStore', {
-            userType:state => state.userType
-        })
-    },
+    }, 
     created(){ 
-        console.log(this.$store.state.userStore.userName )
-        if(this.userType == 1){
+        var userType = JSON.parse(localStorage.getItem('user')).TYPE 
+        if(userType == 1){
             this.showEdit = true 
         }
     }

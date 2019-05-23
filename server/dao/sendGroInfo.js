@@ -5,9 +5,6 @@ function sendGroInfo( text, phone, qq, addr, leader, groNum, succes) {
     var nowTime = time.nowTime()
     console.log(nowTime)
 
-
-    // 评论内容 评论人 评论人头像
-    //
     var query = "update `group` set `gro_about`=?, `gro_phone`=?, `gro_qq`=?, `gro_address`=?, `gro_leader`=?  where `gro_num`=?"
 
     var params = [text, phone, qq, addr, leader, groNum]
@@ -26,9 +23,6 @@ function sendGroInfo( text, phone, qq, addr, leader, groNum, succes) {
 
     })
     connection.end()
-
-
-
 }
 
 

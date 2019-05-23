@@ -3,7 +3,8 @@
     <div class="nav">
         <span>昵称</span>
         <span>
-        <input type='text' v-model="value" @blur="sendName" />
+        <input type='text' v-model="value" @blur="sendName" v-if="showGroInfo" disabled/>
+        <input type='text' v-model="value" @blur="sendName" v-else/>
         </span>
     </div>
 
@@ -54,8 +55,10 @@ export default {
     methods:{
         sendName(){
             console.log('开始修改名字')
+            // 获取旧的名字 
+            var oldName = JSON.parse(localStorage.getItem("user")).NAME 
 
-            this.$axios.get(`/api/changeName?num=${this.user_num}&vale=${this.value}&uType=${this.user_type}`)
+            this.$axios.get(`/api/changeName?num=${this.user_num}&vale=${this.value}&uType=${this.user_type}&oldName=${oldName}`)
             .then((res)=>{
                 console.log(res)
                 console.log('成功修改名字') 
