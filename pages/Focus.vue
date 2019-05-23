@@ -6,7 +6,9 @@
             <div class="user"> 
                 <div> 
                     <span class="username">{{item.gro_name}}</span>
-                    <span class="usercomment">{{item.gro_id}}</span>
+                    <span class="usercomment">{{item.gro_fans}}关注</span>
+                    <span class="usercomment">{{item.art_count}}篇文章</span>
+                    
                 </div> 
                 <!-- <span class="focus"><i>关注</i></span> -->
             </div> 
@@ -27,7 +29,7 @@ export default {
         }
     },
     methods:{
-        toGroInfo(id, num){ 
+        toGroInfo(id, num){
             var gro = {
                 GROID:id,
                 GRONUM:num 
@@ -39,7 +41,7 @@ export default {
     },
     mounted(){
     },
-    created(){ 
+    created(){
         var stuNum = JSON.parse(localStorage.getItem('user')).NUM
 
         this.$axios.get('/api/getForkGro?stuNum=' + stuNum).then((res)=>{
@@ -94,7 +96,7 @@ export default {
                     display block
                     padding-bottom .2em
                 .usercomment
-                    font-size 1.1rem
+                    font-size 1rem
                     color #888
         .focus  
             display inline-block 

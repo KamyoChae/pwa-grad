@@ -104,10 +104,17 @@ app.post("/api/sendGroInfo", loader.get('/sendGroInfo'))
 
 app.post("/api/sendSystem", loader.get('/sendSystem'))
 
+// 退出系统 删除cookie chrome无法获取cookie 统一在服务器删除
+app.get("/api/exitSystem", function(req,res){
+    res.cookie("is_login", '')
+    res.writeHead(200, {"Content-Type": "text/html;charset:utf-8"})
+    res.write("OK")
+    res.end()
+})
 
 /* 下面是即将要完善的接口 */
 
-
+//
 // 文章删除
 
 

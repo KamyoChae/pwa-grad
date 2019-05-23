@@ -34,6 +34,10 @@ import _d2462dcf0c7beccd286c658e08187914 from '@/pages/Error.vue';
     
 
     
+import _6dde8ae14ea18256e283569ad48a1461 from '@/pages/exit.vue';
+    
+
+    
 import _582bc0f4b63fc422db8f0761fd151d4d from '@/pages/Focus.vue';
     
 
@@ -134,6 +138,12 @@ let routes = [
         "component": _363e2eee689b6524fc5eaa6f1f9f62e0,
         "meta": {},
         "name": "editSysInfo"
+    },
+    {
+        "path": "/exit",
+        "component": _6dde8ae14ea18256e283569ad48a1461,
+        "meta": {},
+        "name": "exit"
     },
     {
         "path": "/focus",

@@ -62,7 +62,8 @@ export const state = () => {
                     {
                         text: '退出系统',
                         icon: 'sentiment_neutral',
-                        route: '/detail/3'
+                        route: '/exit',
+                        check: true
                     },
                     
                 ]
