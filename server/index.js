@@ -112,10 +112,14 @@ app.get("/api/exitSystem", function(req,res){
     res.end()
 })
 
+
+// 文章删除
+app.get("/api/deleteArticle", loader.get('/deleteArticle'))
+
 /* 下面是即将要完善的接口 */
 
 //
-// 文章删除
+
 
 
 // 监听globalconf["port"]端口

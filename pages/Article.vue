@@ -8,7 +8,7 @@
             <div class="from">
                 <span class="username">{{art.art_gro_name}}</span> 
                 <span class="time">{{art.art_time}}</span>
-                <span class="time delete" v-if="deleteArt">删除</span>
+                <span class="time delete" @click="deArt(art.art_id)" v-if="deleteArt">删除</span>
             </div>
         </div>
 
@@ -60,15 +60,17 @@ export default {
             uName:'',
             uNum: '',
             lastClikeIndex:'a',
-            userName:''
+            deleteArt:''
         }
-    },
-    computed:{
-        deleteArt(){
-            return this.art.art_gro_name == this.userName
-        }
-    },
+    }, 
     methods:{
+        deArt(id){
+            // 删除文章 
+            var num = JSON.parse(localStorage.getItem("user")).NUM
+            this.$axios.get("/api/deleteArticle?art_id=" + id + "&gro_num=" + num).then((res)=>{
+                console.log(res)
+            })
+        },
         setLike(){
             console.log("点赞开始" + this.canLike)
             if(this.canLike){
@@ -132,13 +134,13 @@ export default {
 
         }
     },
-    computed:{ 
-        ...mapState('userStore', {
-            userName: state => state.userName,
-            userNum: state => state.userNum
-        })
-    },
-    mounted(){ 
+    // computed:{ 
+    //     ...mapState('userStore', {
+    //         userName: state => state.userName,
+    //         userNum: state => state.userNum
+    //     })
+    // },
+    mounted(){
         this.likes = this.art.art_like
         this.sees = this.art.art_see + 1
         this.uName = this.userName 
@@ -149,25 +151,31 @@ export default {
             if(res.data=="OK"){
                 this.sees += 1 
             }
-
         })
-
-       
     },
     created(){ 
         // 获取本地文章id 
         this.artId = localStorage.getItem("artId")
 
         this.$axios.get("/api/getArt?artId=" + this.artId).then((res)=>{
+            console.log('输出获取到的文章')
             console.log(res.data)
             this.art = res.data
-        
+            
             // 获取本地存储的用户名 
             // 对比用户名是否与文章名字一致 
             // 不一致则不显示删除
             this.userName = JSON.parse(localStorage.getItem("user")).NAME
             console.log('检查art') 
-            console.log(this.art.art_gro_name , this.userName)
+
+            if(this.art.art_gro_name == this.userName){
+                console.log('他俩名字一样')
+                console.log(this.art.art_gro_name ,this.userName)
+                this.deleteArt = true 
+            }else{
+                this.deleteArt = false
+            }
+ 
 
         })
  
