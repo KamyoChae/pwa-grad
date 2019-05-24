@@ -45,6 +45,15 @@ export default {
             }).then((res)=>{
                 console.log(res)
                 if(res.data.state == "OK"){
+                
+                    var data = res.data  
+                    var user = {
+                        NAME : data.stu_name,
+                        NUM : data.stu_num,
+                        TYPE : data.user_type
+                    }
+                    this.$store.commit('userStore/getStuInfo', user)
+                    localStorage.setItem("user", JSON.stringify(user))
                     this.$router.push('/admin')
                 }else{
                     alert('密码不对')

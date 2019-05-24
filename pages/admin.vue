@@ -2,10 +2,10 @@
 
 <div class="wrapper">
     
-    <div>社团/组织管理</div>  
+     <router-link to="/gromana" tag="div">社团/组织管理</router-link> 
     <div>用户小黑屋</div> 
     <router-link tag="div" to="/edit-sys-info">发布公告</router-link>
-    <div>反馈箱</div>
+
     <router-link to="/create-admin" tag="div" class="danger" >新建管理员账户</router-link> 
 </div>
 </template>

@@ -112,6 +112,9 @@ app.post("/api/sendGroInfo", loader.get('/sendGroInfo'))
 // 管理员发布系统消息
 app.post("/api/sendSystem", loader.get('/sendSystem'))
 
+// 管理员删除社团
+app.get("/api/deleteGro", loader.get('/deleteGro'))
+
 // 获取系统信息
 app.get("/api/getSystem", loader.get('/getSystem'))
 

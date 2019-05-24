@@ -46,6 +46,10 @@ import _582bc0f4b63fc422db8f0761fd151d4d from '@/pages/Focus.vue';
     
 
     
+import _c11f919a5e4bbd25160f09a85627286f from '@/pages/gromana.vue';
+    
+
+    
 import _9c84efdc08f75562da8d171a65f3b7a1 from '@/pages/groureigister/index.vue';
     
 
@@ -160,6 +164,12 @@ let routes = [
         "component": _582bc0f4b63fc422db8f0761fd151d4d,
         "meta": {},
         "name": "focus"
+    },
+    {
+        "path": "/gromana",
+        "component": _c11f919a5e4bbd25160f09a85627286f,
+        "meta": {},
+        "name": "gromana"
     },
     {
         "path": "/groureigister",
