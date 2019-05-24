@@ -25,6 +25,7 @@
 import {mapState} from 'vuex'
 import water from '@/static/js/util'
 // import func from '../../../../vue/notebook/vue-temp/vue-editor-bridge';
+import getCookie from '../static/js/getCookie'
 export default {
     data(){
         return{ 
@@ -63,6 +64,17 @@ export default {
         this.userType = this.$route.params.userType
         water(this.$refs.mcanvas1, "#03a9f4", 50 ,0.01 ) 
         water(this.$refs.mcanvas2, "#2196f3", 30 , 0.03)  
+    },
+    created(){
+        try{
+            var user_type = getCookie("user_type")
+            if(user_type != "0"){
+                this.$router.push("/thisisadmin")
+            }
+            console.log(cookie)
+        }catch(e){
+
+        }
     }
 }
 </script>

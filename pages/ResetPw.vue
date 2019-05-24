@@ -16,7 +16,6 @@ export default {
     components:{
         UserMain,
         resetPw,
-
     }
 }
 </script>

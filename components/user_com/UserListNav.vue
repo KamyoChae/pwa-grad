@@ -9,6 +9,8 @@
         </span>
     </div>
 
+
+
     <div class="nav"> 
         <span>账号</span>
         <span>{{user_num}}</span>
@@ -17,10 +19,13 @@
         <span>安全</span>
         <router-link tag="span" :to="{name:'resetPw'}">修改密码</router-link>
     </div>
+    
     <div class="nav" v-if="showGroInfo">
         <span>社团信息</span>
         <router-link tag="span" :to="{name:'resetInfo'}">更改信息</router-link>
     </div> 
+ 
+    <router-link tag="div" class="nav" to="/admin">返回主菜单</router-link>
 </div>
 
 </template>

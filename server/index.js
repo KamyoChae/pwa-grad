@@ -133,9 +133,6 @@ app.get("/api/deleteArticle", loader.get('/deleteArticle'))
 // 上传文件
 app.post("/api/upload", upload.single("file"), loader.get('/upload'))
 
-//
-
-/* 下面是即将要完善的接口 */
 
 // 封禁学生用户 先搜索学生用户名字 然后修改学生的权限
 app.get("/api/errorState", loader.get('/errorState'))

@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import getCookie from '../static/js/getCookie'
 export default {
     data(){
         return {
@@ -20,6 +21,17 @@ export default {
     methods:{
         editSysInfo(){
             this.$router.push('/edit-sys-info')
+        }
+    },
+    created(){
+        try{
+            var user_type = getCookie("user_type")
+            if(user_type != "0"){
+                this.$router.push("/thisisadmin")
+            }
+            console.log(cookie)
+        }catch(e){
+
         }
     }
 }

@@ -23,7 +23,7 @@
         <div class="foot">
             <p v-if="this.pages == 'login'">
 
-                <span class="register" v-if="$route.params.userType==1" @click="toRegistergrou">注册{{$route.params.userType}}</span>
+                <span class="register" v-if="$route.params.userType==1" @click="toRegistergrou">注册</span>
                 <span class="register" v-else @click="toRegister">注册</span>
                 
                 账号，加入社团大家庭</p>
@@ -157,6 +157,7 @@ export default {
         z-index 15
         pointer-events none
     .title
+        z-index 16
         position relative
         font-weight 200
         font-size 2.5rem !important 
