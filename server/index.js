@@ -3,7 +3,6 @@ var express = require("express")
 
 var multer = require("multer")
 
-var uploadControl = require("./util/uploadControl")
 
 var upload = multer({dest:"./file"})
 
@@ -127,7 +126,7 @@ app.get("/api/exitSystem", function(req,res){
 app.get("/api/deleteArticle", loader.get('/deleteArticle'))
 
 // 上传文件
-app.post("/api/upload", upload.single("file"), uploadControl)
+app.post("/api/upload", upload.single("file"), loader.get('/upload'))
 
 //
 
