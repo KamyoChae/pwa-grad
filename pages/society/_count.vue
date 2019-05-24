@@ -110,6 +110,14 @@ export default {
             // 取消关注社团 
             var gro_id = JSON.parse(localStorage.getItem("clickGro")).GROID
             var stu_num = JSON.parse(localStorage.getItem("user")).NUM
+
+            var forkList = localStorage.getItem('forkList').split(",").filter((el)=>{
+                return el != gro_id
+            })
+            var strr = forkList.join(",")
+            
+            localStorage.setItem("forkList", strr)
+
             this.$axios.get("/api/unForkGro?gro_id=" + gro_id + "&stu_num=" + stu_num).then((res)=>{
                 console.log('取消关注成功')
                 console.log(res)
@@ -159,14 +167,19 @@ export default {
         this.go()   
 
         // 检验社团是否已关注 
-        var forkList = localStorage.getItem('forkList')
-        var id = JSON.parse(localStorage.getItem("clickGro")).GROID
-        if(forkList.includes(id)){
-            console.log('该社团已关注')
-            this.forks = false
-        }else{
-            this.forks = true 
+        try {
+            var forkList = localStorage.getItem('forkList')
+            var id = JSON.parse(localStorage.getItem("clickGro")).GROID
+            if(forkList.includes(id)){
+                console.log('该社团已关注')
+                this.forks = false
+            }else{
+                this.forks = true 
+            } 
+        } catch (error) {
+            
         }
+
 
     },
     created(){
@@ -179,11 +192,16 @@ export default {
             this.groInfo = res.data[0]
             if( this.groInfo.gro_article_list != null){
                 var list = this.groInfo.gro_article_list 
-                // this.artList = groInfo.gro_article_list.split(",") 
-                this.$axios.get('/api/getGroArtList?list=' + list).then((res)=>{
-                    console.log(res)
-                    this.artList = res.data
-                })
+                if(list){
+                    // this.artList = groInfo.gro_article_list.split(",") 
+                    this.$axios.get('/api/getGroArtList?list=' + list).then((res)=>{
+                        console.log(res)
+                        this.artList = res.data
+                    })
+                }else{
+                    console.log("list为空")
+                }
+                
             }
             
 

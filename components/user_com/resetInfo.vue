@@ -18,9 +18,8 @@
         <input type="text" class="addr" name="" v-model="leader" id="leader">
     </div>
     <div class="text"
-         contenteditable="true"
-         @paste="paste"
-         @input="input" ref="texts"></div>
+        contenteditable="true"
+        ref="texts"  v-text="text"></div>
 
     <button @click="sendGroInfo">发布</button>
 </div>
@@ -42,6 +41,7 @@ export default {
     methods:{
         sendGroInfo(){
             // 发送更新编辑社团资料
+            this.text = this.$refs.texts.innerHTML
             var groNum = JSON.parse(localStorage.getItem('user')).NUM
             this.$axios.post('/api/sendGroInfo',{
                 text:this.text,
@@ -52,19 +52,38 @@ export default {
                 groNum: groNum,
             }).then((res)=>{
                 console.log(res)
+                if(res.data == "OK"){
+                    alert("修改成功！")
+                    this.$router.push("/user")
+                }
             })
 
         },
-        paste(e) {
-            e.preventDefault()
-            const html = e.clipboardData.getData('text/html')
-            document.execCommand('insertHTML', false, html)
-            this.input()
-        },
-        input() {
-            const v = this.$refs.texts.innerHTML
-            this.text = v
-        }
+        // paste(e) {
+        //     e.preventDefault()
+        //     const html = e.clipboardData.getData('text/html')
+        //     document.execCommand('insertHTML', false, html)
+        //     this.input()
+        // },
+        // input() {
+        //     const v = this.$refs.texts.innerHTML
+        //     this.text = v
+        // }
+    },
+    created(){
+        // 获取社团信息
+        console.log("获取reserInfo页面信息")
+        var groId = JSON.parse(localStorage.getItem("clickGro")).GROID
+        this.$axios.get("/api/getGroInfo?gro_id=" + groId).then((res)=>{
+            var data = res.data[0]
+            console.log(data) 
+
+            this.text = data.gro_about
+            this.phone = data.gro_phone
+            this.qq = data.gro_qq
+            this.addr = data.gro_address
+            this.leader = data.gro_leader
+        })
     }
 }
 </script>

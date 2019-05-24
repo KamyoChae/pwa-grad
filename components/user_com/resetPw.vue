@@ -18,37 +18,45 @@ export default {
             num:'',
             user_type:''
         }
-    },
-    computed:{
-        ...mapState("userStore", {
-            uNum: state => state.userNum,
-            uType : state => state.userType
-        })
-    },
+    }, 
     created(){
-        this.num = this.uNum
-        this.user_type = this.uType
+        try { 
+            this.num = JSON.parse(localStorage.getItem("user")).NUM
+            this.user_type = JSON.parse(localStorage.getItem("user")).TYPE
+        } catch (error) {
+            
+        }
+      
     },
     methods:{
         changePw(){
-            this.$axios.post('/api/changePw',{
-                newpw:this.newpw1,
-                num:this.num,
-                uType:this.user_type
-            }).then((res)=>{
-                console.log(res)
-                if(res.data=="OK"){
-                    // 修改密码成功
-                    // 弹出模态框
-                    
-                    console.log('成功修改密码') 
-                }else{
-                    // 修改密码失败
-                }
-            }).catch((err)=>{
-                console.log(err)
-                console.log('接口失效')
-            }) 
+            if(this.newpw2 == this.newpw1 && this.newpw2){
+                console.log(this.newpw2,this.newpw1)
+                
+                this.$axios.post('/api/changePw',{
+                    newpw: this.newpw1,
+                    num: this.num,
+                    uType: this.user_type
+                }).then((res)=>{
+                    console.log(res)
+                    if(res.data=="OK"){
+                        // 修改密码成功
+                        // 弹出模态框
+                        alert("修改密码成功！请重新登录")
+                        this.$router.push("/login")
+                        console.log('成功修改密码') 
+                    }else{
+                        // 修改密码失败
+                        alert("修改密码失败！")
+                    }
+                }).catch((err)=>{
+                    console.log(err)
+                    console.log('接口失效')
+                })
+            }else{
+                alert("两次密码不一致！")
+            }
+            
         }
     }
 }

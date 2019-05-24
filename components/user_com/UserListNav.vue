@@ -3,8 +3,9 @@
     <div class="nav">
         <span>昵称</span>
         <span>
+        <input type='text' v-model="value" @blur="sendName" v-show="showMana" disabled/>
         <input type='text' v-model="value" @blur="sendName" v-if="showGroInfo" disabled/>
-        <input type='text' v-model="value" @blur="sendName" v-else/>
+        <input type='text' v-model="value" @blur="sendName" v-else-if="!showMana"/>
         </span>
     </div>
 
@@ -32,7 +33,8 @@ export default {
         return {
             value : "",
             user_num:'',
-            showGroInfo:''
+            showGroInfo:'',
+            showMana:false
         }
     }, 
     created(){
@@ -46,6 +48,11 @@ export default {
                 this.showGroInfo = true 
             }else{
                 this.showGroInfo = false 
+            }
+            if(this.user_type == "0"){
+                this.showMana = true 
+                this.showGroInfo = false 
+
             }
         }catch(e){
 

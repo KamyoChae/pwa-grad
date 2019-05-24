@@ -20,7 +20,7 @@ function getForkGro(stuNum , succes) {
                             succes(result)
                         }else {
                             console.log(error)
-                            console.log('dao层==>getArticle接口出错')
+                            console.log('dao层==>getForkGro接口出错')
                         }
 
                         connection.end()

@@ -66,11 +66,20 @@ export default {
     }, 
     methods:{
         deArt(id){
-            // 删除文章 
-            var num = JSON.parse(localStorage.getItem("user")).NUM
-            this.$axios.get("/api/deleteArticle?art_id=" + id + "&gro_num=" + num).then((res)=>{
-                console.log(res)
-            })
+            // 删除文章 删除成功后返回首页
+            try {
+                var num = JSON.parse(localStorage.getItem("user")).NUM
+                this.$axios.get("/api/deleteArticle?art_id=" + id + "&gro_num=" + num).then((res)=>{
+                    console.log(res)
+                    if(res.data == "OK"){
+                        alert("文章删除成功！")
+                        this.$router.push("/")
+                    }
+                })
+            } catch (error) {
+                
+            }
+            
         },
         setLike(){
             console.log("点赞开始" + this.canLike)
@@ -181,37 +190,42 @@ export default {
     },
     created(){ 
         // 获取本地文章id 
-        this.artId = localStorage.getItem("artId")
+        try{
+            this.artId = localStorage.getItem("artId")
 
-        this.$axios.get("/api/getArt?artId=" + this.artId).then((res)=>{
-            console.log('输出获取到的文章')
-            console.log(res.data)
-            this.art = res.data
-            
-            // 获取本地存储的用户名 
-            // 对比用户名是否与文章名字一致 
-            // 不一致则不显示删除
-            this.userName = JSON.parse(localStorage.getItem("user")).NAME
-            console.log('检查art') 
+            this.$axios.get("/api/getArt?artId=" + this.artId).then((res)=>{
+                console.log('输出获取到的文章')
+                console.log(res.data)
+                this.art = res.data
+                
+                // 获取本地存储的用户名 
+                // 对比用户名是否与文章名字一致 
+                // 不一致则不显示删除
+                this.userName = JSON.parse(localStorage.getItem("user")).NAME
+                console.log('检查art') 
 
-            if(this.art.art_gro_name == this.userName){
-                console.log('他俩名字一样')
-                console.log(this.art.art_gro_name ,this.userName)
-                this.deleteArt = true 
-            }else{
-                this.deleteArt = false
-            }
- 
+                if(this.art.art_gro_name == this.userName){
+                    console.log('他俩名字一样')
+                    console.log(this.art.art_gro_name ,this.userName)
+                    this.deleteArt = true 
+                }else{
+                    this.deleteArt = false
+                }
+    
 
-        })
- 
-        this.$axios.get("/api/getArtCom?art_id=" + this.artId).then((res)=>{
-            console.log('获得评论数据')
-            console.log(res)
-            this.comments = res.data 
-        }).catch((err)=>{
-            console.log("接口失效")
-        })
+            })
+    
+            this.$axios.get("/api/getArtCom?art_id=" + this.artId).then((res)=>{
+                console.log('获得评论数据')
+                console.log(res)
+                this.comments = res.data 
+            }).catch((err)=>{
+                console.log("接口失效")
+            })
+        }catch(e){
+
+        }
+        
     }
 }
 </script>

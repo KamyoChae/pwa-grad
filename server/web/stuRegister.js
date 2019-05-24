@@ -5,11 +5,11 @@ function stuRegister(req,res){
     req.on('data',function(data){
         var postData = JSON.parse(data.toString())
 
-        var userName = postData.userName
+        var userNum = postData.userNum
         var passWord = postData.userPw
         // console.log(postData.userName)
         // console.log("发送了stuLogin")
-        dao.stuRegister(userName, userName, passWord, function(result){
+        dao.stuRegister(userNum, userNum, passWord, function(result){
 
             res.writeHead(200, {"Content-Type": "text/html;charset:utf-8"})
             res.write(result)

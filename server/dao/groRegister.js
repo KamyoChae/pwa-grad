@@ -1,7 +1,7 @@
 var dbutil = require("./dbutil")
 function groRegister(gro_num, gro_name, gro_pw, gro_leader, gro_phone, gro_qq, succes) {
 
-    var insert = "insert into `group`(`gro_num`, `gro_name`, `gro_pw`, `gro_leader`, `gro_phone`, `gro_qq`) values(?,?,?,?,?,?)"
+    var insert = "insert into `group`(`gro_num`, `gro_name`, `gro_pw`, `gro_leader`, `gro_phone`, `gro_qq`,`login_type`) values(?,?,?,?,?,?,1)"
     var query = "select * from `group` where gro_name=" + gro_name
     var params = [gro_num, gro_name, gro_pw, gro_leader, gro_phone, gro_qq]
     console.log(params)
@@ -16,7 +16,7 @@ function groRegister(gro_num, gro_name, gro_pw, gro_leader, gro_phone, gro_qq, s
                 console.log('阔以注册')
                 return true
             } else {
-
+                console.log(error)
                 // 账户已存在
                 console.log('账户已存在')
                 return false
@@ -28,7 +28,7 @@ function groRegister(gro_num, gro_name, gro_pw, gro_leader, gro_phone, gro_qq, s
                     console.log('还不错')
                     succes("OK") // 触发回调 注册成功
                 } else {
-                    // console.log(error)
+                    console.log(error)
                     succes("Fail") // 注册失败
                 }
             })

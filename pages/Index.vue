@@ -45,10 +45,15 @@ export default {
         }
     }, 
     created(){ 
-        var userType = JSON.parse(localStorage.getItem('user')).TYPE 
-        if(userType == 1){
-            this.showEdit = true 
+        try{
+            var userType = JSON.parse(localStorage.getItem('user')).TYPE 
+            if(userType == 1){
+                this.showEdit = true 
+            }
+        }catch(e){
+
         }
+        
     }
 };
 </script>

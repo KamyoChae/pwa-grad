@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
     <div class="search">
-        <input type="text" v-model="query">
+        <input type="text" placeholder="搜索/用户名" v-model="query">
         <button class="search" @click="search">查找</button>
     </div>
 
@@ -31,7 +31,7 @@ export default {
         },
         errorState(id, index){
             // 封禁用户
-            this.$axios.get("/api/errorState?stu_id=" + this.query).then((res)=>{
+            this.$axios.get("/api/errorState?stu_id=" + id).then((res)=>{
                 console.log(res)
                 if(res.data == "OK"){ 
                     this.userData[index].stu_state = "0"
@@ -40,7 +40,7 @@ export default {
         },
         unerrorState(id, index){
             // 解封用户
-            this.$axios.get("/api/unerrorState?stu_id=" + this.query).then((res)=>{
+            this.$axios.get("/api/unerrorState?stu_id=" + id).then((res)=>{
                 console.log(res)
                 if(res.data == "OK"){ 
                     this.userData[index].stu_state = "1"

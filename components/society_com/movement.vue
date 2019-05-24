@@ -3,8 +3,8 @@
 <div class="wrapper">
      
     <div class="mom">
-        <div class="phone">{{phone}}</div>
-        <div class="qq">{{qq}}</div> 
+        <div class="phone">电话：{{phone}}</div>
+        <div class="qq">QQ：{{qq}}</div> 
     </div>
 
     

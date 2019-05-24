@@ -45,7 +45,8 @@ export default {
               .then(res => {
                 console.log(res);
                 if (res.data == "OK") {
-                  this.$router.push("/");
+                  alert("注册成功！")
+                  this.$router.push("/login");
                 } else {
                   alert("用户名已存在");
                 }
