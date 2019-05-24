@@ -45,6 +45,7 @@
 
 <script>
 import {mapState} from 'vuex'
+import getCookie from '../static/js/getCookie'
 export default {
     data(){
         return{
@@ -73,22 +74,31 @@ export default {
         },
         setLike(){
             console.log("点赞开始" + this.canLike)
-            if(this.canLike){
-                // 点击喜欢
-                console.log(this.artId)
-                this.$axios.get('/api/setLike?art_id=' + this.artId).then((res)=>{
-                    console.log('点赞成功')
-                    console.log(res)
-                    if(res.data=="OK"){
-                        this.likes += 1
-                        this.$refs.likeIcon.innerHTML = '&#xe668; '
-                        this.art.art_like = this.art.art_like -0+1
-                        this.canLike = false 
-                    }
+            var isLogin = getCookie('is_login')
+            console.log("isLogin：" + isLogin)
+            if(isLogin == "true"){
+                if(this.canLike){
+                    // 点击喜欢
+                    console.log(this.artId)
+                    this.$axios.get('/api/setLike?art_id=' + this.artId).then((res)=>{
+                        console.log('点赞成功')
+                        console.log(res)
+                        if(res.data=="OK"){
+                            this.likes += 1
+                            this.$refs.likeIcon.innerHTML = '&#xe668; '
+                            this.art.art_like = this.art.art_like -0+1
+                            this.canLike = false 
+                        }
 
-                })
-            }
-            
+                    })
+                }
+            }else{
+                if(confirm("尚未登录，是否前往登录？")){
+                    this.$router.push('/login')
+                }else{
+
+                }
+            } 
         },
         addAgree(num, id, index){
             // 点赞评论
@@ -110,27 +120,42 @@ export default {
             
         },
         setComment(){ 
-            var artId = this.artId
-            console.log(this.uName, this.nowVal, artId)
-            this.$axios.post('/api/setComment',{
-                name: this.userName,
-                val: this.nowVal,
-                artId: artId
-            }).then((res)=>{
-                console.log(res)
-                if(res.data.state == "OK"){ 
-                 console.log(res)
-                 var obj = {
-                     com_like:0,
-                     com_id:res.data.comID,
-                     com_name:this.userName,
-                     com_content:this.nowVal,
-                 }
-                 this.comments.push(obj)
+            var isLogin = getCookie('is_login')
+            if(isLogin == "true"){
+                var artId = this.artId
+                console.log(this.uName, this.nowVal, artId)
+                if(this.nowVal != ''){
+                    this.$axios.post('/api/setComment',{
+                        name: this.userName,
+                        val: this.nowVal,
+                        artId: artId
+                    }).then((res)=>{
+                        console.log(res)
+                        if(res.data.state == "OK"){ 
+                        console.log(res)
+                        var obj = {
+                            com_like:0,
+                            com_id:res.data.comID,
+                            com_name:this.userName,
+                            com_content:this.nowVal,
+                        }
+                        this.comments.push(obj)
+                        }else{
+                            console.log('数据错误：评论失败')
+                        }
+                    })
                 }else{
-                    console.log('数据错误：评论失败')
+                    alert('输入无效！')
                 }
-            })
+                
+            }else{
+                if(confirm("尚未登录，是否前往登录？")){
+                    this.$router.push('/login')
+                }else{
+
+                }
+            }
+            
 
         }
     },

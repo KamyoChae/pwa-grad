@@ -17,23 +17,39 @@
             <v-progress-circular indeterminate v-bind:size="70" class="primary--text"></v-progress-circular>
         </div>
 
-        <div v-if="data && data.length" class="search-content">
-            <v-list two-line>
-                <template v-for="(item, index) in data">
-                    <v-list-tile avatar ripple v-bind:key="item.title">
+        <div v-if="group.length || article.length" class="search-content">
+            <v-list two-line v-if="group.length">
+                <template v-for="item in group">
+                    <v-list-tile avatar ripple v-bind:key="item.gro_id"  @click="toGroInfo(item.gro_id, item.gro_num)">
                         <v-list-tile-content>
-                            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                            <v-list-tile-sub-title class="grey--text text--darken-4">{{ item.headline }}</v-list-tile-sub-title>
-                            <v-list-tile-sub-title>{{ item.subtitle }}</v-list-tile-sub-title>
+                            <v-list-tile-title>{{ item.gro_name }}</v-list-tile-title>
+                            <v-list-tile-sub-title class="grey--text ">{{ Number(item.gro_fans) }}人关注</v-list-tile-sub-title>
+                            <v-list-tile-sub-title class="grey--text ">{{ item.gro_address }}</v-list-tile-sub-title>
                         </v-list-tile-content>
                         <v-list-tile-action>
-                            <v-list-tile-action-text>{{ item.action }}</v-list-tile-action-text>
-                            <v-icon class="grey--text text--lighten-1">star_border</v-icon>
+                            <v-list-tile-action-text>社团组织</v-list-tile-action-text>
+                            <!-- <v-icon class="grey--text text--lighten-1">star_border</v-icon> -->
                         </v-list-tile-action>
-                    </v-list-tile>
-                    <v-divider light v-if="index + 1 < data.length"></v-divider>
+                    </v-list-tile> 
                 </template>
             </v-list>
+            <v-list two-line v-if="article.length">
+                <template v-for="item in article" >
+                    <v-list-tile avatar ripple v-bind:key="item.art_id" @click="toArticle(item.art_id)">
+                        <v-list-tile-content>
+                            <v-list-tile-title>{{ item.art_title}}</v-list-tile-title>
+                            <v-list-tile-sub-title class="grey--text  " >{{ item.art_see }}浏览 &nbsp; {{ item.art_like }}喜欢</v-list-tile-sub-title>
+                             <v-list-tile-sub-title class="grey--text ">{{ item.art_gro_name }}</v-list-tile-sub-title>
+                      
+                        </v-list-tile-content>
+                        <v-list-tile-action>
+                            <v-list-tile-action-text>文章</v-list-tile-action-text>
+                            <!-- <v-icon class="grey--text text--lighten-1">star_border</v-icon> -->
+                        </v-list-tile-action>
+                    </v-list-tile> 
+                </template>
+            </v-list> 
+             
         </div>
     </div>
 </template>
@@ -51,23 +67,33 @@ function setState(store) {
 }
 
 export default {
-    name: 'search',
-    metaInfo: {
-        title: 'Search',
-        titleTemplate: '%s - Lavas',
-        meta: [
-            {name: 'keywords', content: 'lavas PWA'},
-            {name: 'description', content: '基于 Vue 的 PWA 解决方案，帮助开发者快速搭建 PWA 应用，解决接入 PWA 的各种问题'}
-        ]
-    },
+    name: 'search', 
     data() {
         return {
             query: '',
             loading: false,
-            data: [] // 存储了数据
+            data: [], // 存储了数据
+            group:[],
+            article:[],
         };
     },
     methods: {
+        toGroInfo(id, num){
+            console.log(id, num)
+            var gro = {
+                GROID:id,
+                GRONUM:num 
+            }
+
+            localStorage.setItem('clickGro', JSON.stringify(gro))
+            this.$router.push({name:'societyCount', params: { count: id}})
+        },
+        toArticle(id){
+            console.log(id)
+            localStorage.setItem("artId", id)
+             
+            this.$router.push({name:'articleArticleId', params:{articleId:id}})
+        },
         async search() {
 
             // 把数据清空
@@ -79,24 +105,27 @@ export default {
             // 让当前输入框失去焦点
             this.$el.querySelector('.search-input').blur();
 
-            // 发送请求搜索 
-            this.$axios.get("/api/getSearch?query=" + this.query).then((res)=>{
-                console.log(res)
-            })
-
             // 等待 1s，模拟加载中的效果
             await new Promise(resolve => {
                 setTimeout(resolve, 1000);
             });
+            // 发送请求搜索 
+            this.$axios.get("/api/getSearch?query=" + this.query).then((res)=>{
+                
+                console.log(res)
+                this.group = res.data.group
+                this.article = res.data.article
+            })
+
+           
 
             // 设置搜索结果数据
             this.data = [
               
                 {
-                    title: '萤火虫 书画协会',
-                    headline: 'Summer BBQ',
-                    subtitle: 'Wish I could come, but I\'m out of town this weekend.',
-                    action: '2 hr'
+                    title: '萤火虫 书画协会', // 协会名
+                    headline: 'Summer BBQ', // 协会粉丝
+                    subtitle: 'Wish I could come, but I\'m out of town this weekend.', 
                 },
                  
             ];
@@ -118,8 +147,7 @@ header
     display flex
     align-items center
     height 52px
-    // box-shadow 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px rgba(0,0,0,.14), 0 1px 10px rgba(0,0,0,.12)
-
+    box-shadow 0 2px 4px -1px rgba(0,0,0,.1) 
 form
     flex 1
 
@@ -142,4 +170,8 @@ form
 
 li
     list-style-type none
+    border-bottom 1px solid #eee
+.grey--text 
+    font-size: .9rem !important
+
 </style>

@@ -65,6 +65,8 @@ app.get("/api/getGroArtList", loader.get('/getGroArtList'))
 // 搜索东西
 app.get("/api/getSearch", loader.get('/getSearch'))
 
+// 点赞评论
+app.get("/api/addAgree", loader.get('/addAgree'))
 
 // 下面接口必须登录状态进行
 app.get('/api/*',function (req,res,next) {
@@ -92,8 +94,6 @@ app.get("/api/setSee", loader.get('/setSee'))
 // 点赞文章
 app.get("/api/setLike", loader.get('/setLike'))
 
-// 点赞评论
-app.get("/api/addAgree", loader.get('/addAgree'))
 
 // 关注社团
 app.get("/api/forkGro", loader.get('/forkGro'))

@@ -119,7 +119,12 @@ export default {
         console.log("sideBar 装载")
         console.log('激活页面')
         // 获取登录用户类型
+        try{
+
         this.userType = JSON.parse(localStorage.getItem('user')).TYPE 
+        }catch(e){
+
+        }
         
         console.log(this.userType)
         this.arr = this.blocks 
