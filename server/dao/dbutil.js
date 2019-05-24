@@ -6,7 +6,8 @@ var createConnection = () => {
         port:"3306",
         user:"root",
         password:"123456",
-        database:"shetuanba"
+        database:"shetuanba",
+        charset:"utf8"
     })
     return connect
 }

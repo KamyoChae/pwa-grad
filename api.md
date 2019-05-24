@@ -102,17 +102,21 @@
 
    （完成）
 
+5. 搜索社团和搜索文章合并到 
+
+   /getSearch
+
+   ​	搜索社团功能
+
+   ​		/searchGro
+
+   ​	搜索文章功能
+
+   ​		/searchArt
+
    
 
-5. 搜索社团功能
-
-   /searchGro
-
-6. 搜索文章功能
-
-   /searchArt
-
-7. 申请认证社团组织（注册社团）
+6. 申请认证社团组织（注册社团）
 
    /groRegister （完成）
 
@@ -186,7 +190,7 @@
 
 2. 删除文章
 
-   /deleteArticle
+   /deleteArticle（完成）
 
    
 
@@ -226,7 +230,7 @@
 
 6. 创建管理员
 
-   /createAdmin
+   /createAdmin（完成）
 
 
 

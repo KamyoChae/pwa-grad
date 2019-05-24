@@ -1,6 +1,12 @@
 // 引入express模块
 var express = require("express")
 
+var multer = require("multer")
+
+var uploadControl = require("./util/uploadControl")
+
+var upload = multer({dest:"./file"})
+
 // 引入配置文件
 var  globalconf = require("./config")
 
@@ -28,6 +34,8 @@ app.get("/api/getArt",loader.get('/getArt'))
 // 管理员登录
 app.post("/api/adminLogin",loader.get('/adminLogin'))
 
+// 创建管理员
+app.post("/api/createAdmin",loader.get('/createAdmin'))
 
 // 学生登录
 app.post("/api/stuLogin",loader.get('/stuLogin'))
@@ -54,6 +62,8 @@ app.get("/api/getGroInfo", loader.get('/getGroInfo'))
 // 获取该社团的所有文章
 app.get("/api/getGroArtList", loader.get('/getGroArtList'))
 
+// 搜索东西
+app.get("/api/getSearch", loader.get('/getSearch'))
 
 
 // 下面接口必须登录状态进行
@@ -115,6 +125,11 @@ app.get("/api/exitSystem", function(req,res){
 
 // 文章删除
 app.get("/api/deleteArticle", loader.get('/deleteArticle'))
+
+// 上传文件
+app.post("/api/upload", upload.single("file"), uploadControl)
+
+//
 
 /* 下面是即将要完善的接口 */
 

@@ -6,7 +6,7 @@
     <div>用户小黑屋</div> 
     <router-link tag="div" to="/edit-sys-info">发布公告</router-link>
     <div>反馈箱</div>
-    <div class="danger">新建管理员账户</div>  
+    <router-link to="/create-admin" tag="div" class="danger" >新建管理员账户</router-link> 
 </div>
 </template>
 

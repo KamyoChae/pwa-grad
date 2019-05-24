@@ -11,9 +11,12 @@
                 <v-icon class="search-icon">close</v-icon>
             </v-btn>
         </header>
+
+
         <div v-if="loading" class="search-loading">
             <v-progress-circular indeterminate v-bind:size="70" class="primary--text"></v-progress-circular>
         </div>
+
         <div v-if="data && data.length" class="search-content">
             <v-list two-line>
                 <template v-for="(item, index) in data">
@@ -61,7 +64,7 @@ export default {
         return {
             query: '',
             loading: false,
-            data: []
+            data: [] // 存储了数据
         };
     },
     methods: {
@@ -75,6 +78,11 @@ export default {
 
             // 让当前输入框失去焦点
             this.$el.querySelector('.search-input').blur();
+
+            // 发送请求搜索 
+            this.$axios.get("/api/getSearch?query=" + this.query).then((res)=>{
+                console.log(res)
+            })
 
             // 等待 1s，模拟加载中的效果
             await new Promise(resolve => {

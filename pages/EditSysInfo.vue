@@ -64,7 +64,7 @@ export default {
         font-size 1.2rem !important
         border 1px solid #eee  
         margin-bottom 1rem 
-        border-radius 1rem
+        border-radius 5px
     .text 
         min-height 60vh
         margin-bottom 3rem 
