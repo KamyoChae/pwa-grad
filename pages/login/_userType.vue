@@ -102,8 +102,10 @@ export default {
                         this.$store.commit('userStore/getStuInfo', user)
                         localStorage.setItem("user", JSON.stringify(user))
                         this.$router.push('/')
+                    }else if(res.data == "iceUser"){
+                         alert('该用户已被封禁')
                     }else{
-                        alert('密码不对')
+                         alert('密码不对')
                     }
 
                 }).catch((err)=>{

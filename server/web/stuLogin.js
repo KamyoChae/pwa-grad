@@ -17,14 +17,24 @@ function stuLogin(req,res){
                 resState = 'Fail'
             }else {
                 if(result[0].stu_pw == passWord){
-                    console.log('成功')
-                    var writed = {state:'OK', user_type: result[0].login_type, stu_num: result[0].stu_num,
-                        stu_name: result[0].stu_name }
-                    res.cookie("user_type", 2)
-                    res.cookie("is_login", 'true')
 
-                    resState = JSON.stringify(writed)
-                    console.log(resState)
+                    console.log(result[0].stu_state)
+                    if(result[0].stu_state == "1"){
+                        console.log('成功')
+                        var writed = {state:'OK', user_type: result[0].login_type, stu_num: result[0].stu_num,
+                            stu_name: result[0].stu_name }
+                        res.cookie("user_type", 2)
+                        res.cookie("is_login", 'true')
+
+                        resState = JSON.stringify(writed)
+                        console.log(resState)
+                    }else {
+                        console.log('用户被封禁')
+
+                        resState = 'iceUser'
+                        console.log(resState)
+                    }
+
                 }else {
                     console.log('匹配失败')
                     resState = 'Fail'
