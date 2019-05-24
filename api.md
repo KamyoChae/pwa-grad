@@ -104,7 +104,7 @@
 
 5. 搜索社团和搜索文章合并到 
 
-   /getSearch
+   /getSearch（完成）
 
    ​	搜索社团功能
 
@@ -222,7 +222,7 @@
 
 4. 删除社团账号
 
-   /deleteGrou
+   /deleteGrou（完成）
 
 5. 删除学生账号
 

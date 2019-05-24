@@ -101,6 +101,10 @@ import _ee18dcd4240adcb96d7c141074854904 from '@/pages/User.vue';
 import _2832b64bc86f2739fc251929dd48c651 from '@/pages/user/Useritem.vue';
     
 
+    
+import _205e4b4c9eb1740b85de86b06fd72ad1 from '@/pages/userBlack.vue';
+    
+
 
 let routes = [
     {
@@ -250,6 +254,12 @@ let routes = [
                 "name": "userUseritem"
             }
         ]
+    },
+    {
+        "path": "/user-black",
+        "component": _205e4b4c9eb1740b85de86b06fd72ad1,
+        "meta": {},
+        "name": "userBlack"
     },
     {
         "path": "/error",

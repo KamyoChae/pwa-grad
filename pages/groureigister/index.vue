@@ -8,7 +8,7 @@
       <input type="number" name id placeholder="手机号码" v-model="gro_phone">
       <input type="text" name id placeholder="qq" v-model="gro_qq">
       <input type="password" placeholder="设置密码" v-model="gro_pw">
-      <input type="password" placeholder="确认密码">
+      <input type="password" placeholder="确认密码" v-model="gro_pw2">
       <button @click="groRegister">申请认证</button>
     </div>
   </div>
@@ -29,28 +29,37 @@ export default {
   methods: {
     groRegister() {
       // 申请认证
-
-      this.$axios
-        .post("/groRegister", {
-          gro_num: this.gro_num,
-          gro_name: this.gro_name,
-          gro_pw: this.gro_pw,
-          gro_leader: this.gro_leader,
-          gro_phone: this.gro_phone,
-          gro_qq: this.gro_qq
-        })
-        .then(res => {
-          console.log(res);
-          if (res.data == "OK") {
-            this.$router.push("/");
-          } else {
-            alert("用户名已存在");
+      if(this.gro_pw != this.gro_pw2){
+        alert("两次密码不一致！")
+      }else{
+          if(this.gro_name != '' && this.gro_num != '' && this.gro_leader != '' && this.gro_phone != '' && this.gro_qq != '' && this.gro_pw!= '' ){
+              this.$axios
+              .post("/api/groRegister", {
+                gro_num: this.gro_num,
+                gro_name: this.gro_name,
+                gro_pw: this.gro_pw,
+                gro_leader: this.gro_leader,
+                gro_phone: this.gro_phone,
+                gro_qq: this.gro_qq
+              })
+              .then(res => {
+                console.log(res);
+                if (res.data == "OK") {
+                  this.$router.push("/");
+                } else {
+                  alert("用户名已存在");
+                }
+              })
+              .catch(err => {
+                console.log(err);
+                console.log("接口失效");
+              });
+          }else{
+            alert("输入不能为空！")
           }
-        })
-        .catch(err => {
-          console.log(err);
-          console.log("接口失效");
-        });
+      }
+
+      
     }
   }
 };
