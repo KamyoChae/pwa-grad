@@ -1,17 +1,10 @@
 <template>
 <div class="wrapper">
-    <div class="content">
-        <div class="time">2019-01-06</div> 
-        <div class="text">这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，</div>
+    <div class="content" v-for="item in sys" :key="item.sys_id">
+        <div class="time">{{item.sys_time}}</div> 
+        <div class="text">{{item.sys_mess}}</div>
     </div>
-     <div class="content">
-        <div class="time">2019-01-06</div> 
-        <div class="text">这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，</div>
-    </div>
-    <div class="content">
-        <div class="time">2019-01-06</div> 
-        <div class="text">这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，这里是一段系统通知，</div>
-    </div>
+ 
  
 </div>
 
@@ -19,6 +12,17 @@
 
 <script>
 export default {
+    data(){
+        return{
+            sys:[],
+        }
+    },
+    created(){
+        this.$axios.get("/api/getSystem").then((res)=>{
+            console.log(res)
+            this.sys = res.data
+        })
+    }
 
 }
 </script>

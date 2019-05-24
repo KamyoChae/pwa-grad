@@ -2,15 +2,16 @@
 
 <div class="wrapper"> 
     <div class="checklist">
-        <div  v-for="gro in gro_list" @click="toGroInfo(gro.gro_id, gro.gro_num)" :key="gro.gro_id"  ><img src="http://img.52z.com/upload/news/image/20181108/20181108204521_83402.jpg" alt=""> 
-        <div class="gro_info">
-            <span>{{gro.gro_name}}</span>
-            <div class="about">
+        <div  v-for="gro in gro_list" @click="toGroInfo(gro.gro_id, gro.gro_num)" :key="gro.gro_id"  >
+            <!-- <img src="http://img.52z.com/upload/news/image/20181108/20181108204521_83402.jpg" alt="">  -->
+            <div class="gro_info">
+                <span>{{gro.gro_name}}</span>
+                <div class="about">
 
-                <span>{{Number(gro.gro_fans)}} 关注</span>
-                <span>{{Number(gro.art_count)}} 篇文章</span>
-            </div>
-        </div> 
+                    <span>{{Number(gro.gro_fans)}} 关注</span>
+                    <span>{{Number(gro.art_count)}} 篇文章</span>
+                </div>
+            </div> 
          </div>
         
         

@@ -10,7 +10,7 @@
         
         <div class="userIcon">
             
-            <img src="./images/user.jpg" alt="" >
+            <!-- <img src="./images/user.jpg" alt="" > -->
             <!-- <div class="btn1" v-if="showB">
                 <input type="file" name="" id="" id="file" class="fileInput" >
                 <button @click="updateIcon">上传</button>

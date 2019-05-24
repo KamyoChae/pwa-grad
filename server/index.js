@@ -110,8 +110,10 @@ app.post("/api/setComment", loader.get('/setComment'))
 app.post("/api/sendGroInfo", loader.get('/sendGroInfo'))
 
 // 管理员发布系统消息
-
 app.post("/api/sendSystem", loader.get('/sendSystem'))
+
+// 获取系统信息
+app.get("/api/getSystem", loader.get('/getSystem'))
 
 // 退出系统 删除cookie chrome无法获取cookie 统一在服务器删除
 app.get("/api/exitSystem", function(req,res){

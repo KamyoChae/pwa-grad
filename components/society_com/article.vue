@@ -45,7 +45,7 @@ export default {
         margin-bottom 2rem 
         width 90vw 
         text-align center 
-        box-shadow 0 5px 10px #ddd
+        box-shadow 0 5px 15px #eee
         .time
             width 90vw 
             font-size .9rem  

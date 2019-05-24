@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper"> 
-        <IndexHot />
+        <!-- <IndexHot /> -->
         <IndexArticle />  
          <router-link tag="div" v-if="showEdit" class="toEdit" :to="{name:'edit'}"><i class="iconfont round_add_light">&#xe7a7;</i></router-link >   
     </div>

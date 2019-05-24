@@ -48,4 +48,8 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
 //         ]
 //     })
 // );
+
+// http://localhost:12306/api/getArtCom?art_id=21
+workbox.routing.registerRoute(/^http:\/\/localhost\:12306\/api/,
+    workbox.strategies.networkFirst());
 workbox.routing.registerNavigationRoute('/index.html');

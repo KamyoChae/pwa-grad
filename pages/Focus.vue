@@ -2,7 +2,7 @@
 <div class="wrapper">
     <div class="listBox" v-if="forkList.length">
         <div class="com-item" v-for="item in forkList" :key="item.gro_id" @click="toGroInfo(item.gro_id, item.gro_num)"  :to="{name:'societyCount', params: { count: item.gro_id}}">
-            <img src="./user/images/user.jpg" class="usericon" /> 
+            <!-- <img src="./user/images/user.jpg" class="usericon" />  -->
             <div class="user"> 
                 <div> 
                     <span class="username">{{item.gro_name}}</span>

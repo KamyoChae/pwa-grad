@@ -4,7 +4,7 @@ function upload(request, response) {
 
     var imgType = request.file.originalname.split(".")[1]
     var path = request.file.path
-    
+
 
     console.log(request.file.size) // 文件大小
     console.log(request.file.mimetype) // 文件类型

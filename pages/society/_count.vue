@@ -1,6 +1,6 @@
 <template>
 <div class="wrapper">
-    <div class="carousel-wrap" id="carousel"> 
+    <!-- <div class="carousel-wrap" id="carousel"> 
         <div class="bg"></div>
         <transition-group tag="ul" class='slide-ul' name="list">
         <li v-for="(list,index) in slideList" :key="list.desc" v-show="index===currentIndex" @mouseenter="stop" @mouseleave="go" >
@@ -12,7 +12,7 @@
         <div class="carousel-items">
             <span v-for="(item,index) in slideList.length" :class="{'active':index===currentIndex}" :key="item.desc" @mouseover="change(index)"></span>
         </div>
-    </div>
+    </div> -->
 
 
     <div class="society-con">
@@ -209,7 +209,7 @@ export default {
 .society-con
     z-index 0
     position absolute
-    top 56vw
+    top 5vw
     width 100vw
     border-top-left-radius 1rem
     border-top-right-radius 1rem 

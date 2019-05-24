@@ -212,16 +212,15 @@ export default {
         }).catch((err)=>{
             console.log("接口失效")
         })
-
-       
- 
     }
-
 }
 </script>
 
 <style lang='stylus' scoped>
+.wrapper
+    background #f9f9f9
 .content
+    background #fff
     text-align left  
     .content-title
         padding 1rem 
