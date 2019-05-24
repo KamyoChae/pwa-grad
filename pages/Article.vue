@@ -123,8 +123,9 @@ export default {
             var isLogin = getCookie('is_login')
             if(isLogin == "true"){
                 var artId = this.artId
-                console.log(this.uName, this.nowVal, artId)
-                if(this.nowVal != ''){
+                console.log(this.userName, this.nowVal, artId)
+                var str = this.nowVal.trim()
+                if(str != ''){
                     this.$axios.post('/api/setComment',{
                         name: this.userName,
                         val: this.nowVal,
